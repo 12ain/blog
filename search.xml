@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[每天学习一点vue(1)]]></title>
+    <url>%2F2019%2F05%2F24%2F%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B9%A0%E4%B8%80%E7%82%B9vue(1)%2F</url>
+    <content type="text"><![CDATA[每天学习一点vue(1)最近也是很忙,白天课很多,课余时间忙的有点莫名其妙,也没做什么成果出来,利用课余时间学习vue,记录一下学习的历程和笔记。相关学习代码已经同步在Github上。 Git的使用我觉得是很重要的,尤其对于学习方面,以及未来可能面临的多人团队开发,Git都是很好的解决方案。 part1： 实例化 vue 对象 vue 的数据和方法 vue 的属性绑定 事件修饰符 v-model vue中class vue中style v-for Notes： el: element 需要获取的元素，一定是 html 中的根容器元素 data: 用于存储数据 methods: 用于定义当前实例各种方法 data-binding: 给属性绑定对应的值 v-cloak: 只替换插值表达式部分，不清空整个元素 解决插值表达式闪烁问题 用法:在style中添加[v-cloak]的display为none v-text无闪烁问题 覆盖当前标签内容 用法: 1&lt;h4 v-text=&quot;msg&quot;&gt;&lt;/h4&gt; v-html 可正常输出HTML标签 覆盖原有html内容 v-bind 绑定属性的指令 用法: 1&lt;input type=&quot;button&quot; value=&quot;按钮&quot; v-bind:title=&quot;msg&quot;&gt; 可简写为英文” : “，后面可以写合法JS表达式 v-on 事件绑定机制 可简写为 “ @ “ 事件修饰符 .stop 阻止冒泡 .prevent 阻止默认事件 .capture 捕获模式(从外向内) .self 只有点击当前元素,才触发事件处理函数 .once 只触发一次事件处理函数 注意 .self只会阻止自身的冒泡,不会阻止其余冒泡行为 v-model 双向数据绑定 v-bind:单向数据绑定 用法:例如1234567 + 只能用于表单元素中(input相关)- vue中class使用 1. 直接传递一个数组,class用v-bind做数据绑定 2. 在数组中使用三元表达式 3. 数组中使用对象代替三元表达式,提高代码可读性 4. 对象属性为类名,由于对象属性引号可省略,属性的值为标识符 这是h1标签classObj: {red:true, thin:true, italic:false, active:true} 123456- vue中内联样式style的使用 - 行内v-bind直接写样式对象 - 样式对象定义到data中引用 - 通过数组引用多个样式对象- v-for循环普通数组 索引值:{{ i }} 每一项值:{{ item }} data:{ list:[1, 2, 3, 4, 5] } 12- v-for循环对象数组 ID:{{ user.id }} 名字:{{ user.name }} 索引:{{ i }} data:{ list:[ {id: 1, name: &apos;zs1&apos;}, {id: 2, name: &apos;zs2&apos;}, {id: 3, name: &apos;zs3&apos;}, {id: 4, name: &apos;zs4&apos;} ] } 12- v-for循环对象 值为: 键: 索引:data:{ user:{ id: 1, name: &apos;tony&apos;, gender: &apos;男&apos; } }, 12- v-for迭代数字 这是第 {{count}} 次循环 ` 注意:v-for迭代数字,从1开始 v-for中key的使用及注意 vue2.2.0+版本使用v-for,必须使用key 在使用v-for时,如果出现问题，应当指定唯一的字符串/数字 v-for循环时key属性只能使用number或者string key使用时必须使用v-bind绑定指定key值 v-if和v-show的使用 v-if 每次都会重新删除或创建元素 切换性能消耗严重 v-show 每次不会重新进行DOM操作,只切换display:none 初始渲染消耗高 频换切换使用v-show 元素可能不会永远显示用v-if]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[钟爱捡垃圾之斐讯k2p路由器(下)——刷机]]></title>
     <url>%2F2019%2F02%2F19%2F%E9%92%9F%E7%88%B1%E6%8D%A1%E5%9E%83%E5%9C%BE%E4%B9%8B%E6%96%90%E8%AE%AFk2p%E8%B7%AF%E7%94%B1%E5%99%A8-%E4%B8%8B-%E2%80%94%E2%80%94%E5%88%B7%E6%9C%BA%2F</url>
     <content type="text"><![CDATA[斐讯K2、K2P A1/A2刷Breed和路由器固件教程 此教程使用工具为《K2K2P傻瓜式刷Breed脚本bat》 1.breed刷入部分 首先，将路由器简单配置一下，设置好管理员密码，推荐使用admin，方便后面操作。（其他选项如WiFi密码等无需设置） 下载网盘文件《K2K2P傻瓜式刷Breed脚本bat》并解压。双击打开文件夹，双击运行“刷机.bat”文件。（是双击运行不是右击管理员。） 对比路由器当前固件版本，查看是否为脚本中适配的版本，如果不是请到网盘文件中下载适配固件，手动升级到对应版本再进行进一步操作，否则容易失败变砖。 如下图，输入路由器IP地址，一般情况下脚本应该会自动识别，直接回车即可，如果不对请手动输入 然后，输入路由器登录密码，若为admin直接回车即可，不是的话请手动输入。 等待脚本提示成功后，Breed即成功输入。2.刷入第三方固件 首先进入breed控制台，进入方法:(1)先用网线将路由器LAN端口连到电脑上，将其他端口网线断开，然后按下路由器后面的reset键，然后再插上电源通电，等待约十秒后松开reset键，这样就进入了Breed控制台，然后在电脑上的浏览器中输入进入路由器的IP地址：192.168.1.1 进入控制台WEB页面。 开始刷机:(1)点击“固件更新”，在“固件”栏上传固件，勾选“自动重启”，点击“上传”。(2) Breed会自动计算固件相关信息，点击“刷机”，即出现下图进度条(3) 刷机完成后，等待一分钟，进入固件相关后台即可。 主流固件后台地址及密码固件名称 | 登录地址 | 管理账号密码 |——————|——————-|———————–|hiboyhiboy老毛子 | 192.168.123.1 | admin/admin |荒野无灯老毛子 | 192.168.6.1 | admin/admin |Pandora/潘多拉 | 192.168.1.1 | root/admin(或password)|高恪固件 | 192.168.1.1(或0.1)| admin/admin |斐讯官改 | 192.168.2.1 | admin/admin | 最后的最后，网盘地址:点击跳转如果有问题可以添加扣扣群：778472189，群里都是各路大佬，欢迎加入！免费帮你解决问题。 本篇教程本人非完全原创，有些搬运自群里的大佬，如有侵权行为，请联系本人删除！]]></content>
