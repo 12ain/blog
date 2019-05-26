@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="前端,">
+  <meta name="keywords" content="前端,vue,">
 
 
 
@@ -95,14 +95,14 @@
 
 
 <meta name="description" content="每天学习一点vue(1)最近也是很忙,白天课很多,课余时间忙的有点莫名其妙,也没做什么成果出来,利用课余时间学习vue,记录一下学习的历程和笔记。相关学习代码已经同步在Github上。  Git的使用我觉得是很重要的,尤其对于学习方面,以及未来可能面临的多人团队开发,Git都是很好的解决方案。  part1： 实例化 vue 对象 vue 的数据和方法 vue 的属性绑定 事件修饰符 v-mode">
-<meta name="keywords" content="前端">
+<meta name="keywords" content="前端,vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每天学习一点vue(1)">
 <meta property="og:url" content="http://blog.abplan.top/2019/05/24/每天学习一点vue(1)/index.html">
 <meta property="og:site_name" content="惬意的小时光">
 <meta property="og:description" content="每天学习一点vue(1)最近也是很忙,白天课很多,课余时间忙的有点莫名其妙,也没做什么成果出来,利用课余时间学习vue,记录一下学习的历程和笔记。相关学习代码已经同步在Github上。  Git的使用我觉得是很重要的,尤其对于学习方面,以及未来可能面临的多人团队开发,Git都是很好的解决方案。  part1： 实例化 vue 对象 vue 的数据和方法 vue 的属性绑定 事件修饰符 v-mode">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-24T14:05:07.356Z">
+<meta property="og:updated_time" content="2019-05-26T13:26:34.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每天学习一点vue(1)">
 <meta name="twitter:description" content="每天学习一点vue(1)最近也是很忙,白天课很多,课余时间忙的有点莫名其妙,也没做什么成果出来,利用课余时间学习vue,记录一下学习的历程和笔记。相关学习代码已经同步在Github上。  Git的使用我觉得是很重要的,尤其对于学习方面,以及未来可能面临的多人团队开发,Git都是很好的解决方案。  part1： 实例化 vue 对象 vue 的数据和方法 vue 的属性绑定 事件修饰符 v-mode">
@@ -386,8 +386,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -495,46 +495,61 @@
 <li><p>v-model 双向数据绑定</p>
 <ul>
 <li>v-bind:单向数据绑定</li>
-<li><p>用法:例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	+ 只能用于表单元素中(input相关)</span><br><span class="line"></span><br><span class="line">- vue中class使用</span><br><span class="line">	1. 直接传递一个数组,class用v-bind做数据绑定</span><br><span class="line">	2. 在数组中使用三元表达式</span><br><span class="line">	3. 数组中使用对象代替三元表达式,提高代码可读性</span><br><span class="line">	4. 对象属性为类名,由于对象属性引号可省略,属性的值为标识符</span><br></pre></td></tr></table></figure></p>
-<p></p><h1 :class="classObj">这是h1标签</h1><br>classObj: {red:true, thin:true, italic:false, active:true}<p></p>
+<li>用法:例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	+ 只能用于表单元素中(input相关)</span><br><span class="line"></span><br><span class="line">- vue中class使用</span><br><span class="line">	1. 直接传递一个数组,class用v-bind做数据绑定</span><br><span class="line">	2. 在数组中使用三元表达式</span><br><span class="line">	3. 数组中使用对象代替三元表达式,提高代码可读性</span><br><span class="line">	4. 对象属性为类名,由于对象属性引号可省略,属性的值为标识符</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;h1 :class=&quot;classObj&quot;&gt;这是h1标签&lt;/h1&gt;
+classObj: {red:true, thin:true, italic:false, active:true}
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- vue中内联样式style的使用</span><br><span class="line">	- 行内v-bind直接写样式对象</span><br><span class="line">	- 样式对象定义到data中引用</span><br><span class="line">	- 通过数组引用多个样式对象</span><br><span class="line"></span><br><span class="line">- v-for循环普通数组</span><br></pre></td></tr></table></figure>
-<p>  </p><p v-for="(item, i) in list"></p>
-<pre><code>索引值:{{ i }}
-每一项值:{{ item }}
-</code></pre><p>  </p><br>  data:{<p></p>
-<pre><code>    list:[1, 2, 3, 4, 5]
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- v-for循环对象数组</span><br></pre></td></tr></table></figure>
-<p>  </p><p v-for="(user,i) in list"></p>
-<pre><code>ID:{{ user.id }}
-名字:{{ user.name }}
-索引:{{ i }}
-</code></pre><p>  </p><br>  data:{<p></p>
-<pre><code>list:[
-{id: 1, name: &apos;zs1&apos;},
-{id: 2, name: &apos;zs2&apos;},
-{id: 3, name: &apos;zs3&apos;},
-{id: 4, name: &apos;zs4&apos;}
-]
-</code></pre><p>  }</p>
+
+    &lt;p v-for=&quot;(item, i) in list&quot;&gt;
+        索引值:{{ i }}
+        每一项值:{{ item }}
+    &lt;/p&gt;
+    data:{
+            list:[1, 2, 3, 4, 5]
+        }
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- v-for循环对象数组</span><br></pre></td></tr></table></figure>
+
+    &lt;p v-for=&quot;(user,i) in list&quot;&gt;
+        ID:{{ user.id }}
+        名字:{{ user.name }}
+        索引:{{ i }}
+    &lt;/p&gt;       
+    data:{
+        list:[
+        {id: 1, name: &apos;zs1&apos;},
+        {id: 2, name: &apos;zs2&apos;},
+        {id: 3, name: &apos;zs3&apos;},
+        {id: 4, name: &apos;zs4&apos;}
+        ]
+    }
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- v-for循环对象</span><br></pre></td></tr></table></figure>
-<p></p><p v-for="(val, key, index) in user"></p>
-<h2 id="值为"><a href="#值为" class="headerlink" title="  值为:"></a>  值为:</h2><h2 id="键"><a href="#键" class="headerlink" title="  键:"></a>  键:</h2><p>  索引:<br></p><br>data:{<br>  user:{<p></p>
-<pre><code>id: 1,
-name: &apos;tony&apos;,
-gender: &apos;男&apos;
-}
-</code></pre><p>  },</p>
+
+&lt;p v-for=&quot;(val, key, index) in user&quot;&gt;
+    值为:{{ val }}
+
+    键:{{ key }}
+
+    索引:{{ index }}
+&lt;/p&gt;
+data:{
+    user:{
+        id: 1,
+        name: &apos;tony&apos;,
+        gender: &apos;男&apos;
+        }
+    },
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- v-for迭代数字</span><br></pre></td></tr></table></figure>
-<p></p><p v-for="count in 10"></p>
-<pre><code>这是第 {{count}} 次循环
-</code></pre><p></p><br><code>`</code><p></p>
-</li>
-<li>注意:v-for迭代数字,从1开始</li>
-</ul>
-</li>
-</ul>
-<ul>
+
+&lt;p v-for=&quot;count in 10&quot;&gt;
+        这是第 {{count}} 次循环
+&lt;/p&gt;
+```
++ 注意:v-for迭代数字,从1开始
+</code></pre><ul>
 <li><p>v-for中key的使用及注意</p>
 <blockquote>
 <p>vue2.2.0+版本使用v-for,必须使用key</p>
@@ -584,6 +599,8 @@ gender: &apos;男&apos;
           
             <a href="/tags/frontend/" rel="tag"># 前端</a>
           
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
         </div>
       
 
@@ -604,6 +621,10 @@ gender: &apos;男&apos;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/26/解决VMware-Workstation黑屏问题/" rel="prev" title="解决VMware Workstation黑屏问题">
+                解决VMware Workstation黑屏问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -678,7 +699,7 @@ gender: &apos;男&apos;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -689,7 +710,7 @@ gender: &apos;男&apos;
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -700,7 +721,7 @@ gender: &apos;男&apos;
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -787,7 +808,7 @@ gender: &apos;男&apos;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#每天学习一点vue-1"><span class="nav-number">1.</span> <span class="nav-text">每天学习一点vue(1)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#part1："><span class="nav-number">1.1.</span> <span class="nav-text">part1：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Notes："><span class="nav-number">1.1.1.</span> <span class="nav-text">Notes：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">这是h1标签</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#值为"><span class="nav-number">2.1.</span> <span class="nav-text">  值为:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#键"><span class="nav-number">2.2.</span> <span class="nav-text">  键:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#每天学习一点vue-1"><span class="nav-number">1.</span> <span class="nav-text">每天学习一点vue(1)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#part1："><span class="nav-number">1.1.</span> <span class="nav-text">part1：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Notes："><span class="nav-number">1.1.1.</span> <span class="nav-text">Notes：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

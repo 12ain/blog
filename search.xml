@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[解决VMware Workstation黑屏问题]]></title>
+    <url>%2F2019%2F05%2F26%2F%E8%A7%A3%E5%86%B3VMware-Workstation%E9%BB%91%E5%B1%8F%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[解决VMware Workstation虚拟机黑屏问题前言最近升级了一下笔记本的硬件,重新安装了windows 10的2019年5月最新版本的 1903系统。作为一名在校大学生，使用虚拟机完成各种各样的实验当然是必不可少的。 正文但是重新安装了官网最新的VM15.0.1版本后发现以前版本安装的虚拟机都无法打开，开始以为是版本兼容性问题。但是在同学的笔记本上安装相同版本的VM以及打开相同的虚拟机都没有问题。Google发现遇到此问题的解决办法为修复LSP。命令行窗口—输入netsh winsock reset—重启计算机。但是尝试过后发现没有效果。忽然想到是否是因为OS的版本太高VM还没来得及适配的原因，果断改变关键字搜索。果然是这个原因。因为最新版本的Windows10内置了一个沙盒，跟VM产生了冲突。在最新的VMware Workstation15.1.0版本解决了这个问题。 解决方法:打开当前的VMware Workstation检查更新，升级到最新的15.1.0版本后即可解决或者点击下载最新15.1.0版本 另外提供一些可用的激活码12345678910111213141516171819202122232425262728293031323334353637VMware Workstation Pro 15 激活许可证UY758-0RXEQ-M81WP-8ZM7Z-Y3HDAVF750-4MX5Q-488DQ-9WZE9-ZY2D6UU54R-FVD91-488PP-7NNGC-ZFAX6YC74H-FGF92-081VZ-R5QNG-P6RY4YC34H-6WWDK-085MQ-JYPNX-NZRA2VMware Workstation Pro 14 激活许可证FF31K-AHZD1-H8ETZ-8WWEZ-WUUVACV7T2-6WY5Q-48EWP-ZXY7X-QGUWDVMware Workstation Pro 12 激活许可证5A02H-AU243-TZJ49-GTC7K-3C61NVF5XA-FNDDJ-085GZ-4NXZ9-N20E6UC5MR-8NE16-H81WY-R7QGV-QG2D8ZG1WH-ATY96-H80QP-X7PEX-Y30V4AA3E0-0VDE1-0893Z-KGZ59-QGAVFVMware Workstation Pro 10 激活许可证1Z0G9-67285-FZG78-ZL3Q2-234JG4C4EK-89KDL-5ZFP9-1LA5P-2A0J0HY086-4T01N-CZ3U0-CV0QM-13DNU 升级中遇到的问题因为之前打开黑屏的虚拟机导致了VM的残留进程vmware-vmx.exe无法关闭,重启也不行emmm。。。只能卸载旧版本后重新下载新版本完整包。 文章中引用的资源均来自互联网，如有侵权行为,请联系本人删除]]></content>
+      <categories>
+        <category>报错解决</category>
+      </categories>
+      <tags>
+        <tag>搞机</tag>
+        <tag>1903</tag>
+        <tag>报错</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[每天学习一点vue(1)]]></title>
     <url>%2F2019%2F05%2F24%2F%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B9%A0%E4%B8%80%E7%82%B9vue(1)%2F</url>
-    <content type="text"><![CDATA[每天学习一点vue(1)最近也是很忙,白天课很多,课余时间忙的有点莫名其妙,也没做什么成果出来,利用课余时间学习vue,记录一下学习的历程和笔记。相关学习代码已经同步在Github上。 Git的使用我觉得是很重要的,尤其对于学习方面,以及未来可能面临的多人团队开发,Git都是很好的解决方案。 part1： 实例化 vue 对象 vue 的数据和方法 vue 的属性绑定 事件修饰符 v-model vue中class vue中style v-for Notes： el: element 需要获取的元素，一定是 html 中的根容器元素 data: 用于存储数据 methods: 用于定义当前实例各种方法 data-binding: 给属性绑定对应的值 v-cloak: 只替换插值表达式部分，不清空整个元素 解决插值表达式闪烁问题 用法:在style中添加[v-cloak]的display为none v-text无闪烁问题 覆盖当前标签内容 用法: 1&lt;h4 v-text=&quot;msg&quot;&gt;&lt;/h4&gt; v-html 可正常输出HTML标签 覆盖原有html内容 v-bind 绑定属性的指令 用法: 1&lt;input type=&quot;button&quot; value=&quot;按钮&quot; v-bind:title=&quot;msg&quot;&gt; 可简写为英文” : “，后面可以写合法JS表达式 v-on 事件绑定机制 可简写为 “ @ “ 事件修饰符 .stop 阻止冒泡 .prevent 阻止默认事件 .capture 捕获模式(从外向内) .self 只有点击当前元素,才触发事件处理函数 .once 只触发一次事件处理函数 注意 .self只会阻止自身的冒泡,不会阻止其余冒泡行为 v-model 双向数据绑定 v-bind:单向数据绑定 用法:例如1234567 + 只能用于表单元素中(input相关)- vue中class使用 1. 直接传递一个数组,class用v-bind做数据绑定 2. 在数组中使用三元表达式 3. 数组中使用对象代替三元表达式,提高代码可读性 4. 对象属性为类名,由于对象属性引号可省略,属性的值为标识符 这是h1标签classObj: {red:true, thin:true, italic:false, active:true} 123456- vue中内联样式style的使用 - 行内v-bind直接写样式对象 - 样式对象定义到data中引用 - 通过数组引用多个样式对象- v-for循环普通数组 索引值:{{ i }} 每一项值:{{ item }} data:{ list:[1, 2, 3, 4, 5] } 12- v-for循环对象数组 ID:{{ user.id }} 名字:{{ user.name }} 索引:{{ i }} data:{ list:[ {id: 1, name: &apos;zs1&apos;}, {id: 2, name: &apos;zs2&apos;}, {id: 3, name: &apos;zs3&apos;}, {id: 4, name: &apos;zs4&apos;} ] } 12- v-for循环对象 值为: 键: 索引:data:{ user:{ id: 1, name: &apos;tony&apos;, gender: &apos;男&apos; } }, 12- v-for迭代数字 这是第 {{count}} 次循环 ` 注意:v-for迭代数字,从1开始 v-for中key的使用及注意 vue2.2.0+版本使用v-for,必须使用key 在使用v-for时,如果出现问题，应当指定唯一的字符串/数字 v-for循环时key属性只能使用number或者string key使用时必须使用v-bind绑定指定key值 v-if和v-show的使用 v-if 每次都会重新删除或创建元素 切换性能消耗严重 v-show 每次不会重新进行DOM操作,只切换display:none 初始渲染消耗高 频换切换使用v-show 元素可能不会永远显示用v-if]]></content>
+    <content type="text"><![CDATA[每天学习一点vue(1)最近也是很忙,白天课很多,课余时间忙的有点莫名其妙,也没做什么成果出来,利用课余时间学习vue,记录一下学习的历程和笔记。相关学习代码已经同步在Github上。 Git的使用我觉得是很重要的,尤其对于学习方面,以及未来可能面临的多人团队开发,Git都是很好的解决方案。 part1： 实例化 vue 对象 vue 的数据和方法 vue 的属性绑定 事件修饰符 v-model vue中class vue中style v-for Notes： el: element 需要获取的元素，一定是 html 中的根容器元素 data: 用于存储数据 methods: 用于定义当前实例各种方法 data-binding: 给属性绑定对应的值 v-cloak: 只替换插值表达式部分，不清空整个元素 解决插值表达式闪烁问题 用法:在style中添加[v-cloak]的display为none v-text无闪烁问题 覆盖当前标签内容 用法: 1&lt;h4 v-text=&quot;msg&quot;&gt;&lt;/h4&gt; v-html 可正常输出HTML标签 覆盖原有html内容 v-bind 绑定属性的指令 用法: 1&lt;input type=&quot;button&quot; value=&quot;按钮&quot; v-bind:title=&quot;msg&quot;&gt; 可简写为英文” : “，后面可以写合法JS表达式 v-on 事件绑定机制 可简写为 “ @ “ 事件修饰符 .stop 阻止冒泡 .prevent 阻止默认事件 .capture 捕获模式(从外向内) .self 只有点击当前元素,才触发事件处理函数 .once 只触发一次事件处理函数 注意 .self只会阻止自身的冒泡,不会阻止其余冒泡行为 v-model 双向数据绑定 v-bind:单向数据绑定 用法:例如1234567 + 只能用于表单元素中(input相关)- vue中class使用 1. 直接传递一个数组,class用v-bind做数据绑定 2. 在数组中使用三元表达式 3. 数组中使用对象代替三元表达式,提高代码可读性 4. 对象属性为类名,由于对象属性引号可省略,属性的值为标识符 &lt;h1 :class=&quot;classObj&quot;&gt;这是h1标签&lt;/h1&gt; classObj: {red:true, thin:true, italic:false, active:true} 123456- vue中内联样式style的使用 - 行内v-bind直接写样式对象 - 样式对象定义到data中引用 - 通过数组引用多个样式对象- v-for循环普通数组 &lt;p v-for=&quot;(item, i) in list&quot;&gt; 索引值:{{ i }} 每一项值:{{ item }} &lt;/p&gt; data:{ list:[1, 2, 3, 4, 5] } 12- v-for循环对象数组 &lt;p v-for=&quot;(user,i) in list&quot;&gt; ID:{{ user.id }} 名字:{{ user.name }} 索引:{{ i }} &lt;/p&gt; data:{ list:[ {id: 1, name: &apos;zs1&apos;}, {id: 2, name: &apos;zs2&apos;}, {id: 3, name: &apos;zs3&apos;}, {id: 4, name: &apos;zs4&apos;} ] } 12- v-for循环对象 &lt;p v-for=&quot;(val, key, index) in user&quot;&gt; 值为:{{ val }} 键:{{ key }} 索引:{{ index }} &lt;/p&gt; data:{ user:{ id: 1, name: &apos;tony&apos;, gender: &apos;男&apos; } }, 12- v-for迭代数字 &lt;p v-for=&quot;count in 10&quot;&gt; 这是第 {{count}} 次循环 &lt;/p&gt; ``` + 注意:v-for迭代数字,从1开始 v-for中key的使用及注意 vue2.2.0+版本使用v-for,必须使用key 在使用v-for时,如果出现问题，应当指定唯一的字符串/数字 v-for循环时key属性只能使用number或者string key使用时必须使用v-bind绑定指定key值 v-if和v-show的使用 v-if 每次都会重新删除或创建元素 切换性能消耗严重 v-show 每次不会重新进行DOM操作,只切换display:none 初始渲染消耗高 频换切换使用v-show 元素可能不会永远显示用v-if]]></content>
       <categories>
-        <category>vue</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>前端</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
