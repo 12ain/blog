@@ -223,6 +223,109 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.abplan.top/2019/11/25/vue-cli4配置vant-ui及移动端适配/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="惬意的小时光">
+      <meta itemprop="description" content="小时光博客，一个关注技术交流的IT博客。主要记录在学习中遇到的点点滴滴，网址：https://blog.abplan.top">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="惬意的小时光">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/25/vue-cli4配置vant-ui及移动端适配/" class="post-title-link" itemprop="url">vue cli4配置vant ui及移动端适配</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-25 11:32:00" itemprop="dateCreated datePublished" datetime="2019-11-25T11:32:00+08:00">2019-11-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-26 08:52:11" itemprop="dateModified" datetime="2019-11-26T08:52:11+08:00">2019-11-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Vue-cli4-配置-vant-ui-及-移动端适配（px转vw）（postcss-px-to-viewport配置）"><a href="#Vue-cli4-配置-vant-ui-及-移动端适配（px转vw）（postcss-px-to-viewport配置）" class="headerlink" title="Vue cli4 配置 vant ui 及 移动端适配（px转vw）（postcss-px-to-viewport配置）"></a>Vue cli4 配置 vant ui 及 移动端适配（px转vw）（postcss-px-to-viewport配置）</h1><h2 id="创建Vue-cli-4项目"><a href="#创建Vue-cli-4项目" class="headerlink" title="创建Vue cli 4项目"></a>创建Vue cli 4项目</h2><p>新版的Vue cli提供了优秀的UI界面,可以在可视化界面创建项目以及安装相关依赖</p>
+<p>启动方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue ui</span><br></pre></td></tr></table></figure>
+
+<p>根据自己的需求创建项目,下面贴出个人的配置可供参考</p>
+<p><img src="https://i.loli.net/2019/11/25/AY8nfeIB3NZ95Kz.png" alt="1.png"><br><img src="https://i.loli.net/2019/11/25/UIeRp85aW7OBxzd.png" alt="2.png"><br><img src="https://i.loli.net/2019/11/25/u8gVGWysZI7QhmH.png" alt="3.png"><br><img src="https://i.loli.net/2019/11/25/Y3Gj6KaqunmVEHL.png" alt="4.png"><br><img src="https://i.loli.net/2019/11/25/QAi8MSqYRc4Vh1B.png" alt="5.png"><br><img src="https://i.loli.net/2019/11/25/9AFIDixChqJMnpo.png" alt="6.png"></p>
+<h2 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h2><p>参考:<br><a href="https://youzan.github.io/vant/#/zh-CN/intro" target="_blank" rel="noopener">vant-ui文档</a></p>
+<p>安装 vant</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i vant -S</span><br></pre></td></tr></table></figure>
+
+<p>此处我们采用官方推荐的自动按需引入组件方式进行配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 安装插件</span><br><span class="line"></span><br><span class="line">npm i babel-plugin-import -D</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 在 babel.config.js 中配置</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    [&apos;import&apos;, &#123;</span><br><span class="line">      libraryName: &apos;vant&apos;,</span><br><span class="line">      libraryDirectory: &apos;es&apos;,</span><br><span class="line">      style: true</span><br><span class="line">    &#125;, &apos;vant&apos;]</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/11/25/vxSkGQ19O2ADlyc.png" alt="1.png"></p>
+<p>配置完成后,就可以实现自动按需引入了</p>
+<h2 id="移动端的适配问题"><a href="#移动端的适配问题" class="headerlink" title="移动端的适配问题"></a>移动端的适配问题</h2><p>vant 官方文档介绍了rem的使用配置,此处不再过多介绍</p>
+<p><img src="https://i.loli.net/2019/11/25/XCAjfoJWEk7QT91.png" alt="2.png"></p>
+<p>这里我选择postcss-px-to-viewport将px转为vw的方式进行移动端的适配。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">安装</span><br><span class="line">npm install postcss-px-to-viewport</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">根目录新建postcss.config.js文件</span><br><span class="line">//postcss.config.js文件</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  plugins: &#123;</span><br><span class="line">    &apos;postcss-px-to-viewport&apos;: &#123;</span><br><span class="line">      unitToConvert: &apos;px&apos;, //需要转换的单位，默认为&quot;px&quot;</span><br><span class="line">      viewportWidth: 375, // 视窗的宽度，对应的是我们设计稿的宽度</span><br><span class="line">      viewportHeight: 1334,//视窗的高度，根据375设备的宽度来指定，一般指定667，也可以不配置</span><br><span class="line">      unitPrecision: 13, // 指定`px`转换为视窗单位值的小数位数（很多时候无法整除）</span><br><span class="line">      propList: [&apos;*&apos;], // 能转化为vw的属性列表</span><br><span class="line">      viewportUnit: &apos;vw&apos;, // 指定需要转换成的视窗单位，建议使用vw</span><br><span class="line">      fontViewportUnit: &apos;vw&apos;, //字体使用的视口单位</span><br><span class="line">      selectorBlackList: [&apos;.ignore-&apos;, &apos;.hairlines&apos;], //指定不转换为视窗单位的类，可以自定义，可以无限添加,建议定义一至两个通用的类名</span><br><span class="line">      minPixelValue: 1, // 小于或等于`1px`不转换为视窗单位，你也可以设置为你想要的值</span><br><span class="line">      mediaQuery: false, // 允许在媒体查询中转换`px`</span><br><span class="line">      replace: true, //是否直接更换属性值，而不添加备用属性</span><br><span class="line">      exclude: [</span><br><span class="line">        /RightBar/,</span><br><span class="line">        /gotop.vue/,</span><br><span class="line">      ], //忽略某些文件夹下的文件或特定文件，例如 &apos;node_modules&apos; 下的文件</span><br><span class="line">      landscape: false, //是否添加根据 landscapeWidth 生成的媒体查询条件 @media (orientation: landscape)</span><br><span class="line">      landscapeUnit: &apos;vw&apos;, //横屏时使用的单位</span><br><span class="line">      landscapeWidth: 1134 //横屏时使用的视口宽度</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>至此,vue-cli4配置vant ui及移动端适配配置到此结束.</p>
+<p>最终效果:</p>
+<p><img src="https://i.loli.net/2019/11/26/m3PBtkpXh8q6SOY.png" alt="11.png"></p>
+<p>自动转换为相应的vw</p>
+<p><img src="https://i.loli.net/2019/11/26/kiAGRsMTIZ7Ka8W.png" alt="12.png"></p>
+<p>参考链接: </p>
+<p><a href="https://juejin.im/post/5d415603e51d4561d044cc51" target="_blank" rel="noopener">移动端适配（px转vw）（postcss-px-to-viewport配置）</a></p>
+<p><a href="https://youzan.github.io/vant/#/zh-CN/intro" target="_blank" rel="noopener">Vant 官方文档</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.abplan.top/2019/11/19/宝塔面板-mongodb-允许外网访问/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -961,245 +1064,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.abplan.top/2019/05/24/每天学习一点vue(1)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="惬意的小时光">
-      <meta itemprop="description" content="小时光博客，一个关注技术交流的IT博客。主要记录在学习中遇到的点点滴滴，网址：https://blog.abplan.top">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="惬意的小时光">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/05/24/每天学习一点vue(1)/" class="post-title-link" itemprop="url">每天学习一点vue</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-05-24 21:52:00" itemprop="dateCreated datePublished" datetime="2019-05-24T21:52:00+08:00">2019-05-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-17 22:58:34" itemprop="dateModified" datetime="2019-11-17T22:58:34+08:00">2019-11-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="每天学习一点vue"><a href="#每天学习一点vue" class="headerlink" title="每天学习一点vue"></a>每天学习一点vue</h1><p>最近也是很忙,白天课很多,课余时间忙的有点莫名其妙,也没做什么成果出来,利用课余时间学习vue,记录一下学习的历程和笔记。相关学习代码已经同步在<a href="https://github.com/xiaoshiguang123/VUE_Code" target="_blank" rel="noopener">Github</a>上。</p>
-<blockquote>
-<p>Git的使用我觉得是很重要的,尤其对于学习方面,以及未来可能面临的多人团队开发,Git都是很好的解决方案。</p>
-</blockquote>
-<h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h2><ol>
-<li>实例化 vue 对象</li>
-<li>vue 的数据和方法</li>
-<li>vue 的属性绑定</li>
-<li>事件修饰符</li>
-<li>v-model</li>
-<li>vue中class</li>
-<li>vue中style</li>
-<li>v-for</li>
-</ol>
-<h3 id="Notes："><a href="#Notes：" class="headerlink" title="Notes："></a>Notes：</h3><ul>
-<li><p>el: element 需要获取的元素，一定是 html 中的根容器元素</p>
-</li>
-<li><p>data: 用于存储数据</p>
-</li>
-<li><p>methods: 用于定义当前实例各种方法</p>
-</li>
-<li><p>data-binding: 给属性绑定对应的值</p>
-</li>
-<li><p>v-cloak:</p>
-<ul>
-<li>只替换插值表达式部分，不清空整个元素</li>
-<li>解决插值表达式闪烁问题</li>
-<li>用法:在style中添加[v-cloak]的display为none</li>
-</ul>
-</li>
-<li><p>v-text无闪烁问题</p>
-<ul>
-<li>覆盖当前标签内容 </li>
-<li>用法:  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h4 v-text=&quot;msg&quot;&gt;&lt;/h4&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>v-html</p>
-<ul>
-<li>可正常输出HTML标签</li>
-<li>覆盖原有html内容</li>
-</ul>
-</li>
-<li><p>v-bind 绑定属性的指令</p>
-<ul>
-<li><p>用法:</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;button&quot; value=&quot;按钮&quot; v-bind:title=&quot;msg&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可简写为英文” : “，后面可以写合法JS表达式</p>
-</li>
-</ul>
-</li>
-<li><p>v-on 事件绑定机制</p>
-<ul>
-<li>可简写为 “ @ “</li>
-</ul>
-</li>
-<li><p>事件修饰符</p>
-<ul>
-<li><p>.stop 阻止冒泡</p>
-</li>
-<li><p>.prevent 阻止默认事件</p>
-</li>
-<li><p>.capture 捕获模式(从外向内)</p>
-</li>
-<li><p>.self 只有点击当前元素,才触发事件处理函数</p>
-</li>
-<li><p>.once 只触发一次事件处理函数</p>
-</li>
-<li><p>注意</p>
-<ul>
-<li>.self只会阻止自身的冒泡,不会阻止其余冒泡行为</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>v-model 双向数据绑定</p>
-<ul>
-<li>v-bind:单向数据绑定</li>
-<li>用法:例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	+ 只能用于表单元素中(input相关)</span><br><span class="line"></span><br><span class="line">- vue中class使用</span><br><span class="line">	1. 直接传递一个数组,class用v-bind做数据绑定</span><br><span class="line">	2. 在数组中使用三元表达式</span><br><span class="line">	3. 数组中使用对象代替三元表达式,提高代码可读性</span><br><span class="line">	4. 对象属性为类名,由于对象属性引号可省略,属性的值为标识符</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<pre><code>&lt;h1 :class=&quot;classObj&quot;&gt;这是h1标签&lt;/h1&gt;
-classObj: {red:true, thin:true, italic:false, active:true}
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- vue中内联样式style的使用</span><br><span class="line">	- 行内v-bind直接写样式对象</span><br><span class="line">	- 样式对象定义到data中引用</span><br><span class="line">	- 通过数组引用多个样式对象</span><br><span class="line"></span><br><span class="line">- v-for循环普通数组</span><br></pre></td></tr></table></figure>
-
-    &lt;p v-for=&quot;(item, i) in list&quot;&gt;
-        索引值:{{ i }}
-        每一项值:{{ item }}
-    &lt;/p&gt;
-    data:{
-            list:[1, 2, 3, 4, 5]
-        }
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- v-for循环对象数组</span><br></pre></td></tr></table></figure>
-
-    &lt;p v-for=&quot;(user,i) in list&quot;&gt;
-        ID:{{ user.id }}
-        名字:{{ user.name }}
-        索引:{{ i }}
-    &lt;/p&gt;       
-    data:{
-        list:[
-        {id: 1, name: &apos;zs1&apos;},
-        {id: 2, name: &apos;zs2&apos;},
-        {id: 3, name: &apos;zs3&apos;},
-        {id: 4, name: &apos;zs4&apos;}
-        ]
-    }
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- v-for循环对象</span><br></pre></td></tr></table></figure>
-
-&lt;p v-for=&quot;(val, key, index) in user&quot;&gt;
-    值为:{{ val }}
-
-    键:{{ key }}
-
-    索引:{{ index }}
-&lt;/p&gt;
-data:{
-    user:{
-        id: 1,
-        name: &apos;tony&apos;,
-        gender: &apos;男&apos;
-        }
-    },
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- v-for迭代数字</span><br></pre></td></tr></table></figure>
-
-&lt;p v-for=&quot;count in 10&quot;&gt;
-        这是第 {{count}} 次循环
-&lt;/p&gt;
-```
-+ 注意:v-for迭代数字,从1开始</code></pre><ul>
-<li><p>v-for中key的使用及注意</p>
-<blockquote>
-<p>vue2.2.0+版本使用v-for,必须使用key</p>
-</blockquote>
-<ul>
-<li>在使用v-for时,如果出现问题，应当指定唯一的字符串/数字</li>
-<li>v-for循环时key属性只能使用number或者string</li>
-<li>key使用时必须使用v-bind绑定指定key值</li>
-</ul>
-</li>
-<li><p>v-if和v-show的使用</p>
-<ul>
-<li><p>v-if</p>
-<ul>
-<li>每次都会重新删除或创建元素</li>
-<li>切换性能消耗严重</li>
-</ul>
-</li>
-<li><p>v-show</p>
-<ul>
-<li>每次不会重新进行DOM操作,只切换display:none</li>
-<li>初始渲染消耗高</li>
-</ul>
-</li>
-<li><p>频换切换使用v-show</p>
-</li>
-<li><p>元素可能不会永远显示用v-if</p>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1250,7 +1114,7 @@ data:{
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1263,7 +1127,7 @@ data:{
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
