@@ -1,72 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[智慧校园Vue项目总结]]></title>
-    <url>%2F2019%2F09%2F26%2F%E6%99%BA%E6%85%A7%E6%A0%A1%E5%9B%ADVue%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[智慧校园Vue项目总结总体概述自从开始写这个项目,应该是从7月左右开始做的,当然，期间由于假期以及家里的事情耽误。加上没有UI这种设计的存在,导致初期的进度很慢。具体的开发应该是到了8月底到9月底这一段时间。这一段时间的开发效率其实是很高的，尤其是每天的产出,其实个人对于这个项目进度的把握还是有点欠缺的。可能个人能力也是一方面的原因。加上整个项目组五个人，前端完全由我一个人担任，压力可能也是一方面的原因。在当时组队进行选人的时候，对于这个人员分配方面我提出了自己的意见，但组长没有采纳。依旧采用4+1这种搭配进行开发。所以现在的感想就是: 一个人做前端，真累！ 技术栈方面其实对于当时的我们都可以说是刚学完。这可以说是我们的第一个前后端完全分离的项目。对于个人而言，当然也是第一次使用Vue完成一个完整的项目。报这个比赛其实为了拿奖的愿望并不是很大，主要还是想通过比赛来让自己做点东西，做点实战。在实战中的学习效率是最高的，这也就是为什么大多数学生从学校走出去实习之后，哪怕短短的时间也可以学的比在学校里多很多倍的东西。当然，以我现在的水平和条件，依然还是在学习这个阶段，前端学到了现在，基本很多主流的需要用到的知识可以说都接触过一点了。 踩过的坑在这次开发项目的过程中，由于没有小伙伴一起帮忙解决问题，期间还是踩了很多坑。 在webpack的配置方面，涉及到了webpack的版本,webpack-dev-server的版本的匹配的问题。由于我闲的没事干升级了插件的版本，导致配置文件package.json出现了问题，而且当时在卸载插件的时候也干了坏事。其实在学长去年做的一个项目中，我就看到了类似的问题。学长强调了在开发中不要随意的升级新版本，除非对新版本的特性十分了解。当时没当做一回事来看，现在想想，真是不听老人言，吃亏在眼前。回到正题，当时遇到了这个问题后怎么解决呢？主要肯定还是去搜索引擎找答案，但关于这个问题，我搜到了很多种解决方式，我另一篇博客也写了关于这个问题的解决方法。最后其实缺少了一个步骤，就是要在package.json里面也要更改相应依赖的版本，否则在重新生成npm包的时候依旧会出错。 再就是关于mint-ui这个组件库的使用问题，官方文档稍有不完善，但搜索引擎一搜基本都可以找到用法，但框架毕竟是框架，还是有bug存在的，在完成故障报备数据展示页面使用mint-ui的cell-swipe,想实现右划出现按钮的功能.但页面渲染完成后就出现的按钮，最后发现原因是mint-ui的CellSwipe与tab-container的滑动冲突,二者暂时不能同时使用。对于这个问题，我的解决方法是合法的避开这个问题，那就是不一起用它，需要用到这个组件的功能那就自己写一个，这样的话就不会和框架起冲突。 关于使用这个组件库，还遇到个问题。项目开发环境布局样式正常,打包完成后Mint-ui的样式没有被重写的自定义样式覆盖,依旧为mint-ui默认样式.最后发现是打包的时候有顺序的问题，要在main.js中将根组件及路由引入时放在mint-ui前面即可解决这个问题。 关于使用vuex踩的一个坑，在使用vuex保存用户信息,完成账号信息的获取和修改功能时，直接将数据与vuex中的数据进行双向绑定，导致的结果当然是功能没实现，反而报错。我的解决方法是在页面挂载完成后，把vuex中的数据取出保存在一个数组中，将数组的对象与数据进行绑定。在用户点击提交修改后，将数据发送到后端后再更新vuex的数据。 做到有图片上传这个需求时，也是让我倍感难受。完成报备功能提交页面时，我以为利用input file标签，能够进行数据绑定，但是提交到后端后出现图片上传到后端为空的问题.查到原因:V-Model无法与input 进行双向数据绑定,无法直接获取到文件.文件需要在input标签上单独写事件来获取这个文件。关键是默认的input file实在是没法看。于是在网上找到了一个图片上传的组件。原理是将图片和要上传的接口单独传到图片上传组件内。上传图片使用的构造FormData，将数据发送过去。自己对这个组件进行了一下改造，将需要传的数据也同时传到这个组件当中，跟着图片一起提交到后端。完美的解决了这个问题。 在上传头像时遇到了个问题，将数据发送到后端后，后端只返回了结果。并没有告诉我新的图片URL。因为只有在登录时我才能获取到图片的URL地址。这样导致了我的图片没办法实时更新。只有重新登录才能将数据取到，并渲染到页面中。仔细查看图片上传的组件的源码，发现它将图片转化成了BASE64编码。我只要将这个编码保存在本地，更新到vuex中，于是就解决这个问题。 在进行登录功能时，出现了一个bug，在首次开启自动登录登陆失败后第二次登录时会默认使用第一次的错误密码导致登陆失败.问题原因是之前的判断逻辑在点击自动登录按钮提交数据成功后就保留了用户名和密码,再次提交并不会更新本地密码.解决方法:将保存密码的逻辑判断放在服务器返回登录成功后,输入错误信息提交不会保存错误数据。 关于鉴权的问题，我个人是采用了比较简单的方式解决的。由于项目最后打包成了app，所以为了省事，所有的路由组件都是父路由。理论上讲应该按照用户权限不同来分配不同的路由。但是我的管理员和维修人员的入口是单独出来了。只在个人中心页面控制了权限不同的入口显示。这如果在网页端会成为很大的问题。后期应该会更改这一块。 在完成登录注册联调时，第一次使用axios.一开始请求发生500.采用QS库处理后提交完美解决。关于跨域问题，一开始是在本地配置了代理进行提交，但是打包后这个就无效了，关键最后还是靠后端解决了这个问题。 总结总的来讲，这次这个项目其实还是有很多的问题的，尤其各种接口写得也是乱七八糟。虽然项目已经提交了。但是这个项目我会继续的改下去。尤其是由于时间原因导致的很多细节不完善。包括UI的设计也很有问题。但是这也确实是个人这方面确实有所欠缺。而且自己做项目也没有UI帮忙设计，所以自己慢慢完善咯。]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[vue打包Cannot read property 'compilation' of undefined]]></title>
-    <url>%2F2019%2F08%2F28%2Fvue%E6%89%93%E5%8C%85Cannot-read-property-compilation-of-undefined-1%2F</url>
-    <content type="text"><![CDATA[vue打包 Cannot read property ‘compilation’ of undefined最近在做一个学习的项目,准备先测试一下打包看看效果,果然，在经历了乱七八糟环境的折腾下,它又报错了。 强大的搜索引擎帮我找到了答案。 解决方法 1npm i optimize-css-assets-webpack-plugin@3.2.0]]></content>
-      <categories>
-        <category>报错解决</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>报错</tag>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[vue安装iview失败报错后npm run dev无法使用]]></title>
-    <url>%2F2019%2F08%2F27%2Fvue%E5%AE%89%E8%A3%85iview%E5%A4%B1%E8%B4%A5%E6%8A%A5%E9%94%99%E5%90%8Enpm-run-dev%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[vue安装iview失败报错后npm run dev无法使用事件起因: 使用 &gt; npm install –save iview 安装iview发生很多warning. 然后就出现了error 果断想到了webpack-dev-server的版本问题.安装老版本也就是2.9.2版本后不报错了.提示缺失node-sass插件,再装一下这个插件。OK,问题解决]]></content>
-      <categories>
-        <category>报错解决</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>报错</tag>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[让sql语句不排序,按照in语句的顺序返回结果]]></title>
-    <url>%2F2019%2F08%2F17%2F%E8%AE%A9sql%E8%AF%AD%E5%8F%A5%E4%B8%8D%E6%8E%92%E5%BA%8F-%E6%8C%89%E7%85%A7in%E8%AF%AD%E5%8F%A5%E7%9A%84%E9%A1%BA%E5%BA%8F%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%2F</url>
-    <content type="text"><![CDATA[sql语句不排序,按照in语句的顺序返回结果最近做了一个小项目,有这样一个需求,按照用户输入的顺序从数据库中取出数据。但是默认sql查询会有自动排序的功能,导致查询的结果是按照数字的顺序出现。百度查询后发现解决办法，在此记录一下sql语句写法 1SELECT * FROM 表名 WHERE 关键字 IN(数字1, 数字2, 数字3, 数字4, 数字5) ORDER BY INSTR(&apos;,数字1, 数字2, 数字3, 数字4, 数字5,&apos;,CONCAT(&apos;,&apos;,关键字,&apos;,&apos;))]]></content>
-      <categories>
-        <category>sql</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>PHP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[vue升级采坑历程]]></title>
-    <url>%2F2019%2F07%2F31%2Fvue%E5%8D%87%E7%BA%A7%E9%87%87%E5%9D%91%E5%8E%86%E7%A8%8B%2F</url>
-    <content type="text"><![CDATA[vue升级采坑前言闲来无事打算将自己的本机的npm版本更新，其实之前在学长的Github上看到了一句开发时不要随意的更新，除非你很了解新版本的特性。但是还是忍不住试了一下。 经历因为之前项目上传到Github上以后出现了安全警告和漏洞，有版本的bug和漏洞问题，也有配置文件的问题，索性尝试利用Github的自动解决。解决了一部分的问题。然后再将项目拉回本地。 可以看到还是有很多的变化。重新下载一下依赖。升级了npm版本和插件版本.结果发生报错。 最后发现webpack与当前机器的vue版本不匹配，查询当前的vue版本。装上对应的webpack的版本，项目调试开发回归正常。]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>报错</tag>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[大二下学期总结和感想]]></title>
-    <url>%2F2019%2F07%2F05%2F%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93%E5%92%8C%E6%84%9F%E6%83%B3%2F</url>
-    <content type="text"><![CDATA[大二下学期小记和总结博客很久没有更新了。最近也是很忙，今天完成了所谓的学校“web开发大赛”，虽然只是小比赛，但是还是有很多感想！ 学习方面期末考试 期末考试呢截止今天下午已经出来了所有成绩，没有挂科！本学期的课程还是挺多的，复习压力很大。尤其是重修的离散数学，当年老师直接取消考试资格，一年后再战还是很不错的！ 理论性的东西很多对于我来讲并不擅长，我一直比较喜欢实用的应用性的东西，相比于去学习理论，我更加喜欢的是实践，从实践中学习，这样的效率更高。 网络安全 网络安全方面可以说我下的功夫并不比在前端方面，初步的入门显得并不是很难。学校组织了网络安全的大赛，基本上两天3场比赛。基础理论知识比较薄弱，初赛的成果并不理想。决赛以实践操作为主，很多题只是做了一半思路就断了，总之还是做的题见得题不多。最终比赛的结果并没有拿到名次，总之已经结束，重要的是学习的过程。有些人不努力能得到的只是暂时的，最终的结果还是要看自己努力的结果。 前端开发 相比于网络安全，我更加重视的应该是前端开发。毕竟主要学习的方向还是在这边。大二下半学期结束。学校的课程不说，自己的专业水平可以说是小有进步。框架方面，最近学习了vue，不得不感叹于框架的好处！期间也是踩了很多坑，基本语法是没有问题了。但是自己的业务逻辑方面还是需要提高，更多的其实还是代码量不够。要想学习快速进步主要还是得靠敲项目。 软件设计大赛 最近报名了山东省软件设计大赛，题目是智慧校园的APP，准备采用web app的方式，利用vue和HBuilder打包，最终形成app。 感想其实我最大的顾虑就是web app和原生安卓在体验方面会有差距。尤其对于我这个vue的菜鸟，跟队友以前并没有过多的接触。前端方面只有我一个人，其实压力很大。对于报名的题目，我个人觉得并不是很新颖。对于整个项目来讲，或者说对于队友来说，我的作用仿佛并不是很大。这一次跟后端的几个大佬一起，我内心有点拒绝。一个人做前端，没有UI，原型什么的还要我做，当然我也不做原型，随心所欲的开发吧。做一步算一步，开发并不是只有后端占大头，前端并不是所谓的只会写页面的。其实前后端分离并不是说两边完全不干涉，尤其我们自己做项目，带头的人应该有一个总体的进度的把握。明确分工，对于讲解来讲，自己应该有个数。个人能力强并不能代表团队的能力强。学校的这次的小比赛虽然只是展示项目的雏形，但是前期讲解应该以界面为主，毕竟没有功能。而且评分注重的就是界面。我花了几天时间做出的东西更希望的是能充分的展示，不是所谓的几秒钟随便点一点，说一说。最终的评分跟我想象的太不一样。 总结和感想大二下学期基本结束。假期要被项目压着。前端和网络安全两边尽量都兼顾一下，看看最后到底适合哪个吧！希望最后的结果能对得起我付出的精力和努力！]]></content>
+    <title>大三上学期总结及感想</title>
+    <url>/2019/12/26/%E5%A4%A7%E4%B8%89%E4%B8%8A%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93%E5%8F%8A%E6%84%9F%E6%83%B3/</url>
+    <content><![CDATA[<h1 id="大三上学期总结及感想"><a href="#大三上学期总结及感想" class="headerlink" title="大三上学期总结及感想"></a>大三上学期总结及感想</h1><p>一天天的混的也挺快，不知不觉又一个学期过去了。最近也没有更新博客，一直忙于各种报告作业。今天也算是全部完成了这些乱七八糟的。2019也快结束了，写一篇总结和感想吧。</p><h2 id="学习方面"><a href="#学习方面" class="headerlink" title="学习方面"></a>学习方面</h2><p>这学期课程相比于上学期少了一些，大多是一些专业课程。由于讲课内容之前都学过，而且是考查课，所以相对来讲比较轻松一些。考试课的话成绩还没出，希望没有挂科吧！但是复习的确实不好，总是感觉有点被牵绊住的感觉，复习也看不进去。</p><a id="more"></a>
+
+<h2 id="项目和证书"><a href="#项目和证书" class="headerlink" title="项目和证书"></a>项目和证书</h2><h3 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h3><p>从6月份开始报了山东省软件设计大赛，之后的几个月都是把重心放在这个上面，开发时间整整耗费了一个月的时间，至于进度为什么稍微有点慢，个人觉得还是有点原因的。</p>
+<ol>
+<li>这是第一次独立的用Vue做一个完整的项目，没什么经验，也是属于练手。</li>
+<li>因为没有UI和原型，我一直觉得界面有点太丑，改来改去也耗费了一些时间。</li>
+<li>出了问题需要独自解决，尤其是开发阶段不小心升级了依赖，项目跑不起来，折腾好几天。</li>
+<li>与后端沟通还是有点小问题，比如接口的跨域什么的，前期开发也没有沟通好，联调的时候还是出了问题。</li>
+</ol>
+<h3 id="成果分析"><a href="#成果分析" class="headerlink" title="成果分析"></a>成果分析</h3><p>从提交作品，晋级，准备现场答辩，最终还是拿了个二等奖，虽然奖金就是个报名费，但也算是拿了个证书回来。至于为什么是二等奖，分析原因主要以下几点。</p>
+<ol>
+<li>报的题目实际上有点限制了我们的思维，从需求阶段就想的不够多，分析的不够透彻。</li>
+<li>业务逻辑相对来讲比较简单。</li>
+<li>答辩时出现的失误，问的问题没有回答的很好。</li>
+<li>对命题扩展不够深入。</li>
+</ol>
+<h2 id="感想与体会"><a href="#感想与体会" class="headerlink" title="感想与体会"></a>感想与体会</h2><p>就像工作的年底总结一样，总要写点感想，写点过往。</p>
+<p>网络安全方向我还是放弃了，比较还是喜欢前端，尽管发展速度快，但还是喜欢开发。</p>
+<p>像大多数人一样，可能一开始学开发是想用代码编织世界，实现一些自己感兴趣的东西。</p>
+<p>但现实就是，学了开发，也只是码农，为了生活，可能都逃脱不了找工作的命运。</p>
+<p>所以呢，接下来也要准备找暑期的实习了。不考研的我，只能早做打算。</p>
+<p>很多事情并没有人告诉你在什么时间段该干什么，也不会有人告诉你今天哪家公司在面试。</p>
+<p>找实习，找工作，也需要考虑未来的前景，升职空间。起薪真的很重要。</p>
+<p>接下来重心就是刷面试题，掌握基础，如果有余力，在看看能给自己加分的东西。</p>
+<p>愿2020善待我，顺利找到心仪的实习。</p>
+]]></content>
       <categories>
         <category>笔记</category>
       </categories>
@@ -76,9 +38,207 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[解决VMware Workstation黑屏问题]]></title>
-    <url>%2F2019%2F05%2F26%2F%E8%A7%A3%E5%86%B3VMware-Workstation%E9%BB%91%E5%B1%8F%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[解决VMware Workstation虚拟机黑屏问题前言最近升级了一下笔记本的硬件,重新安装了windows 10的2019年5月最新版本的 1903系统。作为一名在校大学生，使用虚拟机完成各种各样的实验当然是必不可少的。 正文但是重新安装了官网最新的VM15.0.1版本后发现以前版本安装的虚拟机都无法打开，开始以为是版本兼容性问题。但是在同学的笔记本上安装相同版本的VM以及打开相同的虚拟机都没有问题。Google发现遇到此问题的解决办法为修复LSP。命令行窗口—输入netsh winsock reset—重启计算机。但是尝试过后发现没有效果。忽然想到是否是因为OS的版本太高VM还没来得及适配的原因，果断改变关键字搜索。果然是这个原因。因为最新版本的Windows10内置了一个沙盒，跟VM产生了冲突。在最新的VMware Workstation15.1.0版本解决了这个问题。 解决方法:打开当前的VMware Workstation检查更新，升级到最新的15.1.0版本后即可解决或者点击下载最新15.1.0版本 另外提供一些可用的激活码12345678910111213141516171819202122232425262728293031323334353637VMware Workstation Pro 15 激活许可证UY758-0RXEQ-M81WP-8ZM7Z-Y3HDAVF750-4MX5Q-488DQ-9WZE9-ZY2D6UU54R-FVD91-488PP-7NNGC-ZFAX6YC74H-FGF92-081VZ-R5QNG-P6RY4YC34H-6WWDK-085MQ-JYPNX-NZRA2VMware Workstation Pro 14 激活许可证FF31K-AHZD1-H8ETZ-8WWEZ-WUUVACV7T2-6WY5Q-48EWP-ZXY7X-QGUWDVMware Workstation Pro 12 激活许可证5A02H-AU243-TZJ49-GTC7K-3C61NVF5XA-FNDDJ-085GZ-4NXZ9-N20E6UC5MR-8NE16-H81WY-R7QGV-QG2D8ZG1WH-ATY96-H80QP-X7PEX-Y30V4AA3E0-0VDE1-0893Z-KGZ59-QGAVFVMware Workstation Pro 10 激活许可证1Z0G9-67285-FZG78-ZL3Q2-234JG4C4EK-89KDL-5ZFP9-1LA5P-2A0J0HY086-4T01N-CZ3U0-CV0QM-13DNU 升级中遇到的问题因为之前打开黑屏的虚拟机导致了VM的残留进程vmware-vmx.exe无法关闭,重启也不行emmm。。。只能卸载旧版本后重新下载新版本完整包。 文章中引用的资源均来自互联网，如有侵权行为,请联系本人删除]]></content>
+    <title>vue cli4配置vant ui及移动端适配</title>
+    <url>/2019/11/25/vue-cli4%E9%85%8D%E7%BD%AEvant-ui%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/</url>
+    <content><![CDATA[<h1 id="Vue-cli4-配置-vant-ui-及-移动端适配（px转vw）（postcss-px-to-viewport配置）"><a href="#Vue-cli4-配置-vant-ui-及-移动端适配（px转vw）（postcss-px-to-viewport配置）" class="headerlink" title="Vue cli4 配置 vant ui 及 移动端适配（px转vw）（postcss-px-to-viewport配置）"></a>Vue cli4 配置 vant ui 及 移动端适配（px转vw）（postcss-px-to-viewport配置）</h1><h2 id="创建Vue-cli-4项目"><a href="#创建Vue-cli-4项目" class="headerlink" title="创建Vue cli 4项目"></a>创建Vue cli 4项目</h2><p>新版的Vue cli提供了优秀的UI界面,可以在可视化界面创建项目以及安装相关依赖</p><p>启动方式</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vue ui</span><br></pre></td></tr></table></figure><p>根据自己的需求创建项目,下面贴出个人的配置可供参考</p><p><img src="https://i.loli.net/2019/11/25/AY8nfeIB3NZ95Kz.png" alt="1.png"><br><img src="https://i.loli.net/2019/11/25/UIeRp85aW7OBxzd.png" alt="2.png"><br><img src="https://i.loli.net/2019/11/25/u8gVGWysZI7QhmH.png" alt="3.png"><br><img src="https://i.loli.net/2019/11/25/Y3Gj6KaqunmVEHL.png" alt="4.png"><br><img src="https://i.loli.net/2019/11/25/QAi8MSqYRc4Vh1B.png" alt="5.png"><br><img src="https://i.loli.net/2019/11/25/9AFIDixChqJMnpo.png" alt="6.png"></p><h2 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h2><a id="more"></a>
+
+
+
+
+
+<p>参考:<br><a href="https://youzan.github.io/vant/#/zh-CN/intro" target="_blank" rel="noopener">vant-ui文档</a></p>
+<p>安装 vant</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i vant -S</span><br></pre></td></tr></table></figure>
+<p>此处我们采用官方推荐的自动按需引入组件方式进行配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 安装插件</span><br><span class="line"></span><br><span class="line">npm i babel-plugin-import -D</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 在 babel.config.js 中配置</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    [&#39;import&#39;, &#123;</span><br><span class="line">      libraryName: &#39;vant&#39;,</span><br><span class="line">      libraryDirectory: &#39;es&#39;,</span><br><span class="line">      style: true</span><br><span class="line">    &#125;, &#39;vant&#39;]</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/11/25/vxSkGQ19O2ADlyc.png" alt="1.png"></p>
+<p>配置完成后,就可以实现自动按需引入了</p>
+<h2 id="移动端的适配问题"><a href="#移动端的适配问题" class="headerlink" title="移动端的适配问题"></a>移动端的适配问题</h2><p>vant 官方文档介绍了rem的使用配置,此处不再过多介绍</p>
+<p><img src="https://i.loli.net/2019/11/25/XCAjfoJWEk7QT91.png" alt="2.png"></p>
+<p>这里我选择postcss-px-to-viewport将px转为vw的方式进行移动端的适配。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">安装</span><br><span class="line">npm install postcss-px-to-viewport</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">根目录新建postcss.config.js文件</span><br><span class="line">&#x2F;&#x2F;postcss.config.js文件</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  plugins: &#123;</span><br><span class="line">    &#39;postcss-px-to-viewport&#39;: &#123;</span><br><span class="line">      unitToConvert: &#39;px&#39;, &#x2F;&#x2F;需要转换的单位，默认为&quot;px&quot;</span><br><span class="line">      viewportWidth: 375, &#x2F;&#x2F; 视窗的宽度，对应的是我们设计稿的宽度</span><br><span class="line">      viewportHeight: 1334,&#x2F;&#x2F;视窗的高度，根据375设备的宽度来指定，一般指定667，也可以不配置</span><br><span class="line">      unitPrecision: 13, &#x2F;&#x2F; 指定&#96;px&#96;转换为视窗单位值的小数位数（很多时候无法整除）</span><br><span class="line">      propList: [&#39;*&#39;], &#x2F;&#x2F; 能转化为vw的属性列表</span><br><span class="line">      viewportUnit: &#39;vw&#39;, &#x2F;&#x2F; 指定需要转换成的视窗单位，建议使用vw</span><br><span class="line">      fontViewportUnit: &#39;vw&#39;, &#x2F;&#x2F;字体使用的视口单位</span><br><span class="line">      selectorBlackList: [&#39;.ignore-&#39;, &#39;.hairlines&#39;], &#x2F;&#x2F;指定不转换为视窗单位的类，可以自定义，可以无限添加,建议定义一至两个通用的类名</span><br><span class="line">      minPixelValue: 1, &#x2F;&#x2F; 小于或等于&#96;1px&#96;不转换为视窗单位，你也可以设置为你想要的值</span><br><span class="line">      mediaQuery: false, &#x2F;&#x2F; 允许在媒体查询中转换&#96;px&#96;</span><br><span class="line">      replace: true, &#x2F;&#x2F;是否直接更换属性值，而不添加备用属性</span><br><span class="line">      exclude: [</span><br><span class="line">        &#x2F;RightBar&#x2F;,</span><br><span class="line">        &#x2F;gotop.vue&#x2F;,</span><br><span class="line">      ], &#x2F;&#x2F;忽略某些文件夹下的文件或特定文件，例如 &#39;node_modules&#39; 下的文件</span><br><span class="line">      landscape: false, &#x2F;&#x2F;是否添加根据 landscapeWidth 生成的媒体查询条件 @media (orientation: landscape)</span><br><span class="line">      landscapeUnit: &#39;vw&#39;, &#x2F;&#x2F;横屏时使用的单位</span><br><span class="line">      landscapeWidth: 1134 &#x2F;&#x2F;横屏时使用的视口宽度</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>至此,vue-cli4配置vant ui及移动端适配配置到此结束.</p>
+<p>最终效果:</p>
+<p><img src="https://i.loli.net/2019/11/26/m3PBtkpXh8q6SOY.png" alt="11.png"></p>
+<p>自动转换为相应的vw</p>
+<p><img src="https://i.loli.net/2019/11/26/kiAGRsMTIZ7Ka8W.png" alt="12.png"></p>
+<p>参考链接: </p>
+<p><a href="https://juejin.im/post/5d415603e51d4561d044cc51" target="_blank" rel="noopener">移动端适配（px转vw）（postcss-px-to-viewport配置）</a></p>
+<p><a href="https://youzan.github.io/vant/#/zh-CN/intro" target="_blank" rel="noopener">Vant 官方文档</a></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>vue</tag>
+        <tag>配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Centos mongodb 允许外网访问</title>
+    <url>/2019/11/19/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF-mongodb-%E5%85%81%E8%AE%B8%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/</url>
+    <content><![CDATA[<p>在Centos上安装完mongodb后用软件连接是连不上的,原因是安全配置的问题，因为mongodb默认是没有设置密码的。<br>所以如果需要允许外网访问就需要修改一下配置:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">将bindIp：127.0.0.1 修改为 0.0.0.0</span><br></pre></td></tr></table></figure><p>除此之外，如果还是无法连接,还需要将防火墙及安全组配置放行27017端口</p><p>另外,最新版的Navicat已经支持了MongoDB的连接,强烈推荐一波。</p>]]></content>
+      <categories>
+        <category>服务器</category>
+      </categories>
+      <tags>
+        <tag>CentOS</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿里云CentOS7服务器配置</title>
+    <url>/2019/11/19/%E9%98%BF%E9%87%8C%E4%BA%91CentOS7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="阿里云服务器配置Centos7篇"><a href="#阿里云服务器配置Centos7篇" class="headerlink" title="阿里云服务器配置Centos7篇"></a>阿里云服务器配置Centos7篇</h1><p>最近发现之前阿里云云翼计划的服务器CPU和内存占用有点高,考虑到Windows的占用问题,而且大部分服务器都在使用Linux,于是决定将系统镜像换成Linux,在此记录下服务器的配置.</p><h2 id="服务器的安全组配置"><a href="#服务器的安全组配置" class="headerlink" title="服务器的安全组配置"></a>服务器的安全组配置</h2><p>安全组方面,需要将常用的端口放行,否则无法访问相应端口的服务.<br>除默认配置外我加了以下端口</p><a id="more"></a>
+
+<p><img src="https://i.loli.net/2019/11/19/36OmFvExkqtGz5y.png" alt="Clip_20191119_091355.png"></p>
+<h2 id="使用SSH连接服务器"><a href="#使用SSH连接服务器" class="headerlink" title="使用SSH连接服务器"></a>使用SSH连接服务器</h2><p>由于Linux没有图形界面,所以在此我选择Xshell连接,也可以选择Putty,都比较好用</p>
+<p><img src="https://i.loli.net/2019/11/19/LyNljmHTib9kIVC.png" alt="Clip_20191119_094746.png"></p>
+<h2 id="搭建web服务器"><a href="#搭建web服务器" class="headerlink" title="搭建web服务器"></a>搭建web服务器</h2><p>为了方便配置和安装,在此我使用的是宝塔面板,为什么选择这个面板呢?因为原生的各种配置较为复杂,不适合初学者入门,有集成的当然要偷懒了,而且这个面板在服务器上应用较为广泛,我也用了很多年了,还是很不错的,关于此面板的介绍可以访问<a href="https://bt.cn" target="_blank" rel="noopener">宝塔面板官网</a></p>
+<p>安装命令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>
+
+<p>待命令跑完后,此时屏幕上会显示一个http:的地址,这便是你的宝塔面板的后台,如果安全组配置没有问题,你此时已经可以用浏览器打开这个地址,使用屏幕上显示的用户名以及密码登录后台.</p>
+<p>此时应该还会自动弹出让你选择WEB服务器及数据库的选项.在此你可以根据自己的需求进行选择(即使此处选错或者漏选也可以后续在软件商店进行重新安装或者卸载)</p>
+<p><img src="https://i.loli.net/2019/11/19/AZqpJgHv8fLo6Xu.png" alt="Clip_20191119_095723.png"></p>
+<p>装好之后,可以在这里添加网站<br><img src="https://i.loli.net/2019/11/19/SQgs5ZYrzj69emf.png" alt="QQ截图20191119100135.png"></p>
+<p>添加一个ftp账户用来便于后面上传源码,添加一个数据库用于后面数据的保存.</p>
+<p>完成之后需要将域名解析至服务器IP,如果有多个网站,可以使用二级域名解析到不同的网站.使用阿里云的服务器需要域名进行备案.具体的可以去百度阿里云域名备案</p>
+<p>那么问题来了,没有域名怎么办?</p>
+<p>当然,没有域名我们也可以直接使用服务器的ip进行访问,只需要在创建网站的选项中将服务器的ip写在域名栏中.等服务器收到客户端的请求后就会将此网站的内容显示给用户.</p>
+<p>网站创建好之后,可以将网站的源码使用FTP客户端上传至服务器,ftp客户端可以使用Xftp,连接后进入对应的网站目录,将源码上传至对应目录即可.<br><img src="https://i.loli.net/2019/11/19/EAuclMshICbYy1v.png" alt="QQ截图20191119102706.png"></p>
+<h2 id="MySQL的相关配置"><a href="#MySQL的相关配置" class="headerlink" title="MySQL的相关配置"></a>MySQL的相关配置</h2><p>在服务器端,我们可以使用phpMyadmin连接数据库进行增删改查,想要远程使用数据库,比如使用Navicat连接数据库,默认是不支持此操作的,需要进行相关的配置.</p>
+<h3 id="防火墙及安全组"><a href="#防火墙及安全组" class="headerlink" title="防火墙及安全组"></a>防火墙及安全组</h3><p>需要放行3306端口</p>
+<h3 id="root用户"><a href="#root用户" class="headerlink" title="root用户"></a>root用户</h3><p>使用phpMyadmin,打开上面的账户,选择root用户,将配置改为如图,如果防火墙及安全组放行正常的话,就可以进行连接了</p>
+<p><img src="https://i.loli.net/2019/11/19/ARUng1rbaVqLIMv.png" alt="QQ截图20191119103822.png"></p>
+<p><img src="https://i.loli.net/2019/11/19/tNxT2ZqomVkOBip.png" alt="QQ截图20191119103849.png"></p>
+<h3 id="普通用户"><a href="#普通用户" class="headerlink" title="普通用户"></a>普通用户</h3><p>对于单个的用户来讲,只需要将此选项改为所有人,即可进行远程连接.</p>
+<p><img src="https://i.loli.net/2019/11/19/M2Vt3Zcka4IrPud.png" alt="QQ截图20191119103315.png"></p>
+<p>至此,简单的web服务器就搭建完成了.其余需要的服务可以在宝塔软件商店中进行安装及配置.</p>
+<pre><code>简单来讲,当发现服务从本地访问不到,首先检查服务器的安全组配置是否正常,接下来检查服务器的防火墙配置是否正确,再检查服务器端的进程是否正常运行.</code></pre>]]></content>
+      <categories>
+        <category>服务器</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>CentOS</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>智慧校园Vue项目总结</title>
+    <url>/2019/09/26/%E6%99%BA%E6%85%A7%E6%A0%A1%E5%9B%ADVue%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="智慧校园Vue项目总结"><a href="#智慧校园Vue项目总结" class="headerlink" title="智慧校园Vue项目总结"></a>智慧校园Vue项目总结</h1><h2 id="总体概述"><a href="#总体概述" class="headerlink" title="总体概述"></a>总体概述</h2><p>自从开始写这个项目,应该是从7月左右开始做的,当然，期间由于假期以及家里的事情耽误。加上没有UI这种设计的存在,导致初期的进度很慢。具体的开发应该是到了8月底到9月底这一段时间。这一段时间的开发效率其实是很高的，尤其是每天的产出,其实个人对于这个项目进度的把握还是有点欠缺的。可能个人能力也是一方面的原因。加上整个项目组五个人，前端完全由我一个人担任，压力可能也是一方面的原因。在当时组队进行选人的时候，对于这个人员分配方面我提出了自己的意见，但组长没有采纳。依旧采用4+1这种搭配进行开发。所以现在的感想就是: 一个人做前端，真累！</p><a id="more"></a>
+<p>技术栈方面其实对于当时的我们都可以说是刚学完。这可以说是我们的第一个前后端完全分离的项目。对于个人而言，当然也是第一次使用Vue完成一个完整的项目。报这个比赛其实为了拿奖的愿望并不是很大，主要还是想通过比赛来让自己做点东西，做点实战。在实战中的学习效率是最高的，这也就是为什么大多数学生从学校走出去实习之后，哪怕短短的时间也可以学的比在学校里多很多倍的东西。当然，以我现在的水平和条件，依然还是在学习这个阶段，前端学到了现在，基本很多主流的需要用到的知识可以说都接触过一点了。</p>
+<h2 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h2><p>在这次开发项目的过程中，由于没有小伙伴一起帮忙解决问题，期间还是踩了很多坑。</p>
+<p>在webpack的配置方面，涉及到了webpack的版本,webpack-dev-server的版本的匹配的问题。由于我闲的没事干升级了插件的版本，导致配置文件package.json出现了问题，而且当时在卸载插件的时候也干了坏事。其实在学长去年做的一个项目中，我就看到了类似的问题。学长强调了在开发中不要随意的升级新版本，除非对新版本的特性十分了解。当时没当做一回事来看，现在想想，真是不听老人言，吃亏在眼前。回到正题，当时遇到了这个问题后怎么解决呢？主要肯定还是去搜索引擎找答案，但关于这个问题，我搜到了很多种解决方式，我另一篇博客也写了关于这个问题的解决方法。最后其实缺少了一个步骤，就是要在package.json里面也要更改相应依赖的版本，否则在重新生成npm包的时候依旧会出错。</p>
+<p>再就是关于mint-ui这个组件库的使用问题，官方文档稍有不完善，但搜索引擎一搜基本都可以找到用法，但框架毕竟是框架，还是有bug存在的，在完成故障报备数据展示页面使用mint-ui的cell-swipe,想实现右划出现按钮的功能.但页面渲染完成后就出现的按钮，最后发现原因是mint-ui的CellSwipe与tab-container的滑动冲突,二者暂时不能同时使用。对于这个问题，我的解决方法是合法的避开这个问题，那就是不一起用它，需要用到这个组件的功能那就自己写一个，这样的话就不会和框架起冲突。</p>
+<p>关于使用这个组件库，还遇到个问题。项目开发环境布局样式正常,打包完成后Mint-ui的样式没有被重写的自定义样式覆盖,依旧为mint-ui默认样式.最后发现是打包的时候有顺序的问题，要在main.js中将根组件及路由引入时放在mint-ui前面即可解决这个问题。</p>
+<p>关于使用vuex踩的一个坑，在使用vuex保存用户信息,完成账号信息的获取和修改功能时，直接将数据与vuex中的数据进行双向绑定，导致的结果当然是功能没实现，反而报错。我的解决方法是在页面挂载完成后，把vuex中的数据取出保存在一个数组中，将数组的对象与数据进行绑定。在用户点击提交修改后，将数据发送到后端后再更新vuex的数据。</p>
+<p>做到有图片上传这个需求时，也是让我倍感难受。完成报备功能提交页面时，我以为利用input file标签，能够进行数据绑定，但是提交到后端后出现图片上传到后端为空的问题.查到原因:V-Model无法与input 进行双向数据绑定,无法直接获取到文件.文件需要在input标签上单独写事件来获取这个文件。关键是默认的input file实在是没法看。于是在网上找到了一个图片上传的组件。原理是将图片和要上传的接口单独传到图片上传组件内。上传图片使用的构造FormData，将数据发送过去。自己对这个组件进行了一下改造，将需要传的数据也同时传到这个组件当中，跟着图片一起提交到后端。完美的解决了这个问题。</p>
+<p>在上传头像时遇到了个问题，将数据发送到后端后，后端只返回了结果。并没有告诉我新的图片URL。因为只有在登录时我才能获取到图片的URL地址。这样导致了我的图片没办法实时更新。只有重新登录才能将数据取到，并渲染到页面中。仔细查看图片上传的组件的源码，发现它将图片转化成了BASE64编码。我只要将这个编码保存在本地，更新到vuex中，于是就解决这个问题。</p>
+<p>在进行登录功能时，出现了一个bug，在首次开启自动登录登陆失败后第二次登录时会默认使用第一次的错误密码导致登陆失败.问题原因是之前的判断逻辑在点击自动登录按钮提交数据成功后就保留了用户名和密码,再次提交并不会更新本地密码.解决方法:将保存密码的逻辑判断放在服务器返回登录成功后,输入错误信息提交不会保存错误数据。</p>
+<p>关于鉴权的问题，我个人是采用了比较简单的方式解决的。由于项目最后打包成了app，所以为了省事，所有的路由组件都是父路由。理论上讲应该按照用户权限不同来分配不同的路由。但是我的管理员和维修人员的入口是单独出来了。只在个人中心页面控制了权限不同的入口显示。这如果在网页端会成为很大的问题。后期应该会更改这一块。</p>
+<p>在完成登录注册联调时，第一次使用axios.一开始请求发生500.采用QS库处理后提交完美解决。关于跨域问题，一开始是在本地配置了代理进行提交，但是打包后这个就无效了，关键最后还是靠后端解决了这个问题。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总的来讲，这次这个项目其实还是有很多的问题的，尤其各种接口写得也是乱七八糟。虽然项目已经提交了。但是这个项目我会继续的改下去。尤其是由于时间原因导致的很多细节不完善。包括UI的设计也很有问题。但是这也确实是个人这方面确实有所欠缺。而且自己做项目也没有UI帮忙设计，所以自己慢慢完善咯。</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue打包Cannot read property &#39;compilation&#39; of undefined</title>
+    <url>/2019/08/28/vue%E6%89%93%E5%8C%85Cannot-read-property-compilation-of-undefined-1/</url>
+    <content><![CDATA[<h1 id="vue打包-Cannot-read-property-‘compilation’-of-undefined"><a href="#vue打包-Cannot-read-property-‘compilation’-of-undefined" class="headerlink" title="vue打包 Cannot read property ‘compilation’ of undefined"></a>vue打包 Cannot read property ‘compilation’ of undefined</h1><p>最近在做一个学习的项目,准备先测试一下打包看看效果,果然，在经历了乱七八糟环境的折腾下,它又报错了。</p><p><img src="https://i.loli.net/2019/08/28/UYAtG6RwDEkpZzQ.png" alt="1.png"></p><p>强大的搜索引擎帮我找到了答案。</p><p><a href="http://m.hangge.com/news/cache/detail_2468.html" target="_blank" rel="noopener" 解决方法"">解决方法</a></p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i optimize-css-assets-webpack-plugin@3.2.0</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>报错解决</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>vue</tag>
+        <tag>报错</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue安装iview失败报错</title>
+    <url>/2019/08/27/vue%E5%AE%89%E8%A3%85iview%E5%A4%B1%E8%B4%A5%E6%8A%A5%E9%94%99%E5%90%8Enpm-run-dev%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="vue安装iview失败报错"><a href="#vue安装iview失败报错" class="headerlink" title="vue安装iview失败报错"></a>vue安装iview失败报错</h1><p>事件起因: 使用 &gt; npm install –save iview 安装iview发生很多warning.</p><p><img src="https://i.loli.net/2019/08/27/tXNYEMCTqywUibd.png" alt="1.png"></p><p><img src="https://i.loli.net/2019/08/27/Ea3dbPZNKf98Jz6.png" alt="2.png"></p><p><img src="https://i.loli.net/2019/08/27/hFopj4caeYMEVd3.png" alt="3.png"></p><p>然后就出现了error</p><p><img src="https://i.loli.net/2019/08/27/hyvHVi2xkftW4sG.png" alt="4.png"></p><p>果断想到了webpack-dev-server的版本问题.安装老版本也就是2.9.2版本后不报错了.<br><img src="https://i.loli.net/2019/08/27/eY3nQk7SNqW5jiP.png" alt="5.png"><br>提示缺失node-sass插件,再装一下这个插件。OK,问题解决<br><img src="https://i.loli.net/2019/08/27/z6xDSqy41vI8KGZ.png" alt="6.png"></p>]]></content>
+      <categories>
+        <category>报错解决</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>vue</tag>
+        <tag>报错</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>让sql语句不排序,按照in语句的顺序返回结果</title>
+    <url>/2019/08/17/%E8%AE%A9sql%E8%AF%AD%E5%8F%A5%E4%B8%8D%E6%8E%92%E5%BA%8F-%E6%8C%89%E7%85%A7in%E8%AF%AD%E5%8F%A5%E7%9A%84%E9%A1%BA%E5%BA%8F%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C/</url>
+    <content><![CDATA[<h1 id="sql语句不排序-按照in语句的顺序返回结果"><a href="#sql语句不排序-按照in语句的顺序返回结果" class="headerlink" title="sql语句不排序,按照in语句的顺序返回结果"></a>sql语句不排序,按照in语句的顺序返回结果</h1><p>最近做了一个小项目,有这样一个需求,按照用户输入的顺序从数据库中取出数据。但是默认sql查询会有自动排序的功能,导致查询的结果是按照数字的顺序出现。百度查询后发现解决办法，在此记录一下sql语句写法</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT * FROM 表名 WHERE 关键字 IN(数字1, 数字2, 数字3, 数字4, 数字5)  ORDER BY INSTR(&#39;,数字1, 数字2, 数字3, 数字4, 数字5,&#39;,CONCAT(&#39;,&#39;,关键字,&#39;,&#39;))</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>sql</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue升级采坑历程</title>
+    <url>/2019/07/31/vue%E5%8D%87%E7%BA%A7%E9%87%87%E5%9D%91%E5%8E%86%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="vue升级采坑"><a href="#vue升级采坑" class="headerlink" title="vue升级采坑"></a>vue升级采坑</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>闲来无事打算将自己的本机的npm版本更新，其实之前在学长的Github上看到了一句开发时不要随意的更新，除非你很了解新版本的特性。但是还是忍不住试了一下。</p><h2 id="经历"><a href="#经历" class="headerlink" title="经历"></a>经历</h2><p>因为之前项目上传到Github上以后出现了安全警告和漏洞，有版本的bug和漏洞问题，也有配置文件的问题，索性尝试利用Github的自动解决。解决了一部分的问题。然后再将项目拉回本地。</p><a id="more"></a>
+
+<p><img src="https://i.loli.net/2019/08/17/aSTiG6RMEj3Zch8.png" alt="1.png"></p>
+<p>可以看到还是有很多的变化。重新下载一下依赖。升级了npm版本和插件版本.结果发生报错。<br><img src="https://i.loli.net/2019/08/17/3AuI1aFkPf6pmW5.png" alt="2.png"></p>
+<p>最后发现webpack与当前机器的vue版本不匹配，查询当前的vue版本。装上对应的webpack的版本，项目调试开发回归正常。</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>vue</tag>
+        <tag>报错</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大二下学期总结和感想</title>
+    <url>/2019/07/05/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93%E5%92%8C%E6%84%9F%E6%83%B3/</url>
+    <content><![CDATA[<h1 id="大二下学期小记和总结"><a href="#大二下学期小记和总结" class="headerlink" title="大二下学期小记和总结"></a>大二下学期小记和总结</h1><p>博客很久没有更新了。最近也是很忙，今天完成了所谓的学校“web开发大赛”，虽然只是小比赛，但是还是有很多感想！</p><h2 id="学习方面"><a href="#学习方面" class="headerlink" title="学习方面"></a>学习方面</h2><h3 id="期末考试"><a href="#期末考试" class="headerlink" title="期末考试"></a>期末考试</h3><p>  期末考试呢截止今天下午已经出来了所有成绩，没有挂科！本学期的课程还是挺多的，复习压力很大。尤其是重修的离散数学，当年老师直接取消考试资格，一年后再战还是很不错的！<br>   理论性的东西很多对于我来讲并不擅长，我一直比较喜欢实用的应用性的东西，相比于去学习理论，我更加喜欢的是实践，从实践中学习，这样的效率更高。</p><a id="more"></a>
+
+<h3 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h3><p>  网络安全方面可以说我下的功夫并不比在前端方面，初步的入门显得并不是很难。学校组织了网络安全的大赛，基本上两天3场比赛。基础理论知识比较薄弱，初赛的成果并不理想。决赛以实践操作为主，很多题只是做了一半思路就断了，总之还是做的题见得题不多。最终比赛的结果并没有拿到名次，总之已经结束，重要的是学习的过程。有些人不努力能得到的只是暂时的，最终的结果还是要看自己努力的结果。</p>
+<h3 id="前端开发"><a href="#前端开发" class="headerlink" title="前端开发"></a>前端开发</h3><p>  相比于网络安全，我更加重视的应该是前端开发。毕竟主要学习的方向还是在这边。大二下半学期结束。学校的课程不说，自己的专业水平可以说是小有进步。框架方面，最近学习了vue，不得不感叹于框架的好处！期间也是踩了很多坑，基本语法是没有问题了。但是自己的业务逻辑方面还是需要提高，更多的其实还是代码量不够。要想学习快速进步主要还是得靠敲项目。</p>
+<h3 id="软件设计大赛"><a href="#软件设计大赛" class="headerlink" title="软件设计大赛"></a>软件设计大赛</h3><p>  最近报名了山东省软件设计大赛，题目是智慧校园的APP，准备采用web app的方式，利用vue和HBuilder打包，最终形成app。</p>
+<h3 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h3><p>其实我最大的顾虑就是web app和原生安卓在体验方面会有差距。尤其对于我这个vue的菜鸟，跟队友以前并没有过多的接触。前端方面只有我一个人，其实压力很大。对于报名的题目，我个人觉得并不是很新颖。对于整个项目来讲，或者说对于队友来说，我的作用仿佛并不是很大。这一次跟后端的几个大佬一起，我内心有点拒绝。一个人做前端，没有UI，原型什么的还要我做，当然我也不做原型，随心所欲的开发吧。做一步算一步，开发并不是只有后端占大头，前端并不是所谓的只会写页面的。其实前后端分离并不是说两边完全不干涉，尤其我们自己做项目，带头的人应该有一个总体的进度的把握。明确分工，对于讲解来讲，自己应该有个数。个人能力强并不能代表团队的能力强。学校的这次的小比赛虽然只是展示项目的雏形，但是前期讲解应该以界面为主，毕竟没有功能。而且评分注重的就是界面。我花了几天时间做出的东西更希望的是能充分的展示，不是所谓的几秒钟随便点一点，说一说。最终的评分跟我想象的太不一样。</p>
+<h3 id="总结和感想"><a href="#总结和感想" class="headerlink" title="总结和感想"></a>总结和感想</h3><p>大二下学期基本结束。假期要被项目压着。前端和网络安全两边尽量都兼顾一下，看看最后到底适合哪个吧！希望最后的结果能对得起我付出的精力和努力！</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>总结</tag>
+        <tag>感想</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决VMware Workstation黑屏问题</title>
+    <url>/2019/05/26/%E8%A7%A3%E5%86%B3VMware-Workstation%E9%BB%91%E5%B1%8F%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="解决VMware-Workstation虚拟机黑屏问题"><a href="#解决VMware-Workstation虚拟机黑屏问题" class="headerlink" title="解决VMware Workstation虚拟机黑屏问题"></a>解决VMware Workstation虚拟机黑屏问题</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近升级了一下笔记本的硬件,重新安装了windows 10的2019年5月最新版本的 1903系统。作为一名在校大学生，使用虚拟机完成各种各样的实验当然是必不可少的。</p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>但是重新安装了官网最新的VM15.0.1版本后发现以前版本安装的虚拟机都无法打开，开始以为是版本兼容性问题。但是在同学的笔记本上安装相同版本的VM以及打开相同的虚拟机都没有问题。Google发现遇到此问题的解决办法为<strong>修复LSP。命令行窗口—输入netsh winsock reset—重启计算机。</strong>但是尝试过后发现没有效果。忽然想到是否是因为OS的版本太高VM还没来得及适配的原因，果断改变关键字搜索。果然是这个原因。因为最新版本的Windows10内置了一个沙盒，跟VM产生了冲突。在最新的VMware Workstation15.1.0版本解决了这个问题。</p><a id="more"></a>
+
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法:"></a>解决方法:</h3><p><strong>打开当前的VMware Workstation检查更新，升级到最新的15.1.0版本后即可解决</strong>或者<strong><a href="https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe" target="_blank" rel="noopener">点击下载最新15.1.0版本</a></strong></p>
+<h4 id="另外提供一些可用的激活码"><a href="#另外提供一些可用的激活码" class="headerlink" title="另外提供一些可用的激活码"></a>另外提供一些可用的激活码</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">VMware Workstation Pro 15 激活许可证</span><br><span class="line"></span><br><span class="line">UY758-0RXEQ-M81WP-8ZM7Z-Y3HDA</span><br><span class="line"></span><br><span class="line">VF750-4MX5Q-488DQ-9WZE9-ZY2D6</span><br><span class="line"></span><br><span class="line">UU54R-FVD91-488PP-7NNGC-ZFAX6</span><br><span class="line"></span><br><span class="line">YC74H-FGF92-081VZ-R5QNG-P6RY4</span><br><span class="line"></span><br><span class="line">YC34H-6WWDK-085MQ-JYPNX-NZRA2</span><br><span class="line"></span><br><span class="line">VMware Workstation Pro 14 激活许可证</span><br><span class="line"></span><br><span class="line">FF31K-AHZD1-H8ETZ-8WWEZ-WUUVA</span><br><span class="line"></span><br><span class="line">CV7T2-6WY5Q-48EWP-ZXY7X-QGUWD</span><br><span class="line"></span><br><span class="line">VMware Workstation Pro 12 激活许可证</span><br><span class="line"></span><br><span class="line">5A02H-AU243-TZJ49-GTC7K-3C61N</span><br><span class="line"></span><br><span class="line">VF5XA-FNDDJ-085GZ-4NXZ9-N20E6</span><br><span class="line"></span><br><span class="line">UC5MR-8NE16-H81WY-R7QGV-QG2D8</span><br><span class="line"></span><br><span class="line">ZG1WH-ATY96-H80QP-X7PEX-Y30V4</span><br><span class="line"></span><br><span class="line">AA3E0-0VDE1-0893Z-KGZ59-QGAVF</span><br><span class="line"></span><br><span class="line">VMware Workstation Pro 10 激活许可证</span><br><span class="line"></span><br><span class="line">1Z0G9-67285-FZG78-ZL3Q2-234JG</span><br><span class="line"></span><br><span class="line">4C4EK-89KDL-5ZFP9-1LA5P-2A0J0</span><br><span class="line"></span><br><span class="line">HY086-4T01N-CZ3U0-CV0QM-13DNU</span><br></pre></td></tr></table></figure>
+<h3 id="升级中遇到的问题"><a href="#升级中遇到的问题" class="headerlink" title="升级中遇到的问题"></a>升级中遇到的问题</h3><p>因为之前打开黑屏的虚拟机导致了VM的残留进程<strong>vmware-vmx.exe</strong>无法关闭,重启也不行emmm。。。只能卸载旧版本后重新下载新版本完整包。</p>
+<blockquote>
+<p>文章中引用的资源均来自互联网，如有侵权行为,请联系本人删除</p>
+</blockquote>
+]]></content>
       <categories>
         <category>报错解决</category>
       </categories>
@@ -89,9 +249,155 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[每天学习一点vue]]></title>
-    <url>%2F2019%2F05%2F24%2F%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B9%A0%E4%B8%80%E7%82%B9vue(1)%2F</url>
-    <content type="text"><![CDATA[每天学习一点vue最近也是很忙,白天课很多,课余时间忙的有点莫名其妙,也没做什么成果出来,利用课余时间学习vue,记录一下学习的历程和笔记。相关学习代码已经同步在Github上。 Git的使用我觉得是很重要的,尤其对于学习方面,以及未来可能面临的多人团队开发,Git都是很好的解决方案。 目录： 实例化 vue 对象 vue 的数据和方法 vue 的属性绑定 事件修饰符 v-model vue中class vue中style v-for Notes： el: element 需要获取的元素，一定是 html 中的根容器元素 data: 用于存储数据 methods: 用于定义当前实例各种方法 data-binding: 给属性绑定对应的值 v-cloak: 只替换插值表达式部分，不清空整个元素 解决插值表达式闪烁问题 用法:在style中添加[v-cloak]的display为none v-text无闪烁问题 覆盖当前标签内容 用法: 1&lt;h4 v-text=&quot;msg&quot;&gt;&lt;/h4&gt; v-html 可正常输出HTML标签 覆盖原有html内容 v-bind 绑定属性的指令 用法: 1&lt;input type=&quot;button&quot; value=&quot;按钮&quot; v-bind:title=&quot;msg&quot;&gt; 可简写为英文” : “，后面可以写合法JS表达式 v-on 事件绑定机制 可简写为 “ @ “ 事件修饰符 .stop 阻止冒泡 .prevent 阻止默认事件 .capture 捕获模式(从外向内) .self 只有点击当前元素,才触发事件处理函数 .once 只触发一次事件处理函数 注意 .self只会阻止自身的冒泡,不会阻止其余冒泡行为 v-model 双向数据绑定 v-bind:单向数据绑定 用法:例如1234567 + 只能用于表单元素中(input相关)- vue中class使用 1. 直接传递一个数组,class用v-bind做数据绑定 2. 在数组中使用三元表达式 3. 数组中使用对象代替三元表达式,提高代码可读性 4. 对象属性为类名,由于对象属性引号可省略,属性的值为标识符 &lt;h1 :class=&quot;classObj&quot;&gt;这是h1标签&lt;/h1&gt; classObj: {red:true, thin:true, italic:false, active:true} 123456- vue中内联样式style的使用 - 行内v-bind直接写样式对象 - 样式对象定义到data中引用 - 通过数组引用多个样式对象- v-for循环普通数组 &lt;p v-for=&quot;(item, i) in list&quot;&gt; 索引值:{{ i }} 每一项值:{{ item }} &lt;/p&gt; data:{ list:[1, 2, 3, 4, 5] } 12- v-for循环对象数组 &lt;p v-for=&quot;(user,i) in list&quot;&gt; ID:{{ user.id }} 名字:{{ user.name }} 索引:{{ i }} &lt;/p&gt; data:{ list:[ {id: 1, name: &apos;zs1&apos;}, {id: 2, name: &apos;zs2&apos;}, {id: 3, name: &apos;zs3&apos;}, {id: 4, name: &apos;zs4&apos;} ] } 12- v-for循环对象 &lt;p v-for=&quot;(val, key, index) in user&quot;&gt; 值为:{{ val }} 键:{{ key }} 索引:{{ index }} &lt;/p&gt; data:{ user:{ id: 1, name: &apos;tony&apos;, gender: &apos;男&apos; } }, 12- v-for迭代数字 &lt;p v-for=&quot;count in 10&quot;&gt; 这是第 {{count}} 次循环 &lt;/p&gt; ``` + 注意:v-for迭代数字,从1开始 v-for中key的使用及注意 vue2.2.0+版本使用v-for,必须使用key 在使用v-for时,如果出现问题，应当指定唯一的字符串/数字 v-for循环时key属性只能使用number或者string key使用时必须使用v-bind绑定指定key值 v-if和v-show的使用 v-if 每次都会重新删除或创建元素 切换性能消耗严重 v-show 每次不会重新进行DOM操作,只切换display:none 初始渲染消耗高 频换切换使用v-show 元素可能不会永远显示用v-if]]></content>
+    <title>vue学习笔记</title>
+    <url>/2019/05/24/%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B9%A0%E4%B8%80%E7%82%B9vue(1)/</url>
+    <content><![CDATA[<h1 id="每天学习一点vue"><a href="#每天学习一点vue" class="headerlink" title="每天学习一点vue"></a>每天学习一点vue</h1><p>最近也是很忙,白天课很多,课余时间忙的有点莫名其妙,也没做什么成果出来,利用课余时间学习vue,记录一下学习的历程和笔记。相关学习代码已经同步在<a href="https://github.com/xiaoshiguang123/VUE_Code" target="_blank" rel="noopener">Github</a>上。</p><blockquote>
+<p>Git的使用我觉得是很重要的,尤其对于学习方面,以及未来可能面临的多人团队开发,Git都是很好的解决方案。</p>
+</blockquote><h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h2><ol>
+<li>实例化 vue 对象</li>
+<li>vue 的数据和方法</li>
+<li>vue 的属性绑定</li>
+<li>事件修饰符</li>
+<li>v-model</li>
+<li>vue中class</li>
+<li>vue中style</li>
+<li>v-for</li>
+</ol><a id="more"></a>
+
+
+<h3 id="Notes："><a href="#Notes：" class="headerlink" title="Notes："></a>Notes：</h3><ul>
+<li><p>el: element 需要获取的元素，一定是 html 中的根容器元素</p>
+</li>
+<li><p>data: 用于存储数据</p>
+</li>
+<li><p>methods: 用于定义当前实例各种方法</p>
+</li>
+<li><p>data-binding: 给属性绑定对应的值</p>
+</li>
+<li><p>v-cloak:</p>
+<ul>
+<li>只替换插值表达式部分，不清空整个元素</li>
+<li>解决插值表达式闪烁问题</li>
+<li>用法:在style中添加[v-cloak]的display为none</li>
+</ul>
+</li>
+<li><p>v-text无闪烁问题</p>
+<ul>
+<li>覆盖当前标签内容 </li>
+<li>用法:  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;h4 v-text&#x3D;&quot;msg&quot;&gt;&lt;&#x2F;h4&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>v-html</p>
+<ul>
+<li>可正常输出HTML标签</li>
+<li>覆盖原有html内容</li>
+</ul>
+</li>
+<li><p>v-bind 绑定属性的指令</p>
+<ul>
+<li>用法:  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;按钮&quot; v-bind:title&#x3D;&quot;msg&quot;&gt;</span><br></pre></td></tr></table></figure></li>
+<li>可简写为英文” : “，后面可以写合法JS表达式</li>
+</ul>
+</li>
+<li><p>v-on 事件绑定机制</p>
+<ul>
+<li>可简写为 “ @ “</li>
+</ul>
+</li>
+<li><p>事件修饰符</p>
+<ul>
+<li><p>.stop 阻止冒泡</p>
+</li>
+<li><p>.prevent 阻止默认事件</p>
+</li>
+<li><p>.capture 捕获模式(从外向内)</p>
+</li>
+<li><p>.self 只有点击当前元素,才触发事件处理函数</p>
+</li>
+<li><p>.once 只触发一次事件处理函数</p>
+</li>
+<li><p>注意</p>
+<ul>
+<li>.self只会阻止自身的冒泡,不会阻止其余冒泡行为</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>v-model 双向数据绑定</p>
+<ul>
+<li>v-bind:单向数据绑定</li>
+<li>用法:例如<code>v-model=&quot;msg&quot;</code>无需写value</li>
+<li>只能用于表单元素中(input相关)</li>
+</ul>
+</li>
+<li><p>vue中class使用</p>
+<ol>
+<li><p>直接传递一个数组,class用v-bind做数据绑定</p>
+</li>
+<li><p>在数组中使用三元表达式</p>
+</li>
+<li><p>数组中使用对象代替三元表达式,提高代码可读性</p>
+</li>
+<li><p>对象属性为类名,由于对象属性引号可省略,属性的值为标识符</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">   </span><br><span class="line">&lt;h1 :class&#x3D;&quot;classObj&quot;&gt;这是h1标签&lt;&#x2F;h1&gt;</span><br><span class="line">classObj: &#123;red:true, thin:true, italic:false, active:true&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>vue中内联样式style的使用</p>
+<ul>
+<li>行内v-bind直接写样式对象</li>
+<li>样式对象定义到data中引用</li>
+<li>通过数组引用多个样式对象</li>
+</ul>
+</li>
+<li><p>v-for循环普通数组</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p v-for&#x3D;&quot;(item, i) in list&quot;&gt;</span><br><span class="line">  		索引值:&#123;&#123; i &#125;&#125;</span><br><span class="line">  		每一项值:&#123;&#123; item &#125;&#125;</span><br><span class="line">  	&lt;&#x2F;p&gt;</span><br><span class="line">  	data:&#123;</span><br><span class="line">  			list:[1, 2, 3, 4, 5]</span><br><span class="line">  		&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>v-for循环对象数组</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p v-for&#x3D;&quot;(user,i) in list&quot;&gt;</span><br><span class="line">  		ID:&#123;&#123; user.id &#125;&#125;</span><br><span class="line">  		名字:&#123;&#123; user.name &#125;&#125;</span><br><span class="line">  		索引:&#123;&#123; i &#125;&#125;</span><br><span class="line">  	&lt;&#x2F;p&gt;   	</span><br><span class="line">  	data:&#123;</span><br><span class="line">  		list:[</span><br><span class="line">  		&#123;id: 1, name: &#39;zs1&#39;&#125;,</span><br><span class="line">  		&#123;id: 2, name: &#39;zs2&#39;&#125;,</span><br><span class="line">  		&#123;id: 3, name: &#39;zs3&#39;&#125;,</span><br><span class="line">  		&#123;id: 4, name: &#39;zs4&#39;&#125;</span><br><span class="line">  		]</span><br><span class="line">  	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>v-for循环对象</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p v-for&#x3D;&quot;(val, key, index) in user&quot;&gt;</span><br><span class="line">   	值为:&#123;&#123; val &#125;&#125;</span><br><span class="line">   	</span><br><span class="line">   	键:&#123;&#123; key &#125;&#125;</span><br><span class="line"> </span><br><span class="line">   	索引:&#123;&#123; index &#125;&#125;</span><br><span class="line">   &lt;&#x2F;p&gt;</span><br><span class="line">   data:&#123;</span><br><span class="line">   	user:&#123;</span><br><span class="line">   		id: 1,</span><br><span class="line">   		name: &#39;tony&#39;,</span><br><span class="line">   		gender: &#39;男&#39;</span><br><span class="line">   		&#125;</span><br><span class="line">   	&#125;,</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>v-for迭代数字</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p v-for&#x3D;&quot;count in 10&quot;&gt;</span><br><span class="line">   		这是第 &#123;&#123;count&#125;&#125; 次循环</span><br><span class="line">   &lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意:v-for迭代数字,从1开始</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>v-for中key的使用及注意</p>
+<blockquote>
+<p>vue2.2.0+版本使用v-for,必须使用key</p>
+</blockquote>
+<ul>
+<li>在使用v-for时,如果出现问题，应当指定唯一的字符串/数字</li>
+<li>v-for循环时key属性只能使用number或者string</li>
+<li>key使用时必须使用v-bind绑定指定key值</li>
+</ul>
+</li>
+<li><p>v-if和v-show的使用</p>
+<ul>
+<li><p>v-if</p>
+<ul>
+<li>每次都会重新删除或创建元素</li>
+<li>切换性能消耗严重</li>
+</ul>
+</li>
+<li><p>v-show</p>
+<ul>
+<li>每次不会重新进行DOM操作,只切换display:none</li>
+<li>初始渲染消耗高</li>
+</ul>
+</li>
+<li><p>频换切换使用v-show</p>
+</li>
+<li><p>元素可能不会永远显示用v-if</p>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -101,9 +407,32 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hexo博客提交搜索引擎及SEO优化]]></title>
-    <url>%2F2019%2F03%2F21%2FHexo%E5%8D%9A%E5%AE%A2%E6%8F%90%E4%BA%A4%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E5%8F%8ASEO%E4%BC%98%E5%8C%96(1)%2F</url>
-    <content type="text"><![CDATA[hexo博客的SEO优化(1)SEO是什么？它能做什么？ SEO（Search Engine Optimization）：汉译为搜索引擎优化。是一种方式：利用搜索引擎的规则提高网站在有关搜索引擎内的自然排名。 为什么做这个呢?因为配置好自己的博客需要让搜索引擎抓取我们的内容，要不然我们在搜索引擎中是基本看不到我们的博客的，所以，一个新博客建立之后，需要往搜索引擎提交自己的链接,从而尽快的让搜索引擎收录我们的网站，seo的优化则可以让我们的网站排名更加靠前。博主也只是略知一点皮毛，在这里将自己学到的，看到的记录下来。 1.基本配置首先，我们先去两大搜索引擎搜索自己的网站,格式为1site:你自己的域名 当然了，得到的结果肯定是这样…但是Google比较强大,也比较友好，有时候没有主动提交也是可以搜索到的当然，该做的工作还是要做的。这里需要做两个事情，一个是验证网站，一个是链接提交.我们到百度站长平台里面的站长工具里面去验证网站，大概步骤如下： 第一步：输入网站 第二步：站点属性 第三步：验证网站 前两步都很简单，第三步：验证网站有以下三种方法： 文件验证 HTML标签验证 CNAME验证 未完待续…]]></content>
+    <title>Hexo博客提交搜索引擎及SEO优化</title>
+    <url>/2019/03/21/Hexo%E5%8D%9A%E5%AE%A2%E6%8F%90%E4%BA%A4%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E5%8F%8ASEO%E4%BC%98%E5%8C%96(1)/</url>
+    <content><![CDATA[<h1 id="hexo博客的SEO优化-1"><a href="#hexo博客的SEO优化-1" class="headerlink" title="hexo博客的SEO优化(1)"></a>hexo博客的SEO优化(1)</h1><p>SEO是什么？它能做什么？<br></p><blockquote>
+<p>SEO（Search Engine Optimization）：汉译为搜索引擎优化。是一种方式：利用搜索引擎的规则提高网站在有关搜索引擎内的自然排名。</p>
+</blockquote><p>为什么做这个呢?<br>因为配置好自己的博客需要让搜索引擎抓取我们的内容，要不然我们在搜索引擎中是基本看不到我们的博客的，所以，一个新博客建立之后，需要往搜索引擎提交自己的链接,从而尽快的让搜索引擎收录我们的网站，seo的优化则可以让我们的网站排名更加靠前。博主也只是略知一点皮毛，在这里将自己学到的，看到的记录下来。</p><a id="more"></a>
+
+
+<h2 id="1-基本配置"><a href="#1-基本配置" class="headerlink" title="1.基本配置"></a>1.基本配置</h2><p>首先，我们先去两大搜索引擎搜索自己的网站,格式为<br></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">site:你自己的域名</span><br></pre></td></tr></table></figure>
+<p>当然了，得到的结果肯定是这样…<br><img src="https://i.loli.net/2019/03/21/5c939c3350780.png" alt="11.png"><br>但是Google比较强大,也比较友好，有时候没有主动提交也是可以搜索到的<br><img src="https://i.loli.net/2019/03/21/5c939cbee238c.png" alt="2.png"><br>当然，该做的工作还是要做的。<br>这里需要做两个事情，一个是<strong>验证网站</strong>，一个是<strong>链接提交</strong>.<br><br>我们到百度站长平台里面的<a href="https://ziyuan.baidu.com" target="_blank" rel="noopener">站长工具</a>里面去验证网站，大概步骤如下： </p>
+<ol>
+<li>第一步：输入网站 </li>
+<li>第二步：站点属性 </li>
+<li>第三步：验证网站</li>
+</ol>
+<p>前两步都很简单，第三步：验证网站有以下三种方法： </p>
+<ol>
+<li>文件验证 </li>
+<li>HTML标签验证 </li>
+<li>CNAME验证<br>
+
+
+</li>
+</ol>
+<p>未完待续…</p>
+]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -113,9 +442,66 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[钟爱捡垃圾之斐讯k2p路由器(下)——刷机]]></title>
-    <url>%2F2019%2F02%2F19%2F%E9%92%9F%E7%88%B1%E6%8D%A1%E5%9E%83%E5%9C%BE%E4%B9%8B%E6%96%90%E8%AE%AFk2p%E8%B7%AF%E7%94%B1%E5%99%A8-%E4%B8%8B-%E2%80%94%E2%80%94%E5%88%B7%E6%9C%BA%2F</url>
-    <content type="text"><![CDATA[斐讯K2、K2P A1/A2刷Breed和路由器固件教程 此教程使用工具为《K2K2P傻瓜式刷Breed脚本bat》 1.breed刷入部分 首先，将路由器简单配置一下，设置好管理员密码，推荐使用admin，方便后面操作。（其他选项如WiFi密码等无需设置） 下载网盘文件《K2K2P傻瓜式刷Breed脚本bat》并解压。双击打开文件夹，双击运行“刷机.bat”文件。（是双击运行不是右击管理员。） 对比路由器当前固件版本，查看是否为脚本中适配的版本，如果不是请到网盘文件中下载适配固件，手动升级到对应版本再进行进一步操作，否则容易失败变砖。 如下图，输入路由器IP地址，一般情况下脚本应该会自动识别，直接回车即可，如果不对请手动输入 然后，输入路由器登录密码，若为admin直接回车即可，不是的话请手动输入。 等待脚本提示成功后，Breed即成功输入。2.刷入第三方固件 首先进入breed控制台，进入方法:(1)先用网线将路由器LAN端口连到电脑上，将其他端口网线断开，然后按下路由器后面的reset键，然后再插上电源通电，等待约十秒后松开reset键，这样就进入了Breed控制台，然后在电脑上的浏览器中输入进入路由器的IP地址：192.168.1.1 进入控制台WEB页面。 开始刷机:(1)点击“固件更新”，在“固件”栏上传固件，勾选“自动重启”，点击“上传”。(2) Breed会自动计算固件相关信息，点击“刷机”，即出现下图进度条(3) 刷机完成后，等待一分钟，进入固件相关后台即可。 主流固件后台地址及密码固件名称 | 登录地址 | 管理账号密码 |——————|——————-|———————–|hiboyhiboy老毛子 | 192.168.123.1 | admin/admin |荒野无灯老毛子 | 192.168.6.1 | admin/admin |Pandora/潘多拉 | 192.168.1.1 | root/admin(或password)|高恪固件 | 192.168.1.1(或0.1)| admin/admin |斐讯官改 | 192.168.2.1 | admin/admin | 最后的最后，网盘地址:点击跳转如果有问题可以添加扣扣群：778472189，群里都是各路大佬，欢迎加入！免费帮你解决问题。 本篇教程本人非完全原创，有些搬运自群里的大佬，如有侵权行为，请联系本人删除！]]></content>
+    <title>钟爱捡垃圾之斐讯k2p路由器(下)——刷机</title>
+    <url>/2019/02/19/%E9%92%9F%E7%88%B1%E6%8D%A1%E5%9E%83%E5%9C%BE%E4%B9%8B%E6%96%90%E8%AE%AFk2p%E8%B7%AF%E7%94%B1%E5%99%A8-%E4%B8%8B-%E2%80%94%E2%80%94%E5%88%B7%E6%9C%BA/</url>
+    <content><![CDATA[<h1 id="斐讯K2、K2P-A1-A2刷Breed和路由器固件教程"><a href="#斐讯K2、K2P-A1-A2刷Breed和路由器固件教程" class="headerlink" title="斐讯K2、K2P A1/A2刷Breed和路由器固件教程"></a>斐讯K2、K2P A1/A2刷Breed和路由器固件教程</h1><blockquote>
+<p>此教程使用工具为《K2K2P傻瓜式刷Breed脚本bat》<br></p>
+</blockquote><h2 id="1-breed刷入部分"><a href="#1-breed刷入部分" class="headerlink" title="1.breed刷入部分"></a>1.breed刷入部分</h2><ol>
+<li><p>首先，将路由器简单配置一下，设置好管理员密码，推荐使用admin，方便后面操作。（其他选项如WiFi密码等无需设置）</p>
+</li>
+<li><p>下载网盘文件《K2K2P傻瓜式刷Breed脚本bat》并解压。双击打开文件夹，双击运行“刷机.bat”文件。（是双击运行不是右击管理员。）</p>
+</li>
+<li><p>对比路由器当前固件版本，查看是否为脚本中适配的版本，如果不是请到网盘文件中下载适配固件，手动升级到对应版本再进行进一步操作，否则容易失败变砖。</p>
+</li>
+<li><p>如下图，输入路由器IP地址，一般情况下脚本应该会自动识别，直接回车即可，如果不对请手动输入<br><img src="https://i.loli.net/2019/02/19/5c6bb784ce2ba.png" alt="1_看图王.png"></p>
+</li>
+<li><p>然后，输入路由器登录密码，若为admin直接回车即可，不是的话请手动输入。</p>
+</li>
+<li><p>等待脚本提示成功后，Breed即成功输入。<br><img src="https://i.loli.net/2019/02/19/5c6bb85a972da.png" alt="2_看图王.png"></p>
+<h2 id="2-刷入第三方固件"><a href="#2-刷入第三方固件" class="headerlink" title="2.刷入第三方固件"></a>2.刷入第三方固件</h2></li>
+<li><p>首先进入breed控制台，进入方法:<br><br>(1)先用网线将路由器LAN端口连到电脑上，将其他端口网线断开，然后按下路由器后面的reset键，然后再插上电源通电，等待约十秒后松开reset键，这样就进入了Breed控制台，然后在电脑上的浏览器中输入进入路由器的IP地址：192.168.1.1 进入控制台WEB页面。<br><br><img src="https://i.loli.net/2019/02/19/5c6bbb16b5f86.png" alt="QQ截图20190219161504.png"></p>
+</li>
+<li><p>开始刷机:(1)点击“固件更新”，在“固件”栏上传固件，勾选“自动重启”，点击“上传”。<br><br>(2)    Breed会自动计算固件相关信息，点击“刷机”，即出现下图进度条<br><br><img src="https://i.loli.net/2019/02/19/5c6bbb7b1974e.png" alt="33.png"><br>(3) 刷机完成后，等待一分钟，进入固件相关后台即可。</p>
+<h3 id="主流固件后台地址及密码"><a href="#主流固件后台地址及密码" class="headerlink" title="主流固件后台地址及密码"></a>主流固件后台地址及密码</h3><table>
+<thead>
+<tr>
+<th>固件名称</th>
+<th>登录地址</th>
+<th>管理账号密码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>hiboyhiboy老毛子</td>
+<td>192.168.123.1</td>
+<td>admin/admin</td>
+</tr>
+<tr>
+<td>荒野无灯老毛子</td>
+<td>192.168.6.1</td>
+<td>admin/admin</td>
+</tr>
+<tr>
+<td>Pandora/潘多拉</td>
+<td>192.168.1.1</td>
+<td>root/admin(或password)</td>
+</tr>
+<tr>
+<td>高恪固件</td>
+<td>192.168.1.1(或0.1)</td>
+<td>admin/admin</td>
+</tr>
+<tr>
+<td>斐讯官改</td>
+<td>192.168.2.1</td>
+<td>admin/admin</td>
+</tr>
+</tbody></table>
+<p>最后的最后，网盘地址:<a href="https://pan.baidu.com/s/1L6yUkOTiN0wxPrVYK-ZRAw" target="_blank" rel="noopener">点击跳转</a><br>如果有问题可以添加扣扣群：778472189，群里都是各路大佬，欢迎加入！免费帮你解决问题。<br></p>
+<blockquote>
+<p>本篇教程本人非完全原创，有些搬运自群里的大佬，如有侵权行为，请联系本人删除！</p>
+</blockquote>
+</li>
+</ol>]]></content>
       <categories>
         <category>路由器刷机</category>
       </categories>
@@ -125,9 +511,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[钟爱捡垃圾之斐讯k2p路由器(上)——开箱]]></title>
-    <url>%2F2019%2F02%2F19%2F%E9%92%9F%E7%88%B1%E6%8D%A1%E5%9E%83%E5%9C%BE%E4%B9%8B%E6%96%90%E8%AE%AFk2p%E8%B7%AF%E7%94%B1%E5%99%A8(%E4%B8%8A)%E2%80%94%E2%80%94%E5%BC%80%E7%AE%B1%2F</url>
-    <content type="text"><![CDATA[斐讯k2p路由器开箱前几天呢，在很多论坛上看到各路大神都在购买这个已经翻车的斐讯公司的”理财产品”——斐讯k2p路由器。为什么说是理财产品呢？这玩意当时斐讯跑路的时候坑了一大批买家，然后呢大家都看中了这个路由器的性能，因为他是一款全千兆的路由器，CPU是MT7621AT，双核880MHz，它集成了5个网络端口 10/100/1000 Mbps 工业级以太网交换机及一个rGMII接口，支持USB 3.0、 USB 2.0、SD-XC、NAND 和eMMC等多种存储接口规格，支持硬件NAT和QOS。CPU集成了交换机功能，但是当时购买的人并不是很多。过了一段时间后，莫名其妙就开始火起来了，价格也是一路上涨，从春节开始算，到现在基本已经涨了35块钱左右。某鱼和某宝屏蔽了斐讯的关键字，但是还是可以在拼夕夕和某转平台买得到。他的硬件版本也分很多，基本上可以说最好的是A1版本，可以刷的第三方固件也很多，但是市场上基本已经买不到了，能买到也是价值不菲，所以建议没入手的朋友可以购买A2版本。我也是在拼夕夕平台上购买到了全新未拆封的A2版本，花了135元。这价格怎么说呢？不亏！接下来就是开箱了！盒子有点小脏，但是问题不大。（毕竟两百块内性价比无敌！）打开就长这样。还有翻车指南！好啦！起锅烧油，啊呸！插电上机。开刷breed和第三方固件。具体的刷机教程敬请期待下篇哦！]]></content>
+    <title>钟爱捡垃圾之斐讯k2p路由器(上)——开箱</title>
+    <url>/2019/02/19/%E9%92%9F%E7%88%B1%E6%8D%A1%E5%9E%83%E5%9C%BE%E4%B9%8B%E6%96%90%E8%AE%AFk2p%E8%B7%AF%E7%94%B1%E5%99%A8(%E4%B8%8A)%E2%80%94%E2%80%94%E5%BC%80%E7%AE%B1/</url>
+    <content><![CDATA[<h1 id="斐讯k2p路由器开箱"><a href="#斐讯k2p路由器开箱" class="headerlink" title="斐讯k2p路由器开箱"></a>斐讯k2p路由器开箱</h1><p>前几天呢，在很多论坛上看到各路大神都在购买这个已经翻车的斐讯公司的”理财产品”——斐讯k2p路由器。为什么说是理财产品呢？这玩意当时斐讯跑路的时候坑了一大批买家，然后呢大家都看中了这个路由器的性能，因为他是一款全千兆的路由器，CPU是MT7621AT，双核880MHz，它集成了5个网络端口 10/100/1000 Mbps 工业级以太网交换机及一个rGMII接口，支持USB 3.0、 USB 2.0、SD-XC、NAND 和eMMC等多种存储接口规格，支持硬件NAT和QOS。CPU集成了交换机功能，但是当时购买的人并不是很多。过了一段时间后，莫名其妙就开始火起来了，价格也是一路上涨，从春节开始算，到现在基本已经涨了35块钱左右。某鱼和某宝屏蔽了斐讯的关键字，但是还是可以在拼夕夕和某转平台买得到。他的硬件版本也分很多，基本上可以说最好的是A1版本，可以刷的第三方固件也很多，但是市场上基本已经买不到了，能买到也是价值不菲，所以建议没入手的朋友可以购买A2版本。<br><br>我也是在拼夕夕平台上购买到了全新未拆封的A2版本，花了135元。这价格怎么说呢？不亏！接下来就是开箱了！<br><img src="https://i.loli.net/2019/02/19/5c6bb14711bc9.jpg" alt="7001f18e45046f4ab1128511cf330e3.jpg"><br><a href="https://i.loli.net/2019/02/19/5c6bb1d05efa1.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/02/19/5c6bb1d05efa1.jpg" alt="a8ca16e56026c3a22cdce46176278cb.jpg"></a><br>盒子有点小脏，但是问题不大。（毕竟两百块内性价比无敌！）<br><img src="https://i.loli.net/2019/02/19/5c6bb2751fe39.jpg" alt="16711238d8a1f12e90bcab43a4b9a40.jpg"><br><img src="https://i.loli.net/2019/02/19/5c6bb2751b850.jpg" alt="b5a7c555f8e5c8b2eeef116ed8d05d2.jpg"><br>打开就长这样。还有翻车指南！<br>好啦！起锅烧油，啊呸！插电上机。开刷breed和第三方固件。具体的刷机教程敬请期待下篇哦！</p>]]></content>
       <categories>
         <category>路由器刷机</category>
       </categories>
@@ -137,9 +523,30 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[HelloWorld？！——hexo入门及常用命令]]></title>
-    <url>%2F2019%2F01%2F30%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;第一次使用 Hexo来搭建博客，总的来说前前后后还是踩了不少的坑，其实2018年12月底就在研究这个东西了，但是后来种种原因搁置了这个项目。这都过去一个月了，也是突然想起来还有这么个小项目，花了一天时间也算是大概完成了。记录一下基本的操作及命令！ 快速入门HEXO&nbsp;&nbsp;&nbsp;&nbsp;hexo是基于node的一个静态博客程序，可以轻松的将Markdown文件渲染成博客页面，对于大部分喜爱折腾但又喜欢简单写点东西的人还是挺友好的。至于MarkDown也不作过多的介绍。总之，了解Markdown的语法确实为写作可以提供不少的便利。 具体的MarkDown语法可以参考这几个献给写作者的 Markdown 新手指南一位学长总结的Markdown语法 创建一篇新文章1$ hexo new "文章标题" 可简写为1$ hexo n "文章标题" 更多请看这里: Writing 在本地服务器上运行HEXO1$ hexo server 可简写为1$ hexo s 更多请看这里: Server 静态生成hexo页面1$ hexo generate 可简写为1$ hexo g 更多请看这里: Generating 部署到远程站点1$ hexo deploy 可简写为1$ hexo d 更多请看这里: Deployment]]></content>
+    <title>HelloWorld？！——hexo入门及常用命令</title>
+    <url>/2019/01/30/hello-world/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;第一次使用 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>来搭建博客，总的来说前前后后还是踩了不少的坑，其实2018年12月底就在研究这个东西了，但是后来种种原因搁置了这个项目。这都过去一个月了，也是突然想起来还有这么个小项目，花了一天时间也算是大概完成了。记录一下基本的操作及命令！</p><h2 id="快速入门HEXO"><a href="#快速入门HEXO" class="headerlink" title="快速入门HEXO"></a>快速入门HEXO</h2><a id="more"></a>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;hexo是基于node的一个静态博客程序，可以轻松的将Markdown文件渲染成博客页面，对于大部分喜爱折腾但又喜欢简单写点东西的人还是挺友好的。至于MarkDown也不作过多的介绍。总之，了解Markdown的语法确实为写作可以提供不少的便利。<br><br></p>
+<h6 id="具体的MarkDown语法可以参考这几个"><a href="#具体的MarkDown语法可以参考这几个" class="headerlink" title="具体的MarkDown语法可以参考这几个"></a>具体的MarkDown语法可以参考这几个</h6><p><a href="https://www.jianshu.com/p/q81RER" target="_blank" rel="noopener">献给写作者的 Markdown 新手指南</a><br><br><a href="https://blog.rebright.top/2019/01/05/markdown%E8%AF%AD%E6%B3%95/" target="_blank" rel="noopener">一位学长总结的Markdown语法</a></p>
+<h3 id="创建一篇新文章"><a href="#创建一篇新文章" class="headerlink" title="创建一篇新文章"></a>创建一篇新文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"文章标题"</span></span><br></pre></td></tr></table></figure>
+<p>可简写为</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo n <span class="string">"文章标题"</span></span><br></pre></td></tr></table></figure>
+<p>更多请看这里: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="在本地服务器上运行HEXO"><a href="#在本地服务器上运行HEXO" class="headerlink" title="在本地服务器上运行HEXO"></a>在本地服务器上运行HEXO</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>可简写为</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<p>更多请看这里: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="静态生成hexo页面"><a href="#静态生成hexo页面" class="headerlink" title="静态生成hexo页面"></a>静态生成hexo页面</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>可简写为</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+
+<p>更多请看这里: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="部署到远程站点"><a href="#部署到远程站点" class="headerlink" title="部署到远程站点"></a>部署到远程站点</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>可简写为</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<p>更多请看这里: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a><br><br></p>
+]]></content>
       <categories>
         <category>前端</category>
       </categories>
