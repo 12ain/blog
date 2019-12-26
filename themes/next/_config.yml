@@ -185,8 +185,8 @@ site_state: true
 social:
   GitHub: https://github.com/xiaoshiguang123 || github
   E-Mail: mailto:smalltime153@gmail.com || envelope
-  Weibo: https://www.weibo.com/u/5027507003/ || weibo
-  QQ: tencent://message/?uin=1539213866&Menu=yes" class="qq || QQ
+  #Weibo: https://www.weibo.com/u/5027507003/ || weibo
+  #QQ: tencent://message/?uin=1539213866&Menu=yes" class="qq || qq
   #GitHub: https://github.com/yourname || github
   #E-Mail: mailto:yourname@gmail.com || envelope
   #Weibo: https://weibo.com/yourname || weibo
