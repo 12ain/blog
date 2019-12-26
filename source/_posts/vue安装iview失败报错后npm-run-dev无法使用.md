@@ -1,4 +1,4 @@
-title: vue安装iview失败报错后npm run dev无法使用
+title: vue安装iview失败报错
 author: 惬意的小时光
 tags:
   - 前端
@@ -8,7 +8,7 @@ categories:
   - 报错解决
 date: 2019-08-27 23:54:00
 ---
-# vue安装iview失败报错后npm run dev无法使用
+# vue安装iview失败报错
 
 事件起因: 使用 > npm install --save iview 安装iview发生很多warning.
 
