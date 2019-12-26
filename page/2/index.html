@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
@@ -46,17 +46,16 @@
   };
 </script>
 
-  <meta name="description" content="小时光博客，一个关注技术交流的IT博客。主要记录在学习中遇到的点点滴滴，网址：https://blog.abplan.top">
-<meta name="keywords" content="IT，技术博客，小时光，惬意的小时光">
+  <meta name="description" content="小时光博客，一个关注技术交流的IT博客。主要记录在学习中遇到的点点滴滴，网址：https:&#x2F;&#x2F;blog.abplan.top">
 <meta property="og:type" content="website">
 <meta property="og:title" content="惬意的小时光">
 <meta property="og:url" content="https://blog.abplan.top/page/2/index.html">
 <meta property="og:site_name" content="惬意的小时光">
-<meta property="og:description" content="小时光博客，一个关注技术交流的IT博客。主要记录在学习中遇到的点点滴滴，网址：https://blog.abplan.top">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:description" content="小时光博客，一个关注技术交流的IT博客。主要记录在学习中遇到的点点滴滴，网址：https:&#x2F;&#x2F;blog.abplan.top">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="惬意的小时光">
+<meta property="article:tag" content="IT，技术博客，小时光，惬意的小时光">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="惬意的小时光">
-<meta name="twitter:description" content="小时光博客，一个关注技术交流的IT博客。主要记录在学习中遇到的点点滴滴，网址：https://blog.abplan.top">
 
 <link rel="canonical" href="https://blog.abplan.top/page/2/">
 
@@ -223,7 +222,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.abplan.top/2019/05/24/每天学习一点vue(1)/">
+    <link itemprop="mainEntityOfPage" href="https://blog.abplan.top/2019/05/26/%E8%A7%A3%E5%86%B3VMware-Workstation%E9%BB%91%E5%B1%8F%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -237,7 +236,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/05/24/每天学习一点vue(1)/" class="post-title-link" itemprop="url">每天学习一点vue</a>
+            <a href="/2019/05/26/%E8%A7%A3%E5%86%B3VMware-Workstation%E9%BB%91%E5%B1%8F%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决VMware Workstation黑屏问题</a>
         </h1>
 
         <div class="post-meta">
@@ -247,7 +246,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-05-24 21:52:00" itemprop="dateCreated datePublished" datetime="2019-05-24T21:52:00+08:00">2019-05-24</time>
+              <time title="创建时间：2019-05-26 20:35:00" itemprop="dateCreated datePublished" datetime="2019-05-26T20:35:00+08:00">2019-05-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -262,8 +261,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/categories/%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3/" itemprop="url" rel="index">
+                    <span itemprop="name">报错解决</span>
                   </a>
                 </span>
             </span>
@@ -279,171 +278,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="每天学习一点vue"><a href="#每天学习一点vue" class="headerlink" title="每天学习一点vue"></a>每天学习一点vue</h1><p>最近也是很忙,白天课很多,课余时间忙的有点莫名其妙,也没做什么成果出来,利用课余时间学习vue,记录一下学习的历程和笔记。相关学习代码已经同步在<a href="https://github.com/xiaoshiguang123/VUE_Code" target="_blank" rel="noopener">Github</a>上。</p>
-<blockquote>
-<p>Git的使用我觉得是很重要的,尤其对于学习方面,以及未来可能面临的多人团队开发,Git都是很好的解决方案。</p>
-</blockquote>
-<h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h2><ol>
-<li>实例化 vue 对象</li>
-<li>vue 的数据和方法</li>
-<li>vue 的属性绑定</li>
-<li>事件修饰符</li>
-<li>v-model</li>
-<li>vue中class</li>
-<li>vue中style</li>
-<li>v-for</li>
-</ol>
-<h3 id="Notes："><a href="#Notes：" class="headerlink" title="Notes："></a>Notes：</h3><ul>
-<li><p>el: element 需要获取的元素，一定是 html 中的根容器元素</p>
-</li>
-<li><p>data: 用于存储数据</p>
-</li>
-<li><p>methods: 用于定义当前实例各种方法</p>
-</li>
-<li><p>data-binding: 给属性绑定对应的值</p>
-</li>
-<li><p>v-cloak:</p>
-<ul>
-<li>只替换插值表达式部分，不清空整个元素</li>
-<li>解决插值表达式闪烁问题</li>
-<li>用法:在style中添加[v-cloak]的display为none</li>
-</ul>
-</li>
-<li><p>v-text无闪烁问题</p>
-<ul>
-<li>覆盖当前标签内容 </li>
-<li>用法:  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h4 v-text=&quot;msg&quot;&gt;&lt;/h4&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>v-html</p>
-<ul>
-<li>可正常输出HTML标签</li>
-<li>覆盖原有html内容</li>
-</ul>
-</li>
-<li><p>v-bind 绑定属性的指令</p>
-<ul>
-<li><p>用法:</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;button&quot; value=&quot;按钮&quot; v-bind:title=&quot;msg&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可简写为英文” : “，后面可以写合法JS表达式</p>
-</li>
-</ul>
-</li>
-<li><p>v-on 事件绑定机制</p>
-<ul>
-<li>可简写为 “ @ “</li>
-</ul>
-</li>
-<li><p>事件修饰符</p>
-<ul>
-<li><p>.stop 阻止冒泡</p>
-</li>
-<li><p>.prevent 阻止默认事件</p>
-</li>
-<li><p>.capture 捕获模式(从外向内)</p>
-</li>
-<li><p>.self 只有点击当前元素,才触发事件处理函数</p>
-</li>
-<li><p>.once 只触发一次事件处理函数</p>
-</li>
-<li><p>注意</p>
-<ul>
-<li>.self只会阻止自身的冒泡,不会阻止其余冒泡行为</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>v-model 双向数据绑定</p>
-<ul>
-<li>v-bind:单向数据绑定</li>
-<li>用法:例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	+ 只能用于表单元素中(input相关)</span><br><span class="line"></span><br><span class="line">- vue中class使用</span><br><span class="line">	1. 直接传递一个数组,class用v-bind做数据绑定</span><br><span class="line">	2. 在数组中使用三元表达式</span><br><span class="line">	3. 数组中使用对象代替三元表达式,提高代码可读性</span><br><span class="line">	4. 对象属性为类名,由于对象属性引号可省略,属性的值为标识符</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<pre><code>&lt;h1 :class=&quot;classObj&quot;&gt;这是h1标签&lt;/h1&gt;
-classObj: {red:true, thin:true, italic:false, active:true}
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- vue中内联样式style的使用</span><br><span class="line">	- 行内v-bind直接写样式对象</span><br><span class="line">	- 样式对象定义到data中引用</span><br><span class="line">	- 通过数组引用多个样式对象</span><br><span class="line"></span><br><span class="line">- v-for循环普通数组</span><br></pre></td></tr></table></figure>
-
-    &lt;p v-for=&quot;(item, i) in list&quot;&gt;
-        索引值:{{ i }}
-        每一项值:{{ item }}
-    &lt;/p&gt;
-    data:{
-            list:[1, 2, 3, 4, 5]
-        }
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- v-for循环对象数组</span><br></pre></td></tr></table></figure>
-
-    &lt;p v-for=&quot;(user,i) in list&quot;&gt;
-        ID:{{ user.id }}
-        名字:{{ user.name }}
-        索引:{{ i }}
-    &lt;/p&gt;       
-    data:{
-        list:[
-        {id: 1, name: &apos;zs1&apos;},
-        {id: 2, name: &apos;zs2&apos;},
-        {id: 3, name: &apos;zs3&apos;},
-        {id: 4, name: &apos;zs4&apos;}
-        ]
-    }
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- v-for循环对象</span><br></pre></td></tr></table></figure>
-
-&lt;p v-for=&quot;(val, key, index) in user&quot;&gt;
-    值为:{{ val }}
-
-    键:{{ key }}
-
-    索引:{{ index }}
-&lt;/p&gt;
-data:{
-    user:{
-        id: 1,
-        name: &apos;tony&apos;,
-        gender: &apos;男&apos;
-        }
-    },
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- v-for迭代数字</span><br></pre></td></tr></table></figure>
-
-&lt;p v-for=&quot;count in 10&quot;&gt;
-        这是第 {{count}} 次循环
-&lt;/p&gt;
-```
-+ 注意:v-for迭代数字,从1开始</code></pre><ul>
-<li><p>v-for中key的使用及注意</p>
-<blockquote>
-<p>vue2.2.0+版本使用v-for,必须使用key</p>
-</blockquote>
-<ul>
-<li>在使用v-for时,如果出现问题，应当指定唯一的字符串/数字</li>
-<li>v-for循环时key属性只能使用number或者string</li>
-<li>key使用时必须使用v-bind绑定指定key值</li>
-</ul>
-</li>
-<li><p>v-if和v-show的使用</p>
-<ul>
-<li><p>v-if</p>
-<ul>
-<li>每次都会重新删除或创建元素</li>
-<li>切换性能消耗严重</li>
-</ul>
-</li>
-<li><p>v-show</p>
-<ul>
-<li>每次不会重新进行DOM操作,只切换display:none</li>
-<li>初始渲染消耗高</li>
-</ul>
-</li>
-<li><p>频换切换使用v-show</p>
-</li>
-<li><p>元素可能不会永远显示用v-if</p>
-</li>
-</ul>
-</li>
-</ul>
-
+          <h1 id="解决VMware-Workstation虚拟机黑屏问题"><a href="#解决VMware-Workstation虚拟机黑屏问题" class="headerlink" title="解决VMware Workstation虚拟机黑屏问题"></a>解决VMware Workstation虚拟机黑屏问题</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近升级了一下笔记本的硬件,重新安装了windows 10的2019年5月最新版本的 1903系统。作为一名在校大学生，使用虚拟机完成各种各样的实验当然是必不可少的。</p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>但是重新安装了官网最新的VM15.0.1版本后发现以前版本安装的虚拟机都无法打开，开始以为是版本兼容性问题。但是在同学的笔记本上安装相同版本的VM以及打开相同的虚拟机都没有问题。Google发现遇到此问题的解决办法为<strong>修复LSP。命令行窗口—输入netsh winsock reset—重启计算机。</strong>但是尝试过后发现没有效果。忽然想到是否是因为OS的版本太高VM还没来得及适配的原因，果断改变关键字搜索。果然是这个原因。因为最新版本的Windows10内置了一个沙盒，跟VM产生了冲突。在最新的VMware Workstation15.1.0版本解决了这个问题。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/05/26/%E8%A7%A3%E5%86%B3VMware-Workstation%E9%BB%91%E5%B1%8F%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -462,7 +305,7 @@ data:{
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.abplan.top/2019/03/21/Hexo博客提交搜索引擎及SEO优化(1)/">
+    <link itemprop="mainEntityOfPage" href="https://blog.abplan.top/2019/05/24/%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B9%A0%E4%B8%80%E7%82%B9vue(1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -476,7 +319,101 @@ data:{
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/03/21/Hexo博客提交搜索引擎及SEO优化(1)/" class="post-title-link" itemprop="url">Hexo博客提交搜索引擎及SEO优化</a>
+            <a href="/2019/05/24/%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B9%A0%E4%B8%80%E7%82%B9vue(1)/" class="post-title-link" itemprop="url">vue学习笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-24 21:52:00" itemprop="dateCreated datePublished" datetime="2019-05-24T21:52:00+08:00">2019-05-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-26 10:13:47" itemprop="dateModified" datetime="2019-12-26T10:13:47+08:00">2019-12-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="每天学习一点vue"><a href="#每天学习一点vue" class="headerlink" title="每天学习一点vue"></a>每天学习一点vue</h1><p>最近也是很忙,白天课很多,课余时间忙的有点莫名其妙,也没做什么成果出来,利用课余时间学习vue,记录一下学习的历程和笔记。相关学习代码已经同步在<a href="https://github.com/xiaoshiguang123/VUE_Code" target="_blank" rel="noopener">Github</a>上。</p><blockquote>
+<p>Git的使用我觉得是很重要的,尤其对于学习方面,以及未来可能面临的多人团队开发,Git都是很好的解决方案。</p>
+</blockquote><h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h2><ol>
+<li>实例化 vue 对象</li>
+<li>vue 的数据和方法</li>
+<li>vue 的属性绑定</li>
+<li>事件修饰符</li>
+<li>v-model</li>
+<li>vue中class</li>
+<li>vue中style</li>
+<li>v-for</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/05/24/%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B9%A0%E4%B8%80%E7%82%B9vue(1)/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.abplan.top/2019/03/21/Hexo%E5%8D%9A%E5%AE%A2%E6%8F%90%E4%BA%A4%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E5%8F%8ASEO%E4%BC%98%E5%8C%96(1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="惬意的小时光">
+      <meta itemprop="description" content="小时光博客，一个关注技术交流的IT博客。主要记录在学习中遇到的点点滴滴，网址：https://blog.abplan.top">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="惬意的小时光">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/21/Hexo%E5%8D%9A%E5%AE%A2%E6%8F%90%E4%BA%A4%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E5%8F%8ASEO%E4%BC%98%E5%8C%96(1)/" class="post-title-link" itemprop="url">Hexo博客提交搜索引擎及SEO优化</a>
         </h1>
 
         <div class="post-meta">
@@ -501,7 +438,7 @@ data:{
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
                     <span itemprop="name">前端</span>
                   </a>
                 </span>
@@ -518,31 +455,17 @@ data:{
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="hexo博客的SEO优化-1"><a href="#hexo博客的SEO优化-1" class="headerlink" title="hexo博客的SEO优化(1)"></a>hexo博客的SEO优化(1)</h1><p>SEO是什么？它能做什么？<br></p>
-<blockquote>
+          <h1 id="hexo博客的SEO优化-1"><a href="#hexo博客的SEO优化-1" class="headerlink" title="hexo博客的SEO优化(1)"></a>hexo博客的SEO优化(1)</h1><p>SEO是什么？它能做什么？<br></p><blockquote>
 <p>SEO（Search Engine Optimization）：汉译为搜索引擎优化。是一种方式：利用搜索引擎的规则提高网站在有关搜索引擎内的自然排名。</p>
-</blockquote>
-<p>为什么做这个呢?<br>因为配置好自己的博客需要让搜索引擎抓取我们的内容，要不然我们在搜索引擎中是基本看不到我们的博客的，所以，一个新博客建立之后，需要往搜索引擎提交自己的链接,从而尽快的让搜索引擎收录我们的网站，seo的优化则可以让我们的网站排名更加靠前。博主也只是略知一点皮毛，在这里将自己学到的，看到的记录下来。</p>
-<h2 id="1-基本配置"><a href="#1-基本配置" class="headerlink" title="1.基本配置"></a>1.基本配置</h2><p>首先，我们先去两大搜索引擎搜索自己的网站,格式为<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">site:你自己的域名</span><br></pre></td></tr></table></figure>
-
-<p>当然了，得到的结果肯定是这样…<br><img src="https://i.loli.net/2019/03/21/5c939c3350780.png" alt="11.png"><br>但是Google比较强大,也比较友好，有时候没有主动提交也是可以搜索到的<br><img src="https://i.loli.net/2019/03/21/5c939cbee238c.png" alt="2.png"><br>当然，该做的工作还是要做的。<br>这里需要做两个事情，一个是<strong>验证网站</strong>，一个是<strong>链接提交</strong>.<br><br>我们到百度站长平台里面的<a href="https://ziyuan.baidu.com" target="_blank" rel="noopener">站长工具</a>里面去验证网站，大概步骤如下： </p>
-<ol>
-<li>第一步：输入网站 </li>
-<li>第二步：站点属性 </li>
-<li>第三步：验证网站</li>
-</ol>
-<p>前两步都很简单，第三步：验证网站有以下三种方法： </p>
-<ol>
-<li>文件验证 </li>
-<li>HTML标签验证 </li>
-<li>CNAME验证<br>
-
-
-</li>
-</ol>
-<p>未完待续…</p>
-
+</blockquote><p>为什么做这个呢?<br>因为配置好自己的博客需要让搜索引擎抓取我们的内容，要不然我们在搜索引擎中是基本看不到我们的博客的，所以，一个新博客建立之后，需要往搜索引擎提交自己的链接,从而尽快的让搜索引擎收录我们的网站，seo的优化则可以让我们的网站排名更加靠前。博主也只是略知一点皮毛，在这里将自己学到的，看到的记录下来。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/03/21/Hexo%E5%8D%9A%E5%AE%A2%E6%8F%90%E4%BA%A4%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E5%8F%8ASEO%E4%BC%98%E5%8C%96(1)/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -561,7 +484,7 @@ data:{
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.abplan.top/2019/02/19/钟爱捡垃圾之斐讯k2p路由器-下-——刷机/">
+    <link itemprop="mainEntityOfPage" href="https://blog.abplan.top/2019/02/19/%E9%92%9F%E7%88%B1%E6%8D%A1%E5%9E%83%E5%9C%BE%E4%B9%8B%E6%96%90%E8%AE%AFk2p%E8%B7%AF%E7%94%B1%E5%99%A8-%E4%B8%8B-%E2%80%94%E2%80%94%E5%88%B7%E6%9C%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -575,7 +498,7 @@ data:{
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/02/19/钟爱捡垃圾之斐讯k2p路由器-下-——刷机/" class="post-title-link" itemprop="url">钟爱捡垃圾之斐讯k2p路由器(下)——刷机</a>
+            <a href="/2019/02/19/%E9%92%9F%E7%88%B1%E6%8D%A1%E5%9E%83%E5%9C%BE%E4%B9%8B%E6%96%90%E8%AE%AFk2p%E8%B7%AF%E7%94%B1%E5%99%A8-%E4%B8%8B-%E2%80%94%E2%80%94%E5%88%B7%E6%9C%BA/" class="post-title-link" itemprop="url">钟爱捡垃圾之斐讯k2p路由器(下)——刷机</a>
         </h1>
 
         <div class="post-meta">
@@ -600,7 +523,7 @@ data:{
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/路由器刷机/" itemprop="url" rel="index">
+                  <a href="/categories/%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7%E6%9C%BA/" itemprop="url" rel="index">
                     <span itemprop="name">路由器刷机</span>
                   </a>
                 </span>
@@ -619,8 +542,7 @@ data:{
       
           <h1 id="斐讯K2、K2P-A1-A2刷Breed和路由器固件教程"><a href="#斐讯K2、K2P-A1-A2刷Breed和路由器固件教程" class="headerlink" title="斐讯K2、K2P A1/A2刷Breed和路由器固件教程"></a>斐讯K2、K2P A1/A2刷Breed和路由器固件教程</h1><blockquote>
 <p>此教程使用工具为《K2K2P傻瓜式刷Breed脚本bat》<br></p>
-</blockquote>
-<h2 id="1-breed刷入部分"><a href="#1-breed刷入部分" class="headerlink" title="1.breed刷入部分"></a>1.breed刷入部分</h2><ol>
+</blockquote><h2 id="1-breed刷入部分"><a href="#1-breed刷入部分" class="headerlink" title="1.breed刷入部分"></a>1.breed刷入部分</h2><ol>
 <li><p>首先，将路由器简单配置一下，设置好管理员密码，推荐使用admin，方便后面操作。（其他选项如WiFi密码等无需设置）</p>
 </li>
 <li><p>下载网盘文件《K2K2P傻瓜式刷Breed脚本bat》并解压。双击打开文件夹，双击运行“刷机.bat”文件。（是双击运行不是右击管理员。）</p>
@@ -676,7 +598,6 @@ data:{
 </blockquote>
 </li>
 </ol>
-
       
     </div>
 
@@ -695,7 +616,7 @@ data:{
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.abplan.top/2019/02/19/钟爱捡垃圾之斐讯k2p路由器(上)——开箱/">
+    <link itemprop="mainEntityOfPage" href="https://blog.abplan.top/2019/02/19/%E9%92%9F%E7%88%B1%E6%8D%A1%E5%9E%83%E5%9C%BE%E4%B9%8B%E6%96%90%E8%AE%AFk2p%E8%B7%AF%E7%94%B1%E5%99%A8(%E4%B8%8A)%E2%80%94%E2%80%94%E5%BC%80%E7%AE%B1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -709,7 +630,7 @@ data:{
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/02/19/钟爱捡垃圾之斐讯k2p路由器(上)——开箱/" class="post-title-link" itemprop="url">钟爱捡垃圾之斐讯k2p路由器(上)——开箱</a>
+            <a href="/2019/02/19/%E9%92%9F%E7%88%B1%E6%8D%A1%E5%9E%83%E5%9C%BE%E4%B9%8B%E6%96%90%E8%AE%AFk2p%E8%B7%AF%E7%94%B1%E5%99%A8(%E4%B8%8A)%E2%80%94%E2%80%94%E5%BC%80%E7%AE%B1/" class="post-title-link" itemprop="url">钟爱捡垃圾之斐讯k2p路由器(上)——开箱</a>
         </h1>
 
         <div class="post-meta">
@@ -734,7 +655,7 @@ data:{
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/路由器刷机/" itemprop="url" rel="index">
+                  <a href="/categories/%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7%E6%9C%BA/" itemprop="url" rel="index">
                     <span itemprop="name">路由器刷机</span>
                   </a>
                 </span>
@@ -752,7 +673,6 @@ data:{
 
       
           <h1 id="斐讯k2p路由器开箱"><a href="#斐讯k2p路由器开箱" class="headerlink" title="斐讯k2p路由器开箱"></a>斐讯k2p路由器开箱</h1><p>前几天呢，在很多论坛上看到各路大神都在购买这个已经翻车的斐讯公司的”理财产品”——斐讯k2p路由器。为什么说是理财产品呢？这玩意当时斐讯跑路的时候坑了一大批买家，然后呢大家都看中了这个路由器的性能，因为他是一款全千兆的路由器，CPU是MT7621AT，双核880MHz，它集成了5个网络端口 10/100/1000 Mbps 工业级以太网交换机及一个rGMII接口，支持USB 3.0、 USB 2.0、SD-XC、NAND 和eMMC等多种存储接口规格，支持硬件NAT和QOS。CPU集成了交换机功能，但是当时购买的人并不是很多。过了一段时间后，莫名其妙就开始火起来了，价格也是一路上涨，从春节开始算，到现在基本已经涨了35块钱左右。某鱼和某宝屏蔽了斐讯的关键字，但是还是可以在拼夕夕和某转平台买得到。他的硬件版本也分很多，基本上可以说最好的是A1版本，可以刷的第三方固件也很多，但是市场上基本已经买不到了，能买到也是价值不菲，所以建议没入手的朋友可以购买A2版本。<br><br>我也是在拼夕夕平台上购买到了全新未拆封的A2版本，花了135元。这价格怎么说呢？不亏！接下来就是开箱了！<br><img src="https://i.loli.net/2019/02/19/5c6bb14711bc9.jpg" alt="7001f18e45046f4ab1128511cf330e3.jpg"><br><a href="https://i.loli.net/2019/02/19/5c6bb1d05efa1.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/02/19/5c6bb1d05efa1.jpg" alt="a8ca16e56026c3a22cdce46176278cb.jpg"></a><br>盒子有点小脏，但是问题不大。（毕竟两百块内性价比无敌！）<br><img src="https://i.loli.net/2019/02/19/5c6bb2751fe39.jpg" alt="16711238d8a1f12e90bcab43a4b9a40.jpg"><br><img src="https://i.loli.net/2019/02/19/5c6bb2751b850.jpg" alt="b5a7c555f8e5c8b2eeef116ed8d05d2.jpg"><br>打开就长这样。还有翻车指南！<br>好啦！起锅烧油，啊呸！插电上机。开刷breed和第三方固件。具体的刷机教程敬请期待下篇哦！</p>
-
       
     </div>
 
@@ -810,7 +730,7 @@ data:{
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
                     <span itemprop="name">前端</span>
                   </a>
                 </span>
@@ -827,34 +747,15 @@ data:{
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;第一次使用 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>来搭建博客，总的来说前前后后还是踩了不少的坑，其实2018年12月底就在研究这个东西了，但是后来种种原因搁置了这个项目。这都过去一个月了，也是突然想起来还有这么个小项目，花了一天时间也算是大概完成了。记录一下基本的操作及命令！</p>
-<h2 id="快速入门HEXO"><a href="#快速入门HEXO" class="headerlink" title="快速入门HEXO"></a>快速入门HEXO</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;hexo是基于node的一个静态博客程序，可以轻松的将Markdown文件渲染成博客页面，对于大部分喜爱折腾但又喜欢简单写点东西的人还是挺友好的。至于MarkDown也不作过多的介绍。总之，了解Markdown的语法确实为写作可以提供不少的便利。<br><br></p>
-<h6 id="具体的MarkDown语法可以参考这几个"><a href="#具体的MarkDown语法可以参考这几个" class="headerlink" title="具体的MarkDown语法可以参考这几个"></a>具体的MarkDown语法可以参考这几个</h6><p><a href="https://www.jianshu.com/p/q81RER" target="_blank" rel="noopener">献给写作者的 Markdown 新手指南</a><br><br><a href="https://blog.rebright.top/2019/01/05/markdown%E8%AF%AD%E6%B3%95/" target="_blank" rel="noopener">一位学长总结的Markdown语法</a></p>
-<h3 id="创建一篇新文章"><a href="#创建一篇新文章" class="headerlink" title="创建一篇新文章"></a>创建一篇新文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"文章标题"</span></span><br></pre></td></tr></table></figure>
-
-<p>可简写为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n <span class="string">"文章标题"</span></span><br></pre></td></tr></table></figure>
-
-<p>更多请看这里: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="在本地服务器上运行HEXO"><a href="#在本地服务器上运行HEXO" class="headerlink" title="在本地服务器上运行HEXO"></a>在本地服务器上运行HEXO</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>可简写为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-<p>更多请看这里: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="静态生成hexo页面"><a href="#静态生成hexo页面" class="headerlink" title="静态生成hexo页面"></a>静态生成hexo页面</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>可简写为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
-
-<p>更多请看这里: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="部署到远程站点"><a href="#部署到远程站点" class="headerlink" title="部署到远程站点"></a>部署到远程站点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>可简写为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-
-<p>更多请看这里: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a><br><br></p>
-
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;第一次使用 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>来搭建博客，总的来说前前后后还是踩了不少的坑，其实2018年12月底就在研究这个东西了，但是后来种种原因搁置了这个项目。这都过去一个月了，也是突然想起来还有这么个小项目，花了一天时间也算是大概完成了。记录一下基本的操作及命令！</p><h2 id="快速入门HEXO"><a href="#快速入门HEXO" class="headerlink" title="快速入门HEXO"></a>快速入门HEXO</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/01/30/hello-world/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -919,7 +820,7 @@ data:{
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -944,16 +845,16 @@ data:{
   </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/xiaoshiguang123" title="GitHub → https://github.com/xiaoshiguang123" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/xiaoshiguang123" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaoshiguang123" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
         <a href="mailto:smalltime153@gmail.com" title="E-Mail → mailto:smalltime153@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://www.weibo.com/u/5027507003/" title="Weibo → https://www.weibo.com/u/5027507003/" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://www.weibo.com/u/5027507003/" title="Weibo → https:&#x2F;&#x2F;www.weibo.com&#x2F;u&#x2F;5027507003&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
-        <a href="tencent://message/?uin=1539213866&Menu=yes" class="qq" title="QQ → tencent://message/?uin=1539213866&Menu=yes" class="qq" rel="noopener" target="_blank"><i class="fa fa-fw fa-QQ"></i>QQ</a>
+        <a href="tencent://message/?uin=1539213866&Menu=yes" class="qq" title="QQ → tencent:&#x2F;&#x2F;message&#x2F;?uin&#x3D;1539213866&amp;Menu&#x3D;yes&quot; class&#x3D;&quot;qq" rel="noopener" target="_blank"><i class="fa fa-fw fa-QQ"></i>QQ</a>
       </span>
   </div>
 
@@ -972,7 +873,7 @@ data:{
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">鲁ICP备19004912号 </a>
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备19004912号 </a>
   </div>
 
 <div class="copyright">
@@ -984,10 +885,10 @@ data:{
   </span>
   <span class="author" itemprop="copyrightHolder">惬意的小时光</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
 
         
@@ -1012,9 +913,17 @@ data:{
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
@@ -1032,7 +941,9 @@ data:{
 
 
 
-  <script src="/js/local-search.js"></script>
+  
+<script src="/js/local-search.js"></script>
+
 
 
 
