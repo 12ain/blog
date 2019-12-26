@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
@@ -46,14 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="阿里云服务器配置Centos7篇最近发现之前阿里云云翼计划的服务器CPU和内存占用有点高,考虑到Windows的占用问题,而且大部分服务器都在使用Linux,于是决定将系统镜像换成Linux,在此记录下服务器的配置. 服务器的安全组配置安全组方面,需要将常用的端口放行,否则无法访问相应端口的服务.除默认配置外我加了以下端口  使用SSH连接服务器由于Linux没有图形界面,所以在此我选择Xshel">
-<meta name="keywords" content="前端,CentOS,Linux">
+  <meta name="description" content="阿里云服务器配置Centos7篇最近发现之前阿里云云翼计划的服务器CPU和内存占用有点高,考虑到Windows的占用问题,而且大部分服务器都在使用Linux,于是决定将系统镜像换成Linux,在此记录下服务器的配置.服务器的安全组配置安全组方面,需要将常用的端口放行,否则无法访问相应端口的服务.除默认配置外我加了以下端口">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阿里云CentOS7服务器配置">
-<meta property="og:url" content="https://blog.abplan.top/2019/11/19/阿里云CentOS7服务器配置/index.html">
+<meta property="og:url" content="https://blog.abplan.top/2019/11/19/%E9%98%BF%E9%87%8C%E4%BA%91CentOS7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="惬意的小时光">
-<meta property="og:description" content="阿里云服务器配置Centos7篇最近发现之前阿里云云翼计划的服务器CPU和内存占用有点高,考虑到Windows的占用问题,而且大部分服务器都在使用Linux,于是决定将系统镜像换成Linux,在此记录下服务器的配置. 服务器的安全组配置安全组方面,需要将常用的端口放行,否则无法访问相应端口的服务.除默认配置外我加了以下端口  使用SSH连接服务器由于Linux没有图形界面,所以在此我选择Xshel">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:description" content="阿里云服务器配置Centos7篇最近发现之前阿里云云翼计划的服务器CPU和内存占用有点高,考虑到Windows的占用问题,而且大部分服务器都在使用Linux,于是决定将系统镜像换成Linux,在此记录下服务器的配置.服务器的安全组配置安全组方面,需要将常用的端口放行,否则无法访问相应端口的服务.除默认配置外我加了以下端口">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2019/11/19/36OmFvExkqtGz5y.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/19/LyNljmHTib9kIVC.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/19/AZqpJgHv8fLo6Xu.png">
@@ -62,13 +61,16 @@
 <meta property="og:image" content="https://i.loli.net/2019/11/19/ARUng1rbaVqLIMv.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/19/tNxT2ZqomVkOBip.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/19/M2Vt3Zcka4IrPud.png">
-<meta property="og:updated_time" content="2019-11-19T02:49:04.141Z">
+<meta property="article:published_time" content="2019-11-19T01:01:00.000Z">
+<meta property="article:modified_time" content="2019-11-19T02:49:04.141Z">
+<meta property="article:author" content="惬意的小时光">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里云CentOS7服务器配置">
-<meta name="twitter:description" content="阿里云服务器配置Centos7篇最近发现之前阿里云云翼计划的服务器CPU和内存占用有点高,考虑到Windows的占用问题,而且大部分服务器都在使用Linux,于是决定将系统镜像换成Linux,在此记录下服务器的配置. 服务器的安全组配置安全组方面,需要将常用的端口放行,否则无法访问相应端口的服务.除默认配置外我加了以下端口  使用SSH连接服务器由于Linux没有图形界面,所以在此我选择Xshel">
 <meta name="twitter:image" content="https://i.loli.net/2019/11/19/36OmFvExkqtGz5y.png">
 
-<link rel="canonical" href="https://blog.abplan.top/2019/11/19/阿里云CentOS7服务器配置/">
+<link rel="canonical" href="https://blog.abplan.top/2019/11/19/%E9%98%BF%E9%87%8C%E4%BA%91CentOS7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/">
 
 
 <script id="page-configurations">
@@ -233,7 +235,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.abplan.top/2019/11/19/阿里云CentOS7服务器配置/">
+    <link itemprop="mainEntityOfPage" href="https://blog.abplan.top/2019/11/19/%E9%98%BF%E9%87%8C%E4%BA%91CentOS7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -265,7 +267,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/服务器/" itemprop="url" rel="index">
+                  <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index">
                     <span itemprop="name">服务器</span>
                   </a>
                 </span>
@@ -282,14 +284,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="阿里云服务器配置Centos7篇"><a href="#阿里云服务器配置Centos7篇" class="headerlink" title="阿里云服务器配置Centos7篇"></a>阿里云服务器配置Centos7篇</h1><p>最近发现之前阿里云云翼计划的服务器CPU和内存占用有点高,考虑到Windows的占用问题,而且大部分服务器都在使用Linux,于是决定将系统镜像换成Linux,在此记录下服务器的配置.</p>
-<h2 id="服务器的安全组配置"><a href="#服务器的安全组配置" class="headerlink" title="服务器的安全组配置"></a>服务器的安全组配置</h2><p>安全组方面,需要将常用的端口放行,否则无法访问相应端口的服务.<br>除默认配置外我加了以下端口</p>
+        <h1 id="阿里云服务器配置Centos7篇"><a href="#阿里云服务器配置Centos7篇" class="headerlink" title="阿里云服务器配置Centos7篇"></a>阿里云服务器配置Centos7篇</h1><p>最近发现之前阿里云云翼计划的服务器CPU和内存占用有点高,考虑到Windows的占用问题,而且大部分服务器都在使用Linux,于是决定将系统镜像换成Linux,在此记录下服务器的配置.</p><h2 id="服务器的安全组配置"><a href="#服务器的安全组配置" class="headerlink" title="服务器的安全组配置"></a>服务器的安全组配置</h2><p>安全组方面,需要将常用的端口放行,否则无法访问相应端口的服务.<br>除默认配置外我加了以下端口</p><a id="more"></a>
+
 <p><img src="https://i.loli.net/2019/11/19/36OmFvExkqtGz5y.png" alt="Clip_20191119_091355.png"></p>
 <h2 id="使用SSH连接服务器"><a href="#使用SSH连接服务器" class="headerlink" title="使用SSH连接服务器"></a>使用SSH连接服务器</h2><p>由于Linux没有图形界面,所以在此我选择Xshell连接,也可以选择Putty,都比较好用</p>
 <p><img src="https://i.loli.net/2019/11/19/LyNljmHTib9kIVC.png" alt="Clip_20191119_094746.png"></p>
 <h2 id="搭建web服务器"><a href="#搭建web服务器" class="headerlink" title="搭建web服务器"></a>搭建web服务器</h2><p>为了方便配置和安装,在此我使用的是宝塔面板,为什么选择这个面板呢?因为原生的各种配置较为复杂,不适合初学者入门,有集成的当然要偷懒了,而且这个面板在服务器上应用较为广泛,我也用了很多年了,还是很不错的,关于此面板的介绍可以访问<a href="https://bt.cn" target="_blank" rel="noopener">宝塔面板官网</a></p>
 <p>安装命令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>
 
 <p>待命令跑完后,此时屏幕上会显示一个http:的地址,这便是你的宝塔面板的后台,如果安全组配置没有问题,你此时已经可以用浏览器打开这个地址,使用屏幕上显示的用户名以及密码登录后台.</p>
 <p>此时应该还会自动弹出让你选择WEB服务器及数据库的选项.在此你可以根据自己的需求进行选择(即使此处选错或者漏选也可以后续在软件商店进行重新安装或者卸载)</p>
@@ -326,7 +328,7 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/09/26/智慧校园Vue项目总结/" rel="next" title="智慧校园Vue项目总结">
+                <a href="/2019/09/26/%E6%99%BA%E6%85%A7%E6%A0%A1%E5%9B%ADVue%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" rel="next" title="智慧校园Vue项目总结">
                   <i class="fa fa-chevron-left"></i> 智慧校园Vue项目总结
                 </a>
             </div>
@@ -334,7 +336,7 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/19/宝塔面板-mongodb-允许外网访问/" rel="prev" title="Centos mongodb 允许外网访问">
+                <a href="/2019/11/19/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF-mongodb-%E5%85%81%E8%AE%B8%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/" rel="prev" title="Centos mongodb 允许外网访问">
                   Centos mongodb 允许外网访问 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -392,7 +394,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -417,16 +419,16 @@
   </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/xiaoshiguang123" title="GitHub → https://github.com/xiaoshiguang123" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/xiaoshiguang123" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaoshiguang123" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
         <a href="mailto:smalltime153@gmail.com" title="E-Mail → mailto:smalltime153@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://www.weibo.com/u/5027507003/" title="Weibo → https://www.weibo.com/u/5027507003/" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://www.weibo.com/u/5027507003/" title="Weibo → https:&#x2F;&#x2F;www.weibo.com&#x2F;u&#x2F;5027507003&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
-        <a href="tencent://message/?uin=1539213866&Menu=yes" class="qq" title="QQ → tencent://message/?uin=1539213866&Menu=yes" class="qq" rel="noopener" target="_blank"><i class="fa fa-fw fa-QQ"></i>QQ</a>
+        <a href="tencent://message/?uin=1539213866&Menu=yes" class="qq" title="QQ → tencent:&#x2F;&#x2F;message&#x2F;?uin&#x3D;1539213866&amp;Menu&#x3D;yes&quot; class&#x3D;&quot;qq" rel="noopener" target="_blank"><i class="fa fa-fw fa-QQ"></i>QQ</a>
       </span>
   </div>
 
@@ -445,7 +447,7 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">鲁ICP备19004912号 </a>
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备19004912号 </a>
   </div>
 
 <div class="copyright">
@@ -457,10 +459,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">惬意的小时光</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
 
         
@@ -485,9 +487,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
@@ -505,7 +515,9 @@
 
 
 
-  <script src="/js/local-search.js"></script>
+  
+<script src="/js/local-search.js"></script>
+
 
 
 
@@ -533,7 +545,7 @@
       repo: 'xiaoshiguang123.github.io',
       owner: 'xiaoshiguang123',
       admin: ['xiaoshiguang123'],
-      id: '1b76b85f808c15841a102f35bfa1c088',
+      id: '180aacde451f9d64b3552f2dc4cdad68',
         language: 'zh-CN',
       distractionFreeMode: 'true'
     });
