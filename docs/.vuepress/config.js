@@ -77,9 +77,110 @@ module.exports = {
     author: "惬意的小时光",
     authorAvatar: "/avatar.png",
     record: "鲁ICP备19004912号",
+    recordLink: "http://beian.miit.gov.cn/",
     startYear: "2019"
   },
   markdown: {
     lineNumbers: true
-  }
+  },
+  plugins: [
+    "seo",
+    {
+      siteTitle: (_, $site) => $site.title,
+      title: $page => $page.title,
+      description: $page => $page.frontmatter.description,
+      author: (_, $site) => $site.themeConfig.author,
+      tags: $page => $page.frontmatter.tags,
+      twitterCard: _ => "summary_large_image",
+      type: $page =>
+        ["articles", "posts", "blog"].some(folder =>
+          $page.regularPath.startsWith("/" + folder)
+        )
+          ? "article"
+          : "website",
+      url: (_, $site, path) => ($site.themeConfig.domain || "") + path,
+      image: ($page, $site) =>
+        $page.frontmatter.image &&
+        ($site.themeConfig.domain || "") + $page.frontmatter.image,
+      publishedAt: $page =>
+        $page.frontmatter.date && new Date($page.frontmatter.date),
+      modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated)
+    },
+    "robots",
+    {
+      /**
+       * @host
+       * Mandatory, You have to provide the host URL
+       */
+
+      host: "https://abplan.top",
+      /**
+       * @disallowAll
+       * Optional: if it's true, all others options are ignored and exclude all robots from the entire server
+       */
+      disallowAll: false,
+      /**
+       * @allowAll
+       * Optional: if it's true and @disallowAll is false, all others options are ignored and allow all robots complete access
+       */
+      allowAll: true,
+      /**
+       * @sitemap
+       * Optional, by default: sitemap.xml
+       */
+
+      sitemap: "/sitemap.xml",
+      /**
+       * @policies
+       * Optional, by default: null
+       */
+
+      policies: [
+        {
+          userAgent: "*",
+          disallow: ["/admin", "/login"],
+          allow: [
+            // Optional: Allowed paths.
+            "products",
+            "blog",
+            "view"
+          ]
+        }
+      ]
+    },
+    "sitemap",
+    {
+      hostname: "https://abplan.top"
+    },
+    "@vuepress-reco/vuepress-plugin-kan-ban-niang",
+    {
+      theme: [
+        "blackCat",
+        "whiteCat",
+        "haru1",
+        "haru2",
+        "haruto",
+        "koharu",
+        "izumi",
+        "shizuku",
+        "wanko",
+        "miku",
+        "z16"
+      ],
+      width: 150,
+      height: 220
+    },
+    "@vuepress/google-analytics",
+    {
+      ga: "UA-134751179-1" // UA-00000000-0
+    },
+    "dynamic-title",
+    {
+      showIcon: "/favicon.ico",
+      showText: "(/≧▽≦/)咦！又好了！",
+      hideIcon: "/favicon.ico",
+      hideText: "(●—●)喔哟，崩溃啦！",
+      recoverTime: 2000
+    }
+  ]
 };

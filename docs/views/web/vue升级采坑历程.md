@@ -2,8 +2,6 @@
 title: vue升级采坑历程
 author: 惬意的小时光
 tags:
-
-  - 前端
   - vue
   - 报错
 categories:

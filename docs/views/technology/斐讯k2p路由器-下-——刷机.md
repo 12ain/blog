@@ -8,7 +8,6 @@ categories:
   - 路由器
 ---
 
-# 斐讯K2、K2P A1/A2刷Breed和路由器固件教程
 > 此教程使用工具为《K2K2P傻瓜式刷Breed脚本bat》<br>
  ## 1.breed刷入部分
 

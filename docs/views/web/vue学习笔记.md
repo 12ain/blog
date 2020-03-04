@@ -2,8 +2,6 @@
 title: vue学习笔记
 author: 惬意的小时光
 tags:
-
-  - 前端
   - vue
 categories:
   - 前端

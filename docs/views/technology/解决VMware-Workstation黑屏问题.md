@@ -2,15 +2,12 @@
 title: 解决VMware Workstation黑屏问题
 author: 惬意的小时光
 tags:
-  - '1903'
   - 搞机
   - 报错
 categories:
   - 报错解决
 date: 2019-05-26 20:35:00
 ---
-
-# 解决VMware Workstation虚拟机黑屏问题
 
 ## 前言
 
