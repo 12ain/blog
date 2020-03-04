@@ -1,0 +1,14 @@
+{
+  "name": "vuepress-blog",
+  "version": "1.0.0",
+  "author": "xiaoshiguang",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "vuepress": "1.2.0",
+    "vuepress-theme-reco": "1.2.2"
+  },
+  "description": ""
+}
