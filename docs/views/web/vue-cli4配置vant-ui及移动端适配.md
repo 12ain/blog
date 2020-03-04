@@ -10,7 +10,7 @@ categories:
 date: 2019-11-25 11:32:00
 ---
 
-# Vue cli4 配置 vant ui 及 移动端适配（px转vw）（postcss-px-to-viewport配置）
+## Vue cli4 配置 vant ui 及 移动端适配（px转vw）（postcss-px-to-viewport配置）
 
 ## 创建Vue cli 4项目
 
