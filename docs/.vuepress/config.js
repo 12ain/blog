@@ -106,51 +106,23 @@ module.exports = {
         $page.frontmatter.date && new Date($page.frontmatter.date),
       modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated)
     },
+    "@vuepress/sitemap",
+    {
+      hostname: "https://abplan.top",
+      outFile: "sitemap.xml"
+    },
     "robots",
     {
-      /**
-       * @host
-       * Mandatory, You have to provide the host URL
-       */
-
       host: "https://abplan.top",
-      /**
-       * @disallowAll
-       * Optional: if it's true, all others options are ignored and exclude all robots from the entire server
-       */
       disallowAll: false,
-      /**
-       * @allowAll
-       * Optional: if it's true and @disallowAll is false, all others options are ignored and allow all robots complete access
-       */
       allowAll: true,
-      /**
-       * @sitemap
-       * Optional, by default: sitemap.xml
-       */
-
       sitemap: "/sitemap.xml",
-      /**
-       * @policies
-       * Optional, by default: null
-       */
-
       policies: [
         {
           userAgent: "*",
-          disallow: ["/admin", "/login"],
-          allow: [
-            // Optional: Allowed paths.
-            "products",
-            "blog",
-            "view"
-          ]
+          disallow: ["/admin", "/login"]
         }
       ]
-    },
-    "sitemap",
-    {
-      hostname: "https://abplan.top"
     },
     "@vuepress-reco/vuepress-plugin-kan-ban-niang",
     {
