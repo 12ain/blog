@@ -1,6 +1,6 @@
 module.exports = {
-  title: "惬意的小时光",
-  description: "时光和你都很美",
+  title: "分享，进步，成长",
+  description: "做技术的不辛苦怎能创出一片天",
   dest: "public",
   head: [
     [
@@ -77,7 +77,7 @@ module.exports = {
     author: "惬意的小时光",
     authorAvatar: "/avatar.png",
     record: "鲁ICP备19004912号",
-    recordLink: "http://beian.miit.gov.cn/",
+    recordLink: "http://www.beian.miit.gov.cn/",
     startYear: "2019"
   },
   markdown: {
