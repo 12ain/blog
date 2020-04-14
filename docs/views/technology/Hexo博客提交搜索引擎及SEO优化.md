@@ -9,6 +9,8 @@ categories:
 date: 2019-03-21 21:44:00
 ---
 
+<Boxx/>
+
 SEO是什么？它能做什么？
 
 >SEO（Search Engine Optimization）：汉译为搜索引擎优化。是一种方式：利用搜索引擎的规则提高网站在有关搜索引擎内的自然排名。
@@ -41,3 +43,5 @@ site:你自己的域名
 
 
 未完待续...
+
+<Vssue :title="$title" />

@@ -7,6 +7,8 @@ categories:
 date: 2019-01-30 19:50:00
 ---
 
+<Boxx/>
+
 第一次使用 [Hexo](https://hexo.io/)来搭建博客，总的来说前前后后还是踩了不少的坑，其实2018年12月底就在研究这个东西了，但是后来种种原因搁置了这个项目。这都过去一个月了，也是突然想起来还有这么个小项目，花了一天时间也算是大概完成了。记录一下基本的操作及命令！
 
 ## 快速入门HEXO
@@ -61,3 +63,5 @@ $ hexo d
 
 更多请看这里: [Deployment](https://hexo.io/docs/deployment.html)
 <br>
+
+<Vssue :title="$title" />
