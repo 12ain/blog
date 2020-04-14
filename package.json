@@ -1,7 +1,7 @@
 {
   "name": "vuepress-blog",
   "version": "1.0.0",
-  "author": "xiaoshiguang",
+  "author": "FearwareX",
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
@@ -16,7 +16,5 @@
     "vuepress-theme-reco": "1.4.2"
   },
   "description": "",
-  "dependencies": {
-    "vuepress-plugin-sitemap": "^2.3.1"
-  }
+  "dependencies": {}
 }

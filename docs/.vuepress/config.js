@@ -1,6 +1,6 @@
 module.exports = {
   title: "分享，进步，成长",
-  description: "做技术的不辛苦怎能创出一片天",
+  description: "无论雨天还是雪天，心里总要是艳阳天",
   dest: "public",
   head: [
     [
@@ -106,14 +106,9 @@ module.exports = {
         $page.frontmatter.date && new Date($page.frontmatter.date),
       modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated)
     },
-    "@vuepress/sitemap",
-    {
-      hostname: "https://abplan.top",
-      outFile: "sitemap.xml"
-    },
     "robots",
     {
-      host: "https://abplan.top",
+      host: "https://blog.abplan.top",
       disallowAll: false,
       allowAll: true,
       sitemap: "/sitemap.xml",
