@@ -8,6 +8,8 @@ categories:
 date: 2019-05-24 21:52:00
 ---
 
+<Boxx/>
+
 # 每天学习一点vue
 
 最近也是很忙,白天课很多,课余时间忙的有点莫名其妙,也没做什么成果出来,利用课余时间学习vue,记录一下学习的历程和笔记。相关学习代码已经同步在[Github](https://github.com/xiaoshiguang123/VUE_Code)上。
@@ -166,3 +168,5 @@ date: 2019-05-24 21:52:00
 		
 	+ 频换切换使用v-show
 	+ 元素可能不会永远显示用v-if
+	
+<Vssue :title="$title" />

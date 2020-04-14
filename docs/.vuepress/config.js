@@ -37,7 +37,7 @@ module.exports = {
         items: [
           {
             text: "GitHub",
-            link: "https://github.com/xiaoshiguang123",
+            link: "https://github.com/FearwareX",
             icon: "reco-github"
           }
         ]
@@ -84,70 +84,76 @@ module.exports = {
     lineNumbers: true
   },
   plugins: [
-    "seo",
-    {
-      siteTitle: (_, $site) => $site.title,
-      title: $page => $page.title,
-      description: $page => $page.frontmatter.description,
-      author: (_, $site) => $site.themeConfig.author,
-      tags: $page => $page.frontmatter.tags,
-      twitterCard: _ => "summary_large_image",
-      type: $page =>
-        ["articles", "posts", "blog"].some(folder =>
-          $page.regularPath.startsWith("/" + folder)
-        )
-          ? "article"
-          : "website",
-      url: (_, $site, path) => ($site.themeConfig.domain || "") + path,
-      image: ($page, $site) =>
-        $page.frontmatter.image &&
-        ($site.themeConfig.domain || "") + $page.frontmatter.image,
-      publishedAt: $page =>
-        $page.frontmatter.date && new Date($page.frontmatter.date),
-      modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated)
-    },
-    "robots",
-    {
-      host: "https://blog.abplan.top",
-      disallowAll: false,
-      allowAll: true,
-      sitemap: "/sitemap.xml",
-      policies: [
-        {
-          userAgent: "*",
-          disallow: ["/admin", "/login"]
-        }
-      ]
-    },
-    "@vuepress-reco/vuepress-plugin-kan-ban-niang",
-    {
-      theme: [
-        "blackCat",
-        "whiteCat",
-        "haru1",
-        "haru2",
-        "haruto",
-        "koharu",
-        "izumi",
-        "shizuku",
-        "wanko",
-        "miku",
-        "z16"
-      ],
-      width: 150,
-      height: 220
-    },
-    "@vuepress/google-analytics",
-    {
-      ga: "UA-134751179-1" // UA-00000000-0
-    },
-    "dynamic-title",
-    {
-      showIcon: "/favicon.ico",
-      showText: "(/≧▽≦/)咦！又好了！",
-      hideIcon: "/favicon.ico",
-      hideText: "(●—●)喔哟，崩溃啦！",
-      recoverTime: 2000
-    }
+    [
+      "seo",
+      {
+        siteTitle: (_, $site) => $site.title,
+        title: $page => $page.title,
+        description: $page => $page.frontmatter.description,
+        author: (_, $site) => $site.themeConfig.author,
+        tags: $page => $page.frontmatter.tags,
+        twitterCard: _ => "summary_large_image",
+        type: $page =>
+          ["articles", "posts", "blog"].some(folder =>
+            $page.regularPath.startsWith("/" + folder)
+          )
+            ? "article"
+            : "website",
+        url: (_, $site, path) => ($site.themeConfig.domain || "") + path,
+        image: ($page, $site) =>
+          $page.frontmatter.image &&
+          ($site.themeConfig.domain || "") + $page.frontmatter.image,
+        publishedAt: $page =>
+          $page.frontmatter.date && new Date($page.frontmatter.date),
+        modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated)
+      }
+    ],
+    [
+      "@vuepress-reco/vuepress-plugin-kan-ban-niang",
+      {
+        theme: [
+          "blackCat",
+          "whiteCat",
+          "haru1",
+          "haru2",
+          "haruto",
+          "koharu",
+          "izumi",
+          "shizuku",
+          "wanko",
+          "miku",
+          "z16"
+        ],
+        width: 150,
+        height: 220
+      }
+    ],
+    [
+      "@vuepress/google-analytics",
+      {
+        ga: "UA-134751179-1" // UA-00000000-0
+      },
+      "dynamic-title",
+      {
+        showIcon: "/favicon.ico",
+        showText: "(/≧▽≦/)咦！又好了！",
+        hideIcon: "/favicon.ico",
+        hideText: "(●—●)喔哟，崩溃啦！",
+        recoverTime: 2000
+      }
+    ],
+    [
+      "@vssue/vuepress-plugin-vssue",
+      {
+        platform: "github",
+        owner: "FearwareX",
+        repo: "xiaoshiguang123.github.io",
+        clientId: "ad816f23970b57e93219",
+        clientSecret: "93df20e1209910a986341861f225e903732e5d11",
+        locale: "zh",
+        autoCreateIssue: true
+      }
+    ],
+    "vuepress-plugin-boxx"
   ]
 };
