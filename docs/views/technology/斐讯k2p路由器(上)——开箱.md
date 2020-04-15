@@ -3,8 +3,9 @@ title: 斐讯k2p路由器(上)——开箱
 author: 惬意的小时光
 tags:
   - 搞机
-categories:
   - 路由器
+categories:
+  - 网络设备
 date: 2019-02-19 15:13:00
 ---
 
