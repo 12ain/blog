@@ -2,10 +2,10 @@
 title: '让sql语句不排序,按照in语句的顺序返回结果'
 author: 惬意的小时光
 tags:
-  - 前端
   - PHP
-categories:
   - sql
+categories:
+  - 数据库
 date: 2019-08-17 13:08:00
 ---
 
