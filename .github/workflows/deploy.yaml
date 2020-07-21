@@ -9,12 +9,12 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: init
+      - name: Checkout
         uses: actions/checkout@v2
         with:
           persist-credentials: false
 
-      - name: install
+      - name: Install
         run: yarn install 
 
       - name: Build
@@ -29,8 +29,9 @@ jobs:
           ssh-private-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.5.7
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           SSH: true
           BRANCH: master
           FOLDER: public
+          CLEAN: true
