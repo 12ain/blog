@@ -5,20 +5,20 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "deploy": "bash deploy.sh"
+    "deploy": "deploy.sh"
   },
   "devDependencies": {
     "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
-    "@vuepress/plugin-google-analytics": "^1.4.0",
-    "vuepress": "^1.4.0",
+    "@vuepress/plugin-google-analytics": "^1.5.2",
+    "vuepress": "^1.5.2",
     "vuepress-plugin-boxx": "0.0.7",
-    "vuepress-plugin-dynamic-title": "0.0.5",
-    "vuepress-plugin-seo": "^0.1.2",
-    "vuepress-theme-reco": "1.4.2"
+    "vuepress-plugin-dynamic-title": "1.0.0",
+    "vuepress-plugin-seo": "^0.1.4",
+    "vuepress-theme-reco": "1.5.4"
   },
   "description": "",
   "dependencies": {
-    "@vssue/api-github-v3": "^1.4.3",
-    "@vssue/vuepress-plugin-vssue": "^1.4.3"
+    "@vssue/api-github-v3": "^1.4.4",
+    "@vssue/vuepress-plugin-vssue": "^1.4.6"
   }
 }

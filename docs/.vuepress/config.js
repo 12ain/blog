@@ -1,6 +1,6 @@
 module.exports = {
-  title: "分享，进步，成长",
-  description: "无论雨天还是雪天，心里总要是艳阳天",
+  title: "Rain的心情杂货铺",
+  description: "认真吃饭，认真学习，在不经意间惊艳所有人！",
   dest: "public",
   head: [
     [
@@ -74,11 +74,11 @@ module.exports = {
     searchMaxSuggestions: 10,
     sidebar: "auto",
     lastUpdated: "Last Updated",
-    author: "惬意的小时光",
+    author: "Rain",
     authorAvatar: "/avatar.png",
     record: "鲁ICP备19004912号",
     recordLink: "http://www.beian.miit.gov.cn/",
-    startYear: "2019"
+    startYear: "2018"
   },
   markdown: {
     lineNumbers: true
