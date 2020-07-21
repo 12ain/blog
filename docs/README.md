@@ -1,6 +1,7 @@
 ---
 home: true
 heroImage: ''
+bgImage: '15191.jpg'
 heroImageStyle: {
   maxWidth: '600px',
   width: '100%',
