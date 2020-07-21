@@ -18,7 +18,7 @@ jobs:
         run:  yarn build
 
       - name: Add Domain
-        run:  cd public && echo 'blog.abplan.top' > public/CNAME
+        run:  cd public && echo 'blog.abplan.top' > CNAME
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
