@@ -20,8 +20,8 @@ jobs:
       - name: Build
         run:  yarn build
 
-      # - name: Add Domain
-      #   run:  cd public && echo 'blog.abplan.top' > CNAME
+      - name: Add Domain
+        run:  cd public && echo 'blog.abplan.top' > CNAME
         
       - name: Install SSH Client 
         uses: webfactory/ssh-agent@v0.2.0
