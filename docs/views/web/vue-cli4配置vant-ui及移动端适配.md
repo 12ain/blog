@@ -38,12 +38,12 @@ vue ui
 [vant-ui文档](https://youzan.github.io/vant/#/zh-CN/intro)
 
 安装 vant
-```
+```bash
 npm i vant -S
 ```
 此处我们采用官方推荐的自动按需引入组件方式进行配置
 
-```
+```javascript
 # 安装插件
 
 npm i babel-plugin-import -D
@@ -68,11 +68,9 @@ module.exports = {
 
 vant 官方文档介绍了rem的使用配置,此处不再过多介绍
 
-![2.png](https://i.loli.net/2019/11/25/XCAjfoJWEk7QT91.png)
-
 这里我选择postcss-px-to-viewport将px转为vw的方式进行移动端的适配。
 
-```
+```javascript
 安装
 npm install postcss-px-to-viewport
 

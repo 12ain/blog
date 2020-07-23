@@ -19,8 +19,9 @@ date: 2019-08-28 00:06:00
 
 [解决方法](http://m.hangge.com/news/cache/detail_2468.html"解决方法")
 
-```
+```shell
 npm i optimize-css-assets-webpack-plugin@3.2.0
 ```
 
 <Vssue :title="$title" />
+

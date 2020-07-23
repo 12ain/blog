@@ -40,7 +40,7 @@ date: 2019-05-24 21:52:00
 - v-text无闪烁问题
 	- 覆盖当前标签内容 
 	- 用法:
-		```
+		```html
 		<h4 v-text="msg"></h4>
 		```
 - v-html
@@ -49,7 +49,7 @@ date: 2019-05-24 21:52:00
 
 - v-bind 绑定属性的指令
 	- 用法:
-		```
+		```html
 		<input type="button" value="按钮" v-bind:title="msg">
 		```
 	- 可简写为英文" : "，后面可以写合法JS表达式
@@ -79,7 +79,7 @@ date: 2019-05-24 21:52:00
 	3. 数组中使用对象代替三元表达式,提高代码可读性
 	4. 对象属性为类名,由于对象属性引号可省略,属性的值为标识符
   
-	```
+	```vue
     
 	<h1 :class="classObj">这是h1标签</h1>
 	classObj: {red:true, thin:true, italic:false, active:true}
@@ -92,7 +92,7 @@ date: 2019-05-24 21:52:00
 
 - v-for循环普通数组
 
-	```
+	```vue
 		<p v-for="(item, i) in list">
     		索引值:{{ i }}
     		每一项值:{{ item }}
@@ -104,7 +104,7 @@ date: 2019-05-24 21:52:00
 
 - v-for循环对象数组
 
-	```
+	```vue
 		<p v-for="(user,i) in list">
     		ID:{{ user.id }}
     		名字:{{ user.name }}
@@ -122,7 +122,7 @@ date: 2019-05-24 21:52:00
 
 - v-for循环对象
 
-	```
+	```vue
 	<p v-for="(val, key, index) in user">
     	值为:{{ val }}
     	
@@ -141,7 +141,7 @@ date: 2019-05-24 21:52:00
 
 - v-for迭代数字
 	
-	```
+	```vue
 	<p v-for="count in 10">
     		这是第 {{count}} 次循环
     </p>
@@ -169,4 +169,5 @@ date: 2019-05-24 21:52:00
 	+ 频换切换使用v-show
 	+ 元素可能不会永远显示用v-if
 	
+
 <Vssue :title="$title" />
