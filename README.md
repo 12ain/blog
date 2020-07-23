@@ -1,4 +1,6 @@
-# vuepress-theme-reco-demo
+# vuepress-theme-reco
+
+基于Vuepress的个人博客，技术、心情、随笔，什么都有~
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8ebc7c29-3fee-4da7-a17d-cd7d929e6d7c/deploy-status)](https://app.netlify.com/sites/objective-albattani-608aa8/deploys) 
 
@@ -6,7 +8,7 @@
 
 **npx**
 
-```
+```bash
 npx @vuepress-reco/theme-cli init my-blog
 ```
 
@@ -45,7 +47,3 @@ yarn dev
 # build
 yarn build
 ```
-
-vuepress-plugin-seo
-
-vuepress-plugin-gitalk-maker
