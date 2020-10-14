@@ -5,7 +5,7 @@ tags:
   - vue
 categories:
   - 前端
-date: 2019-05-24 21:52:00
+date: 2019-05-24 21:52
 ---
 
 <Boxx/>

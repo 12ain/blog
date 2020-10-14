@@ -6,7 +6,7 @@ tags:
   - Linux
 categories:
   - 服务器
-date: 2019-11-19 09:25:00
+date: 2019-11-19 09:25
 ---
 
 <Boxx/>

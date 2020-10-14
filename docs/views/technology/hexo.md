@@ -4,7 +4,7 @@ tags:
   - hexo
 categories:
   - 前端
-date: 2019-01-30 19:50:00
+date: 2019-01-30 19:50
 ---
 
 <Boxx/>
