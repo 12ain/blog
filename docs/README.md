@@ -1,15 +1,6 @@
 ---
 home: true
-heroImage: ''
-bgImage: '15191.jpg'
-heroImageStyle: {
-  maxWidth: '600px',
-  width: '100%',
-  display: block,
-  margin: '6rem auto 4rem',
-  background: '#fff',
-  borderRadius: '1rem',
-}
+# bgImage: '15191.jpg'
 isShowTitleInHome: false
 actionText: Guide
 actionLink: /views/other/guide
