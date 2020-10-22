@@ -1,6 +1,6 @@
 ---
 title: 解决VMware Workstation黑屏问题
-author: 惬意的小时光
+author: Rain
 tags:
   - 搞机
   - 报错

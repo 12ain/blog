@@ -15,10 +15,10 @@ jobs:
         #   persist-credentials: false
 
       - name: Install
-        run: yarn install 
+        run: npm i
 
       - name: Build
-        run:  yarn build
+        run:  npm run build
 
       - name: Add Domain
         run:  cd public && echo 'blog.abplan.top' > CNAME

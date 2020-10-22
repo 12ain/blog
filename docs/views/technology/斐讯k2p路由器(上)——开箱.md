@@ -1,6 +1,6 @@
 ---
 title: 斐讯k2p路由器(上)——开箱
-author: 惬意的小时光
+author: Rain
 tags:
   - 搞机
   - 路由器

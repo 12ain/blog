@@ -1,6 +1,6 @@
 ---
 title: vue打包Cannot read property 'compilation' of undefined
-author: 惬意的小时光
+author: Rain
 tags:
   - 报错
   - vue

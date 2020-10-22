@@ -1,6 +1,6 @@
 ---
 title: Vue中的this指向问题
-author: 惬意的小时光
+author: Rain
 date: 2020-05-18 12:20
 sidebar: 'auto'
 categories:

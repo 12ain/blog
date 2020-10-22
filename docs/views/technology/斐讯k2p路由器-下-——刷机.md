@@ -1,6 +1,6 @@
 ---
 title: 钟爱捡垃圾之斐讯k2p路由器(下)——刷机
-author: 惬意的小时光
+author: Rain
 date: 2019-02-19 15:50:04
 tags:
   - 搞机

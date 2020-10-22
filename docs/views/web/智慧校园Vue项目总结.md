@@ -1,6 +1,6 @@
 ---
 title: 智慧校园Vue项目总结
-author: 惬意的小时光
+author: Rain
 tags:
   - vue
   - 前端

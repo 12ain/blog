@@ -78,7 +78,7 @@ module.exports = {
     "search": true,
     "searchMaxSuggestions": 10,
     "lastUpdated": "Last Updated",
-    "author": "rain",
+    "author": "Rain",
     "authorAvatar": "/avatar.png",
     "record": "鲁ICP备19004912号",
     "recordLink": "http://www.beian.miit.gov.cn/",

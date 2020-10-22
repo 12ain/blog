@@ -1,6 +1,6 @@
 ---
 title: vue cli4配置vant ui及移动端适配
-author: 惬意的小时光
+author: Rain
 tags:
   - 前端
   - vue

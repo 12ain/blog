@@ -1,6 +1,6 @@
 ---
 title: 阿里云CentOS7服务器配置
-author: 惬意的小时光
+author: Rain
 tags:
 
   - Linux

@@ -1,6 +1,6 @@
 ---
 title: Centos mongodb 允许外网访问
-author: 惬意的小时光
+author: Rain
 tags:
   - CentOS
   - Linux

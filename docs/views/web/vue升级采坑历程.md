@@ -1,6 +1,6 @@
 ---
 title: vue升级采坑历程
-author: 惬意的小时光
+author: Rain
 tags:
   - vue
   - 报错
