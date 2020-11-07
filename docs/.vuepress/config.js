@@ -81,7 +81,7 @@ module.exports = {
     "author": "Rain",
     "authorAvatar": "/avatar.png",
     "record": "鲁ICP备19004912号",
-    "recordLink": "http://www.beian.miit.gov.cn/",
+    "recordLink": "http://beian.miit.gov.cn/",
     "startYear": "2018"
   },
   "markdown": {
