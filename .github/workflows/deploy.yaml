@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        # with:
-        #   persist-credentials: false
 
       - name: Install
         run: npm i
@@ -24,7 +22,7 @@ jobs:
         run:  cd public && echo 'blog.abplan.top' > CNAME
         
       - name: Install SSH Client 
-        uses: webfactory/ssh-agent@v0.2.0
+        uses: webfactory/ssh-agent@v0.4.1
         with:
           ssh-private-key: ${{ secrets.DEPLOY_KEY }}
 
