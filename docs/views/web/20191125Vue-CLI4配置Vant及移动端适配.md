@@ -1,9 +1,9 @@
 ---
-title: vue cli4配置vant ui及移动端适配
+title: Vue-CLI4配置Vant UI及移动端适配
 author: Rain
 tags:
   - 前端
-  - vue
+  - Vue
   - 配置
 categories:
   - 前端
@@ -12,9 +12,9 @@ date: 2019-11-25 11:32
 
 <Boxx/>
 
-## Vue cli4 配置 vant ui 及 移动端适配（px转vw）（postcss-px-to-viewport配置）
+## Vue-CLI4 配置 Vant UI 及 移动端适配（px转vw）（postcss-px-to-viewport配置）
 
-## 创建Vue cli 4项目
+## 创建Vue-CLI4项目
 
 新版的Vue cli提供了优秀的UI界面,可以在可视化界面创建项目以及安装相关依赖
 
@@ -77,7 +77,9 @@ npm install postcss-px-to-viewport
 
 
 根目录新建postcss.config.js文件
+
 //postcss.config.js文件
+
 module.exports = {
   plugins: {
     'postcss-px-to-viewport': {

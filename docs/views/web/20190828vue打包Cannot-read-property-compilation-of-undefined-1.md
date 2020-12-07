@@ -1,9 +1,9 @@
 ---
-title: vue打包Cannot read property 'compilation' of undefined
+title: Vue打包Cannot read property 'compilation' of undefined
 author: Rain
 tags:
   - 报错
-  - vue
+  - Vue
 categories:
   - 前端
 date: 2019-08-28 00:06
