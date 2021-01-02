@@ -82,7 +82,8 @@ module.exports = {
     "authorAvatar": "/avatar.png",
     "record": "鲁ICP备19004912号",
     "recordLink": "http://beian.miit.gov.cn/",
-    "startYear": "2018"
+    "startYear": "2018",
+    "subSidebar": 'auto'
   },
   "markdown": {
     "lineNumbers": true
