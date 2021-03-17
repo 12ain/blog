@@ -134,6 +134,10 @@ module.exports = {
     [
       "vuepress-plugin-boxx",{}
     ],
-    
+    ["sitemap",
+      {
+        hostname:'https://blog.abplan.top'
+      }
+    ]
   ]
 }
