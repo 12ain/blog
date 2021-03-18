@@ -100,12 +100,12 @@ module.exports = {
       "@vuepress-reco/vuepress-plugin-kan-ban-niang",
       {
         "theme": [
+          "haruto",
           "miku",
           "blackCat",
           "whiteCat",
           "haru1",
-          "haru2",
-          "haruto",
+          "haru2",         
           "koharu",
           "izumi",
           "shizuku",
