@@ -1,6 +1,6 @@
 module.exports = {
   title: "Rain的心情杂货铺",
-  description: "认真吃饭，认真学习，在不经意间惊艳所有人！",
+  description: "You cannot see the moon due to the rainy day.",
   dest: "public",
   head: [
     [
