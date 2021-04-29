@@ -24,5 +24,3 @@ componentWillUnmount 组件卸载前执行
 #### 不常用生命周期
 
 shouldComponentUpdate 返回 false，则不会调用 render()。
-
-<Vssue :title="$title" />

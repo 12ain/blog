@@ -126,5 +126,3 @@ module.exports = {
 [移动端适配（px转vw）（postcss-px-to-viewport配置）](https://juejin.im/post/5d415603e51d4561d044cc51)
 
 [Vant 官方文档](https://youzan.github.io/vant/#/zh-CN/intro)
-
-<Vssue :title="$title" />

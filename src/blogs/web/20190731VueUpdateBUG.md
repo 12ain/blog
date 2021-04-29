@@ -25,5 +25,3 @@ date: '2019-07-31 15:30'
 ![2.png](https://i.loli.net/2019/08/17/3AuI1aFkPf6pmW5.png)
 
 最后发现webpack与当前机器的Vue版本不匹配，查询当前的Vue版本。装上对应的webpack的版本，项目调试开发回归正常。
-
-<Vssue :title="$title" />

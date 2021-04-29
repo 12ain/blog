@@ -235,5 +235,3 @@ date: '2020-04-18 12:30'
 
 </html>
 ```
-
-<Vssue :title="$title" />

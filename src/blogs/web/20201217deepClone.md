@@ -114,5 +114,3 @@ function deepClone(obj) {
 - [深拷贝的终极探索（99%的人都不知道)](https://segmentfault.com/a/1190000016672263)
 - [How to deep clone a JavaScript object](https://flaviocopes.com/how-to-clone-javascript-object/)
 - [深拷贝与浅拷贝](https://github.com/ljianshu/Blog/issues/5)
-
-<Vssue :title="$title" />

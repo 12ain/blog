@@ -82,5 +82,3 @@ yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_
 至此,简单的web服务器就搭建完成了.其余需要的服务可以在宝塔软件商店中进行安装及配置.
 
 *简单来讲,当发现服务从本地访问不到,首先检查服务器的安全组配置是否正常,接下来检查服务器的防火墙配置是否正确,再检查服务器端的进程是否正常运行.*
-
-<Vssue :title="$title" />

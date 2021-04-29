@@ -58,5 +58,3 @@ const removeDuplicates = (nums) => {
 > 题目来源：力扣（LeetCode）
 > 链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array
 > 著作权归领扣网络所有。
-
-<Vssue :title="$title" />

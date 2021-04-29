@@ -34,5 +34,3 @@ date: '2021-03-01 23:28:16'
 | [https://raw.sevencdn.com](https://raw.sevencdn.com/) | 中国国内 |
 | [https://cdn.jsdelivr.net](https://cdn.jsdelivr.net/) | 中国国内 |
 | [https://raw.fastgit.org](https://raw.fastgit.org/)   | 中国香港 |
-
-<Vssue :title="$title" />

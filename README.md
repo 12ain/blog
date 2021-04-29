@@ -1,6 +1,4 @@
-# 采用Vuepress构建的个人Blog
-
-[![Build Status](https://travis-ci.org/FearwareX/xiaoshiguang123.github.io.svg?branch=vue-press)](https://travis-ci.org/FearwareX/xiaoshiguang123.github.io)
+# Blog
 
 基于Vuepress的个人博客，技术、心情、随笔，什么都有~
 

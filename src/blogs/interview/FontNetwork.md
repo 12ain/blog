@@ -31,5 +31,3 @@ date: '2020-04-26 8:59:50'
 
 `get`可缓存
 `post`不可缓存
-
-<Vssue :title="$title" />

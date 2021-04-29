@@ -37,5 +37,3 @@ ssh-copy-id -i .ssh/id_rsa.pub <部署服务器用户名>@<部署服务器地址
 ## 第三步：安全策略
 
 为了安全起见，可以将服务器.ssh/文件夹权限改为700，authorized_keys文件权限改为600（or 644）
-
-<Vssue :title="$title" />
