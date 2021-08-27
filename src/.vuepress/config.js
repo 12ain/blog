@@ -37,7 +37,7 @@ module.exports = {
         items: [
           {
             text: 'GitHub',
-            link: 'https://github.com/FearwareX',
+            link: 'https://github.com/12ain',
             icon: 'reco-github',
           },
         ],

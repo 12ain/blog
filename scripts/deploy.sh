@@ -17,7 +17,7 @@ git add -A
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io
-git push -f git@github.com:FearwareX/blog.git master
+git push -f git@github.com:12ain/blog.git master
 
 cd .. && rm -rf /public/
 # 如果发布到 https://<USERNAME>.github.io/<REPO>

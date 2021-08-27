@@ -1,7 +1,7 @@
 {
   "name": "vuepress-blog",
   "version": "1.0.0",
-  "author": "FearwareX",
+  "author": "12ain",
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src",
