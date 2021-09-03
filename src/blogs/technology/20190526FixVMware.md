@@ -19,10 +19,20 @@ date: '2019-05-26 20:35'
 但是重新安装了官网最新的VM15.0.1版本后发现以前版本安装的虚拟机都无法打开，开始以为是版本兼容性问题。但是在同学的笔记本上安装相同版本的VM以及打开相同的虚拟机都没有问题。Google发现遇到此问题的解决办法为**修复LSP。命令行窗口—输入netsh winsock reset—重启计算机。**但是尝试过后发现没有效果。忽然想到是否是因为OS的版本太高VM还没来得及适配的原因，果断改变关键字搜索。果然是这个原因。因为最新版本的Windows10内置了一个沙盒，跟VM产生了冲突。在最新的VMware Workstation15.1.0版本解决了这个问题。
 ### 解决方法:
 
-**打开当前的VMware Workstation检查更新，升级到最新的15.1.0版本后即可解决**或者**[点击下载最新15.1.0版本](https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe
+**打开当前的VMware Workstation检查更新，升级到最新的15.1.0版本后即可解决**或者**[点击下载15.1.0版本](https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe
 )**
+
 #### 另外提供一些可用的激活码
+
 ```
+VMware Workstation Pro 16 激活许可证
+
+ZF3R0-FHED2-M80TY-8QYGC-NPKYF
+
+YF390-0HF8P-M81RQ-2DXQE-M2UT6
+
+ZF71R-DMX85-08DQY-8YMNC-PPHV8
+
 VMware Workstation Pro 15 激活许可证
 
 UY758-0RXEQ-M81WP-8ZM7Z-Y3HDA
