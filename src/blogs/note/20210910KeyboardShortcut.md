@@ -1,5 +1,5 @@
 ---
-title: MacOS快捷键及常用脚本
+title: 快捷键及常用脚本
 author: Rain
 tags:
   - 效率
@@ -15,11 +15,21 @@ date: '2021-9-10 20:38:06'
 
 ## Finder
 
-command+shift+. 显示隐藏文件
+Command + Shift + . 显示隐藏文件
 
-command + i 显示简介
+Command + I 显示简介
 
-Command + shift + h 显示剪贴板历史
+Command + Shift + H 显示剪贴板历史
+
+Command + Option + ESC 强制退出应用
+
+Command + Shift + D 访达打开桌面
+
+## vim
+
+全部复制：按ESC后，ggyG
+
+全部删除：按ESC后，dG
 
 ## zsh
 
@@ -45,7 +55,7 @@ Command + shift + h 显示剪贴板历史
 
 ## gpg key 相关命令
 
-```sh
+```bash
 # 生成gpgkey
 gpg --full-generate-key
 # 查看gpgkey列表
