@@ -42,3 +42,16 @@ Command + shift + h 显示剪贴板历史
 - `docker image prune --force --all`或者`docker image prune -f -a` : 删除所有不使用的镜像
 - `docker container prune -f`: 删除所有停止的容器
 - `docker system prune -af` : 释放docker占用缓存资源,包括容器,镜像及网络
+
+## gpg key 相关命令
+
+```sh
+# 生成gpgkey
+gpg --full-generate-key
+# 查看gpgkey列表
+gpg --list-secret-keys --keyid-format LONG <email>
+# 查看gpgkey
+gpg --armor --export <keyid>
+
+git config --global commit.gpgsign true
+```
