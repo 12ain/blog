@@ -28,7 +28,7 @@ date: '2021-06-28 14:32'
 - Kubernetes（k8s） 集群(本地可选择采用minikube)
 - Kubectl 命令行工具 (用于与集群通信)
 
-### Minikube（可选）
+### Minikube（baas本地开发环境）
 
 本地安装minikube并启动 [文档](https://minikube.sigs.k8s.io/docs/start/)
 
