@@ -17,7 +17,7 @@ date: '2021-08-29 20:20'
 
 ```sh
 # MacOS
-brew install proxychains
+brew install proxychains-ng
 
 # Manjaro Linux
 sudo yay -S proxychains
@@ -28,17 +28,15 @@ sudo yay -S proxychains
 修改/etc/proxychains.conf配置最后一行，修改为本机对应的地址及端口，为便于后面使用，可以将proxychains设置为别名。
 
 ```sh
+# 修改配置 MacOS
+vim /usr/local/etc/proxychains.conf
+
+# or Manjaro Linux
 vim /etc/proxychains.conf
 
+# 最后一行改为
 socks5 127.0.0.1 7890
 
+# 编辑 ~/.zshrc 便于使用
 alias gfw="proxychains"
-```
-
-## 原本方案
-
-以前使用的方式是将代理的配置写入.bashrc或.zshrc文件中，并使用别名进行环境变量设置，但有时不太便于管理，会出现很多本不应该加速的地址连接加速网络。采用此工具可实现按需使用网络加速。
-
-```sh
-alias gfw="export all_proxy=socks5://127.0.0.1:7890"
 ```
