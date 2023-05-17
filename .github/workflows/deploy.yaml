@@ -11,20 +11,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-      - name: Install
-        run: npm i
-
-      - name: Build
-        run:  npm run build
+      - name: Install And Build
+        run: |
+          yarn
+          yarn build
 
       - name: Add Domain
         run:  cd public && echo 'blog.abplan.top' > CNAME
         
-      - name: Install SSH Client 
-        uses: webfactory/ssh-agent@v0.4.1
-        with:
-          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+      # - name: Install SSH Client 
+      #   uses: webfactory/ssh-agent@v0.4.1
+      #   with:
+      #     ssh-private-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
