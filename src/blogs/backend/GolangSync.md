@@ -5,9 +5,9 @@ tags:
   - Golang
 categories:
   - 后端
-date: 2024-02-06 23:34:42
+date: 2024-02-05 23:34:42
 ---
-  
+
 
 Go中可以使用一个`go`关键字让程序异步执行
 
@@ -17,11 +17,11 @@ Go中可以使用一个`go`关键字让程序异步执行
 
 func main() {
 
-	go do1()
-	
-	go do2()
-	
-	go do3()
+go do1()
+
+go do2()
+
+go do3()
 
 }
 
@@ -31,7 +31,7 @@ func main() {
 
 for i := range []int{1,2,3}{
 
-	go do(i)
+go do(i)
 
 }
 
@@ -39,21 +39,18 @@ for i := range []int{1,2,3}{
 
 ```
 
-  
-
 如果了解Go并发机制，就知道`main`在其他goroutine运行完成之前就已经结束了，所以上面代码的运行结果是不符合预期的。我们需要使用一种叫做并发控制的手段，来保证程序正确运行
 
 举个例子：
 
 已知有一个现成的函数`search`，能够按照关键词执行搜索
 
-期望实现一个新的函数`coSearch`能够进行批量查询  
+期望实现一个新的函数`coSearch`能够进行批量
 
 ```go
 
 package main
 
-  
 
 import (
 
@@ -67,7 +64,6 @@ import (
 
 )
 
-  
 
 func search(ctx context.Context, word string) (string, error) {
 
@@ -81,19 +77,17 @@ return fmt.Sprintf("result: %s", word), nil // 模拟结果
 
 }
 
-  
 
 func coSearch(ctx context.Context, words []string) (results []string, err error) {
 
 //tbd
 
-  
 
 return
 
 }
 
-  
+
 
 func main() {
 
@@ -109,24 +103,23 @@ return
 
 }
 
-  
+
 
 fmt.Println(results)
 
 }
 
 ```
-  
+
 ## **并发控制基础**
 
 `sync.WaitGroup`是Go标准库中用来控制并发的结构，这里放一个使用`WaitGroup`实现`coSearch`的示例
 
-  
 ```go
 
 package main
 
-  
+
 
 import (
 
@@ -140,7 +133,7 @@ import (
 
 )
 
-  
+
 
 func search(ctx context.Context, word string) (string, error) {
 
@@ -154,7 +147,7 @@ return fmt.Sprintf("result: %s", word), nil // 模拟结果
 
 }
 
-  
+
 
 func coSearch(ctx context.Context, words []string) ([]string, error) {
 
@@ -170,19 +163,19 @@ err error
 
 )
 
-  
+
 
 for i, word := range words {
 
 wg.Add(1)
 
-  
+
 
 go func(word string, i int) {
 
 defer wg.Done()
 
-  
+
 
 result, e := search(ctx, word)
 
@@ -194,13 +187,13 @@ err = e
 
 })
 
-  
+
 
 return
 
 }
 
-  
+
 
 results[i] = result
 
@@ -208,17 +201,17 @@ results[i] = result
 
 }
 
-  
+
 
 wg.Wait()
 
-  
+
 
 return results, err
 
 }
 
-  
+
 
 func main() {
 
@@ -234,7 +227,6 @@ return
 
 }
 
-  
 
 fmt.Println(results)
 
@@ -242,19 +234,11 @@ fmt.Println(results)
 
 ```
 
-  
-
 上面的代码中有非常多的细节，来逐个聊一聊
-
-  
 
 ### `sync.WaitGroup{}`并发控制
 
-  
-
 `sync.WaitGroup{}`的用法非常简洁
-
-  
 
 - 当新运行一个goroutine时，我们需要调用`wg.Add(1)`
 
@@ -262,11 +246,7 @@ fmt.Println(results)
 
 - `wg.Wait()`让程序阻塞在此处，直到所有的goroutine运行完毕。
 
-  
-
 对于`coSearch`来说，等待所有goroutine运行完成，也就完成了函数的任务，返回最终的结果
-
-  
 
 ```go
 
@@ -278,13 +258,11 @@ wg = sync.WaitGroup{}
 
 )
 
-  
 
 for i, word := range words {
 
 wg.Add(1)
 
-  
 
 go func(word string, i int) {
 
@@ -296,21 +274,14 @@ defer wg.Done()
 
 }
 
-  
 
 wg.Wait()
 
 ```
 
-  
-
 ### `for`循环中的goroutine
 
-  
-
 这是一个Go经典错误，如果goroutine中使用了`for`迭代的变量，所有goroutine都会获得最后一次循环的值。例如下面的示例，并不会输出"a", "b", "c" 而是输出 "c", "c", "c"
-
-  
 
 ```go
 
@@ -318,7 +289,7 @@ func main() {
 
 done := make(chan bool)
 
-  
+
 
 values := []string{"a", "b", "c"}
 
@@ -334,7 +305,7 @@ done <- true
 
 }
 
-  
+
 
 // wait for all goroutines to complete before exiting
 
@@ -348,11 +319,7 @@ for _ = range values {
 
 ```
 
-  
-
 正确的做法就是像上文示例一样，将迭代的变量赋值给函数参数，或者赋值给新的变量
-
-  
 
 ```go
 
@@ -368,7 +335,7 @@ go func(word string, i int) {
 
 }
 
-  
+
 
 for i, word := range words {
 
@@ -384,9 +351,7 @@ go func() {
 
 ```
 
-
 > 由于这个错误实在太常见，从Go 1.22开始Go已经修正了这个经典的错误：Fixing For Loops in Go 1.22。
-
 > 不过Go 1.22默认不会开启修正，需要设置环境变量`GOEXPERIMENT=loopvar`才会 开启
 
 ### 并发安全
@@ -407,7 +372,6 @@ goroutine1 goroutine2 goroutine3
 
 ```
 
-
 这也意味着如果使用`results = append(results, result)`的方式并发赋值，因为会涉及到slice的扩容等操作，所以并不是并发安全的，需要利用`sync.Mutex{}`进行加锁
 
 如果想尽可能的提高程序的并发性能，推荐使用 `results[i] = result`这种方式赋值
@@ -424,7 +388,7 @@ go func(word string, i int) {
 
 defer wg.Done()
 
-  
+
 
 result, e := search(ctx, word)
 
@@ -432,13 +396,13 @@ if e != nil && err == nil {
 
 err = e
 
-  
+
 
 return
 
 }
 
-  
+
 
 results[i] = result
 
@@ -460,7 +424,7 @@ go func(word string, i int) {
 
 defer wg.Done()
 
-  
+
 
 result, e := search(ctx, word)
 
@@ -472,13 +436,13 @@ err = e
 
 })
 
-  
+
 
 return
 
 }
 
-  
+
 
 results[i] = result
 
@@ -488,18 +452,17 @@ results[i] = result
 
 ```
 
-  
 ### goroutine数量控制
 
 `coSearch`入参的数组可能非常大，如果不加以控制可能导致我们的服务器资源耗尽，我们需要控制并发的数量
 
-利用带缓冲channel可以实现  
+利用带缓冲channel可以实现
 
 ```go
 
 tokens := make(chan struct{}, 10)
 
-  
+
 
 for i, word := range words {
 
@@ -507,7 +470,7 @@ tokens <- struct{}{} // 新增
 
 wg.Add(1)
 
-  
+
 
 go func(word string, i int) {
 
@@ -519,7 +482,7 @@ wg.Done()
 
 }()
 
-  
+
 
 result, e := search(ctx, word)
 
@@ -531,13 +494,13 @@ err = e
 
 })
 
-  
+
 
 return
 
 }
 
-  
+
 
 results[i] = result
 
@@ -545,29 +508,19 @@ results[i] = result
 
 }
 
-  
+
 
 wg.Wait()
 
 ```
 
-  
-
 如上，代码中创建了10个缓冲区的channel，当channel被填满时，继续写入会被阻塞；当goroutine运行完成之后，除了原有的`wg.Done()`，我们需要从channel读取走一个数据，来允许新的goroutine运行
-
-  
 
 通过这种方式，我们控制了`coSearch`最多只能运行10个goroutine，当超过10个时需要等待前面运行的goroutine结束
 
-  
-
 ### context.Context
 
-  
-
 并发执行的goroutine只要有一个出错，其他goroutine就可以停止，没有必要继续执行下去了。如何把取消的事件传导到其他goroutine呢？`context.Context`就是用来传递类似上下文信息的结构
-
-  
 
 ```go
 
@@ -575,7 +528,7 @@ ctx, cancel := context.WithCancelCause(ctx) // 新增
 
 defer cancel(nil) // 新增
 
-  
+
 
 for i, word := range words {
 
@@ -583,7 +536,7 @@ tokens <- struct{}{}
 
 wg.Add(1)
 
-  
+
 
 go func(word string, i int) {
 
@@ -595,7 +548,7 @@ wg.Done()
 
 }()
 
-  
+
 
 result, e := search(ctx, word)
 
@@ -609,13 +562,13 @@ cancel(e) // 新增
 
 })
 
-  
+
 
 return
 
 }
 
-  
+
 
 results[i] = result
 
@@ -623,27 +576,21 @@ results[i] = result
 
 }
 
-  
+
 
 wg.Wait()
 
 ```
 
-  
-
 ## **完整的代码**
 
-  
-
 最终完成的效果如下
-
-  
 
 ```go
 
 package main
 
-  
+
 
 import (
 
@@ -657,7 +604,7 @@ import (
 
 )
 
-  
+
 
 func search(ctx context.Context, word string) (string, error) {
 
@@ -681,7 +628,7 @@ return fmt.Sprintf("result: %s", word), nil // 模拟结果
 
 }
 
-  
+
 
 func coSearch(ctx context.Context, words []string) ([]string, error) {
 
@@ -689,7 +636,7 @@ ctx, cancel := context.WithCancelCause(ctx)
 
 defer cancel(nil)
 
-  
+
 
 var (
 
@@ -697,19 +644,19 @@ wg = sync.WaitGroup{}
 
 once = sync.Once{}
 
-  
+
 
 results = make([]string, len(words))
 
 tokens = make(chan struct{}, 2)
 
-  
+
 
 err error
 
 )
 
-  
+
 
 for i, word := range words {
 
@@ -717,7 +664,7 @@ tokens <- struct{}{}
 
 wg.Add(1)
 
-  
+
 
 go func(word string, i int) {
 
@@ -729,7 +676,7 @@ wg.Done()
 
 }()
 
-  
+
 
 result, e := search(ctx, word)
 
@@ -743,13 +690,13 @@ cancel(e)
 
 })
 
-  
+
 
 return
 
 }
 
-  
+
 
 results[i] = result
 
@@ -757,11 +704,11 @@ results[i] = result
 
 }
 
-  
+
 
 wg.Wait()
 
-  
+
 
 return results, err
 
@@ -769,25 +716,17 @@ return results, err
 
 ```
 
-  
-
 ## **并发控制库errgroup**
-
-  
 
 可以看到要实现一个较为完备的并发控制，需要做的工作非常多。不过Go官方团队为大家准备了 golang.org/x/sync/errgroup
 
-  
-
 `errgroup`提供的能力和上文的示例类似，实现方式也类似，包含并发控制，错误传递，`context.Context`传递等
-
-  
 
 ```go
 
 package main
 
-  
+
 
 import (
 
@@ -797,13 +736,13 @@ import (
 
 "sync"
 
-  
+
 
 "golang.org/x/sync/errgroup"
 
 )
 
-  
+
 
 func coSearch(ctx context.Context, words []string) ([]string, error) {
 
@@ -813,13 +752,13 @@ g.SetLimit(10)
 
 results := make([]string, len(words))
 
-  
+
 
 for i, word := range words {
 
 i, word := i, word
 
-  
+
 
 g.Go(func() error {
 
@@ -831,7 +770,7 @@ return err
 
 }
 
-  
+
 
 results[i] = result
 
@@ -841,19 +780,17 @@ return nil
 
 }
 
-  
+
 
 err := g.Wait()
 
-  
+
 
 return results, err
 
 }
 
 ```
-
-  
 
 `errgroup`的用法也很简单
 
