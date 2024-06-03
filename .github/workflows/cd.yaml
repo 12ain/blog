@@ -1,0 +1,42 @@
+on:
+  push:
+    branches:
+    - vue-press
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout 🛎️
+      uses: actions/checkout@v4
+
+    - name: Install Node.js 🔧
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - uses: pnpm/action-setup@v4
+      with:
+        version: 8
+
+    - name: Install And Build 🛎️
+      run: |
+        pnpm install && pnpm build
+
+    - name: Add Domain 🛎️
+      run: cd public && echo 'blog.abplan.top' > CNAME
+
+    # - name: Install SSH Client
+    #   uses: webfactory/ssh-agent@v0.4.1
+    #   with:
+    #     ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: public
+        clean: true
