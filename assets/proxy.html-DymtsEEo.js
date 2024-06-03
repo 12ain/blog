@@ -1,0 +1,17 @@
+import{_ as a,r as e,o as l,c as i,d as s,e as c,a as t,b as o}from"./app-B6NiJo-f.js";const p={},r=s("p",null,"在国内环境下，有些依赖或软件包需要依赖网络加速才能正常下载。此处记录使用proxychains工具，实现命令行按需加速配置。",-1),d=s("h2",{id:"安装教程",tabindex:"-1"},[s("a",{class:"header-anchor",href:"#安装教程"},[s("span",null,"安装教程")])],-1),m={href:"https://github.com/haad/proxychains",target:"_blank",rel:"noopener noreferrer"},u=o(`<div class="language-bash line-numbers-mode" data-ext="sh" data-title="sh"><pre class="language-bash"><code><span class="line"><span class="token comment"># MacOS</span></span>
+<span class="line">brew <span class="token function">install</span> proxychains-ng</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># Manjaro Linux</span></span>
+<span class="line"><span class="token function">sudo</span> yay <span class="token parameter variable">-S</span> proxychains</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="具体配置" tabindex="-1"><a class="header-anchor" href="#具体配置"><span>具体配置</span></a></h2><p>修改/etc/proxychains.conf配置最后一行，修改为本机对应的地址及端口，为便于后面使用，可以将proxychains设置为别名。</p><div class="language-bash line-numbers-mode" data-ext="sh" data-title="sh"><pre class="language-bash"><code><span class="line"><span class="token comment"># 修改配置 MacOS</span></span>
+<span class="line"><span class="token function">vim</span> /usr/local/etc/proxychains.conf</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># or Manjaro Linux</span></span>
+<span class="line"><span class="token function">vim</span> /etc/proxychains.conf</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 最后一行改为</span></span>
+<span class="line">socks5 <span class="token number">127.0</span>.0.1 <span class="token number">7890</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 编辑 ~/.zshrc 便于使用</span></span>
+<span class="line"><span class="token builtin class-name">alias</span> <span class="token assign-left variable">gfw</span><span class="token operator">=</span><span class="token string">&quot;proxychains&quot;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,4);function h(v,b){const n=e("ExternalLinkIcon");return l(),i("div",null,[r,d,s("p",null,[s("a",m,[c("proxychains源码及文档"),t(n)])]),u])}const x=a(p,[["render",h],["__file","proxy.html.vue"]]),g=JSON.parse('{"path":"/blogs/network/proxy.html","title":"proxychains网络加速配置","lang":"en-US","frontmatter":{"title":"proxychains网络加速配置","author":"Rain","tags":["网络","配置"],"categories":["network"],"date":"2021-08-29 20:20"},"headers":[{"level":2,"title":"安装教程","slug":"安装教程","link":"#安装教程","children":[]},{"level":2,"title":"具体配置","slug":"具体配置","link":"#具体配置","children":[]}],"git":{"createdTime":1717432393000,"updatedTime":1717432393000,"contributors":[{"name":"Rain","email":"smalltime153@gmail.com","commits":1}]},"filePathRelative":"blogs/network/proxy.md"}');export{x as comp,g as data};
