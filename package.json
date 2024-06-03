@@ -1,23 +1,20 @@
 {
   "name": "vuepress-blog",
-  "version": "1.0.0",
-  "author": "12ain",
+  "version": "2.0.0",
+  "author": "Rain <i@raina.cn>",
+  "description": "Blog with vuepress-theme-reco@2.x.",
+  "repository": "git@github.com:12ain/blog.git",
+  "license": "MIT",
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src",
     "deploy": "./scripts/deploy"
   },
-  "dependencies": {
-    "vue-class-component": "^7.2.6"
-  },
   "devDependencies": {
-    "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
-    "@vuepress-reco/vuepress-plugin-rss": "^1.0.2",
-    "@vuepress/plugin-google-analytics": "^1.9.5",
-    "vuepress": "^1.9.5",
-    "vuepress-plugin-boxx": "^0.0.7",
-    "vuepress-plugin-dynamic-title": "^1.0.0",
-    "vuepress-plugin-sitemap": "^2.3.1",
-    "vuepress-theme-reco": "^1.6.10"
+    "vue": "^3.4.27",
+    "vuepress": "2.0.0-rc.12",
+    "vuepress-theme-reco": "2.0.0-rc.14",
+    "@vuepress/bundler-vite": "2.0.0-rc.12",
+    "@vuepress/bundler-webpack": "2.0.0-rc.12"
   }
 }
