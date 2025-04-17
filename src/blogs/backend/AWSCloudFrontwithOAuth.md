@@ -5,7 +5,7 @@ tags:
   - OAuth
 categories:
   - 后端
-date: '2022-04-20 16:15'
+date: 2022-04-20 16:15
 ---
 
 # 基于AWS Lambda函数实现CloudFront GitHub OAuth
