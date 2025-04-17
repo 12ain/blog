@@ -1,1 +1,0 @@
-import{_ as t,c as e,o as a}from"./app-BkrRj0lu.js";const c={};function o(r,n){return a(),e("div")}const l=t(c,[["render",o]]),_=JSON.parse('{"path":"/tags/Webpack/1.html","title":"","lang":"en-US","frontmatter":{"layout":"Categories"},"headers":[],"git":{},"filePathRelative":null}');export{l as comp,_ as data};
