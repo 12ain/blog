@@ -19,7 +19,7 @@ blog:
   socialLinks:
     - { icon: 'LogoGithub', link: 'https://github.com/12ain' }
 footer:
-  record: '鲁ICP备19004912号'
+  record: '苏ICP备2023025403号-1'
   recordLink: 'http://beian.miit.gov.cn'
   startYear: '2018'
 ---
