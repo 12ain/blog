@@ -1,8 +1,10 @@
 node_modules/
 .DS_Store
 yarn-error.log
+pnpm-debug.log
 yarn.lock
 .obsidian
 template
-src/.vuepress/.cache
-src/.vuepress/.temp
+docs/.vitepress/cache
+docs/.vitepress/dist
+.vercel

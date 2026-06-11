@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      COMMENT_SECRET: ${{ secrets.COMMENT_SECRET }}
+      COMMENT_APPID: ${{ secrets.COMMENT_APPID }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - uses: pnpm/action-setup@v4
+      with:
+        version: 9
+
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+        cache: pnpm
+
+    - name: Install And Build
+      run: |
+        pnpm install --frozen-lockfile=false
+        pnpm build
+
+    - name: Add CNAME
+      run: echo 'blog.abplan.top' > docs/.vitepress/dist/CNAME
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: docs/.vitepress/dist
+        clean: true
