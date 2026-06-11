@@ -1,1 +1,0 @@
-import{_ as t,c as e,o as a}from"./app-Ve6RI5Q0.js";const r={};function c(o,n){return a(),e("div")}const i=t(r,[["render",c]]),l=JSON.parse('{"path":"/categories/arithmetic/1.html","title":"","lang":"en-US","frontmatter":{"layout":"Categories"},"headers":[],"git":{},"filePathRelative":null}');export{i as comp,l as data};
