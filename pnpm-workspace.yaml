@@ -3,6 +3,7 @@ packages:
 
 allowBuilds:
   esbuild: true
+  sharp: true
 
 overrides:
   esbuild: "~0.25.0"
