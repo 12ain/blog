@@ -1,6 +1,7 @@
 ---
 title: Mac 系统 xcode-select --install 不能下载该软件的解决办法
 author: Rain
+reprint: true
 date: 2026-09-12
 lastmod: 2026-09-12
 tags:
@@ -9,10 +10,13 @@ tags:
   - Command Line Tools
   - homebrew
   - 故障排查
+  - 转载
 categories:
   - 技术
 source: https://blog.csdn.net/m0_52775179/article/details/129300703
 ---
+
+> **转载声明**：本文转载自 [Mac 系统 xcode-select --install 不能下载该软件的解决办法](https://blog.csdn.net/m0_52775179/article/details/129300703)，著作权归原作者所有。
 
 ## xcode-select --install 不能下载该软件的解决办法
 

@@ -1,6 +1,7 @@
 ---
 title: Weaviate 向量数据库详解
 author: Rain
+reprint: true
 date: 2026-07-05
 lastmod: 2026-07-05
 tags:
@@ -9,10 +10,13 @@ tags:
   - RAG
   - HNSW
   - 混合搜索
+  - 转载
 categories:
   - 后端
 source: https://mp.weixin.qq.com/s/gpJGUQ_wHJG8NAR3hZfmog
 ---
+
+> **转载声明**：本文转载自微信公众号文章 [Weaviate 向量数据库详解](https://mp.weixin.qq.com/s/gpJGUQ_wHJG8NAR3hZfmog)，著作权归原作者所有。
 
 > 摘要：你做过 RAG 吗？就是那种"把公司文档喂给 LLM，然后问它问题"的操作。听起来简单，做下来发现：向量数据库怎么选？Milvus 太重、Pinecone 太贵、Chroma 太慢。然后你发现了 Weaviate——一个 Go 写的向量数据库，16K Star，既能跑在笔记本上做原型，也能撑住生产环境的百万级文档。今天我们拆开看看它的设计。
 
